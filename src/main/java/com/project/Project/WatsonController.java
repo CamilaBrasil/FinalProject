@@ -89,7 +89,6 @@ public class WatsonController {
 				  .analyze(parameters)
 				  .execute();
 				System.out.println(response);
-				RestTemplate restTemplate = new RestTemplate();
 				return new ModelAndView("index", "keyword", response);
 //				
 
