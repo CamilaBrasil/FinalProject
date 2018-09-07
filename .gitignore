@@ -1,6 +1,10 @@
 /target/
 !.mvn/wrapper/maven-wrapper.jar
 
+### app property files ###
+application.properties
+
+
 ### STS ###
 .apt_generated
 .classpath
