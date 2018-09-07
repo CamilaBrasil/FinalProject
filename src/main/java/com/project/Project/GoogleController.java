@@ -57,8 +57,11 @@ public class GoogleController {
 	   System.out.println("test part1");
 		try {
 			JobQuery jobQuery = new JobQuery().setQuery("java");
-			SearchJobsRequest r = new SearchJobsRequest();
-			r.setJobQuery(jobQuery);
+			
+			SearchJobsRequest r = new SearchJobsRequest()
+					.setJobQuery(jobQuery)
+					.setSearchMode("JOB_SEARCH");
+			
 			SearchJobsResponse searchJobsResponse = 
 	        JobServiceQuickstart.talentSolutionClient.projects().jobs()
 	        .search("projects/finalproject-215621", r).execute();
