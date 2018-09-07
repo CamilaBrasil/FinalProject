@@ -68,11 +68,18 @@
 			<groupId>javax.xml.bind</groupId>
 			<artifactId>jaxb-api</artifactId>
 		</dependency>
+				<!--Google Jobs API Dependency -->
 		<dependency>
 			<groupId>com.google.apis</groupId>
 			<artifactId>google-api-services-jobs</artifactId>
 			<version>LATEST</version>
 		</dependency>
+		<dependency>
+		<!--Google Cloud Dependency -->
+  <groupId>com.google.cloud</groupId>
+  <artifactId>google-cloud-storage</artifactId>
+  <version>1.22.0</version>
+</dependency>
 
 		<!-- IBM WATSON DEPENDENCY -->
 		<dependency>
