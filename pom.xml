@@ -73,6 +73,13 @@
 			<artifactId>google-api-services-jobs</artifactId>
 			<version>LATEST</version>
 		</dependency>
+
+		<!-- IBM WATSON DEPENDENCY -->
+		<dependency>
+			<groupId>com.ibm.watson.developer_cloud</groupId>
+			<artifactId>java-sdk</artifactId>
+			<version>6.5.1</version>
+		</dependency>
 	</dependencies>
 
 	<build>
