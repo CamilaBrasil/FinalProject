@@ -1,6 +1,7 @@
 package com.project.Project;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 import org.apache.http.conn.ssl.NoopHostnameVerifier;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -19,6 +20,7 @@ import com.google.api.services.jobs.v3.model.Company;
 import com.google.api.services.jobs.v3.model.Job;
 import com.google.api.services.jobs.v3.model.JobQuery;
 import com.google.api.services.jobs.v3.model.ListCompaniesResponse;
+import com.google.api.services.jobs.v3.model.RequestMetadata;
 import com.google.api.services.jobs.v3.model.SearchJobsRequest;
 import com.google.api.services.jobs.v3.model.SearchJobsResponse;
 import com.project.Project.entity.JobServiceQuickstart;
@@ -53,24 +55,57 @@ public class GoogleController {
 
 	@RequestMapping("/jobsearch")
 	public ModelAndView jobsearch() throws IOException {
-		
+		 SearchJobsResponse searchJobsResponse;
 		System.out.println("test part1");
+		String companyName= "United Shore";
+		String query = "developer";
 		try {
-			JobQuery jobQuery = new JobQuery().setQuery("developer");
+			System.out.println("Part Test2");
+					 RequestMetadata requestMetadata =
+				      new RequestMetadata()
+				          // Make sure to hash your userID
+				          .setUserId("HashedUserId")
+				          // Make sure to hash the sessionID
+				          .setSessionId("HashedSessionID")
+				          // Domain of the website where the search is conducted
+				          .setDomain("www.google.com");
+					 	  
 
-			SearchJobsRequest r = new SearchJobsRequest().setJobQuery(jobQuery).setSearchMode("JOB_SEARCH");
+				  // Perform a search for analyst  related jobs
+				  JobQuery jobQuery = new JobQuery().setQuery(query);
+				  if (companyName != null) {
+				    jobQuery.setCompanyNames(Arrays.asList(companyName));
+				  }
 
-			SearchJobsResponse searchJobsResponse = JobServiceQuickstart.talentSolutionClient.projects().jobs()
-					.search("projects/finalproject1-215816", r).execute();
+				  SearchJobsRequest searchJobsRequest =
+				      new SearchJobsRequest()
+				          .setRequestMetadata(requestMetadata)
+				          .setJobQuery(jobQuery) // Set the actual search term as defined in the jobQurey
+				          .setSearchMode("JOB_SEARCH"); // Set the search mode to a regular search
 
-			System.out.println(searchJobsResponse);
+				   searchJobsResponse =
+				      JobServiceQuickstart.talentSolutionClient// TEMPORARY FIX DON'T KNOW WHATS GOING ON THROWING SHIT AT THE WALL
+				          .projects()
+				          .jobs()
+				          .search("projects/finalproject1-215816", searchJobsRequest)
+				          .execute();
 
+				  System.out.println(searchJobsResponse.getMatchingJobs());
+//			JobQuery jobQuery = new JobQuery().setQuery("developer");
+//
+//			SearchJobsRequest r = new SearchJobsRequest().setJobQuery(jobQuery).setSearchMode("JOB_SEARCH");
+//
+//			SearchJobsResponse searchJobsResponse = JobServiceQuickstart.talentSolutionClient.projects().jobs()
+//					.search("projects/finalproject1-215816", r).execute();
+//
+//			System.out.println(searchJobsResponse);
+//
 		} catch (IOException e) {
-			System.out.println("Got exception while listing companies");
+			System.out.println("Got exception while listing companies /jobsearch");
 			throw e;
 		}
 
-		return new ModelAndView("googletest");
+		return new ModelAndView("googletest", "job", searchJobsResponse);
 	}
 
 	@RequestMapping("/job")
