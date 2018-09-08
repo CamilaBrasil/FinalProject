@@ -23,58 +23,52 @@ import com.google.api.services.jobs.v3.model.SearchJobsRequest;
 import com.google.api.services.jobs.v3.model.SearchJobsResponse;
 import com.project.Project.entity.JobServiceQuickstart;
 
-
 @Controller
 public class GoogleController {
 
 	@RequestMapping("/googleindex")
 	public ModelAndView indexG() throws IOException {
-	   System.out.println("test part1");
+		System.out.println("test part1");
 		try {
-	        ListCompaniesResponse listCompaniesResponse = JobServiceQuickstart.talentSolutionClient.projects().companies()
-	          
-	        		.list("projects/finalproject-215621")
-	            .execute();
-	 	   System.out.println("test part2");
+			ListCompaniesResponse listCompaniesResponse = JobServiceQuickstart.talentSolutionClient.projects()
+					.companies()
 
-	        System.out.println("Request Id is " + listCompaniesResponse.getMetadata().getRequestId());
-	        System.out.println(listCompaniesResponse.getCompanies());
-	        if (listCompaniesResponse.getCompanies() != null) {
-	          for (Company company : listCompaniesResponse.getCompanies()) {
-	            System.out.println(company.getName());
-	          }
-	        }
-	      } catch (IOException e) {
-	        System.out.println("Got exception while listing companies");
-	        throw e;
-	      }
+					.list("projects/finalproject1-215816").execute();
+			System.out.println("test part2");
+
+			System.out.println("Request Id is " + listCompaniesResponse.getMetadata().getRequestId());
+			System.out.println(listCompaniesResponse.getCompanies());
+			if (listCompaniesResponse.getCompanies() != null) {
+				for (Company company : listCompaniesResponse.getCompanies()) {
+					System.out.println(company.getName());
+				}
+			}
+		} catch (IOException e) {
+			System.out.println("Got exception while listing companies1");
+			throw e;
+		}
 
 		return new ModelAndView("googletest");
 	}
-	
+
 	@RequestMapping("/jobsearch")
 	public ModelAndView jobsearch() throws IOException {
-	   System.out.println("test part1");
+		
+		System.out.println("test part1");
 		try {
-			JobQuery jobQuery = new JobQuery().setQuery("java");
-			
-			SearchJobsRequest r = new SearchJobsRequest()
-					.setJobQuery(jobQuery)
-					.setSearchMode("JOB_SEARCH");
-			
-			SearchJobsResponse searchJobsResponse = 
-	        JobServiceQuickstart.talentSolutionClient.projects().jobs()
-	        .search("projects/finalproject-215621", r).execute();
-	          
-	 	   System.out.println(searchJobsResponse);
+			JobQuery jobQuery = new JobQuery().setQuery("developer");
 
-	       
-	          
-	        
-	      } catch (IOException e) {
-	        System.out.println("Got exception while listing companies");
-	        throw e;
-	      }
+			SearchJobsRequest r = new SearchJobsRequest().setJobQuery(jobQuery).setSearchMode("JOB_SEARCH");
+
+			SearchJobsResponse searchJobsResponse = JobServiceQuickstart.talentSolutionClient.projects().jobs()
+					.search("projects/finalproject1-215816", r).execute();
+
+			System.out.println(searchJobsResponse);
+
+		} catch (IOException e) {
+			System.out.println("Got exception while listing companies");
+			throw e;
+		}
 
 		return new ModelAndView("googletest");
 	}
@@ -85,21 +79,22 @@ public class GoogleController {
 		headers.put("Accept", "*");
 		System.out.println(headers);
 
-		//To attach the headers to our request we need the HttpEntity
-				HttpEntity<Object> entity = new HttpEntity<Object>(headers);
-		
-		CloseableHttpClient httpClient = HttpClients.custom().setSSLHostnameVerifier(new NoopHostnameVerifier()).build();
+		// To attach the headers to our request we need the HttpEntity
+		HttpEntity<Object> entity = new HttpEntity<Object>(headers);
+
+		CloseableHttpClient httpClient = HttpClients.custom().setSSLHostnameVerifier(new NoopHostnameVerifier())
+				.build();
 		HttpComponentsClientHttpRequestFactory requestFactory = new HttpComponentsClientHttpRequestFactory();
 		requestFactory.setHttpClient(httpClient);
-		
+
 		RestTemplate restTemp = new RestTemplate();
-		ResponseEntity<?> response = restTemp.exchange("https://jobs.googleapis.com/v3/projects/finalproject/jobs?filter=companyName+%3D+%22projects%2Ffinalproject%2Fcompanies%2F123%22+&key=af872a6aa587580836acde0ad7b40be880370803",
-		HttpMethod.GET, entity, Job.class);
-		
-		
+		ResponseEntity<?> response = restTemp.exchange(
+				"https://jobs.googleapis.com/v3/projects/finalproject1/jobs?filter=companyName+%3D+%22projects%2Ffinalproject%2Fcompanies%2F123%22+&key=af872a6aa587580836acde0ad7b40be880370803",
+				HttpMethod.GET, entity, Job.class);
+
 //		Job jobList = response.getBody();
 		System.out.println(response);
-		
+
 		return new ModelAndView("googletest", "job", "hello world");
 	}
 
