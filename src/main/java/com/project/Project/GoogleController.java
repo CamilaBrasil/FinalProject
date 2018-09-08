@@ -57,8 +57,8 @@ public class GoogleController {
 	public ModelAndView jobsearch() throws IOException {
 		 SearchJobsResponse searchJobsResponse;
 		System.out.println("test part1");
-		String companyName= "United Shore";
-		String query = "developer";
+		String companyName= "Google";
+		String query = "projects/finalproject1-215816/companies/123";
 		try {
 			System.out.println("Part Test2");
 					 RequestMetadata requestMetadata =
@@ -90,7 +90,7 @@ public class GoogleController {
 				          .search("projects/finalproject1-215816", searchJobsRequest)
 				          .execute();
 
-				  System.out.println(searchJobsResponse.getMatchingJobs());
+				  System.out.println(searchJobsResponse.toString());
 //			JobQuery jobQuery = new JobQuery().setQuery("developer");
 //
 //			SearchJobsRequest r = new SearchJobsRequest().setJobQuery(jobQuery).setSearchMode("JOB_SEARCH");
