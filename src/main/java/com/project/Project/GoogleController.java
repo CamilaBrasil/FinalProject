@@ -58,7 +58,7 @@ public class GoogleController {
 		 SearchJobsResponse searchJobsResponse;
 		System.out.println("test part1");
 		String companyName= "Google";
-		String query = "projects/finalproject1-215816/companies/123";
+		String query = "projects/finalproject1-215816/companies";
 		try {
 			System.out.println("Part Test2");
 					 RequestMetadata requestMetadata =
