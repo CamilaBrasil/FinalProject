@@ -11,14 +11,19 @@
 <body>
 			<h1>Job Search</h1>
 
-${keyword}
+${email}
+${firstname}
+${lastname}
+${zipcode}
+${password}
 
-	<form = action= "" > 
-Log In <br> <input = type= "text" name = "" placeholder="username" />
-	   		<input =  type = "text" name =" " placeholder= "password"/><br>
-	   		<input = type = "submit"  vaule= "Log In"><br>
+	<form = action= "/submitlogin" > 
+Log In <br> <input = type= "text" name = "email" placeholder="email" />
+	   		<input =  type = "text" name ="password" placeholder= "passwkrd"/><br>
+	   		<input = type = "submit"  value= "Log In"><br>
 	   		</form><br>
 	  <a href= "">Register Here</a>
+	  
 	  
 <br>
 		
