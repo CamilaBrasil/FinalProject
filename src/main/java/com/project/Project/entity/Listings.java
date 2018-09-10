@@ -2,9 +2,9 @@ package com.project.Project.entity;
 
 import java.util.ArrayList;
 
-import javax.persistence.Entity;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-@Entity
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class Listings {
 
 	private String stat;

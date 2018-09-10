@@ -2,9 +2,10 @@ package com.project.Project.entity;
 
 import java.util.ArrayList;
 
-import javax.persistence.Entity;
 
-@Entity
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class JobReturn {
 
 	private String id;

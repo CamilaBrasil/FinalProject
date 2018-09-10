@@ -2,9 +2,9 @@ package com.project.Project.entity;
 
 import java.util.ArrayList;
 
-import javax.persistence.Entity;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-@Entity
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Listing {
 
 	private int total;
@@ -13,9 +13,9 @@ public class Listing {
 	private int pages;
 	private String last_update;
 	private ArrayList<JobReturn> job;
-	
+
 	public Listing() {
-		
+
 	}
 
 	public Listing(int total, String perpage, int page, int pages, String last_update, ArrayList<JobReturn> job) {
@@ -80,8 +80,5 @@ public class Listing {
 		return "Listing [total=" + total + ", perpage=" + perpage + ", page=" + page + ", pages=" + pages
 				+ ", last_update=" + last_update + ", job=" + job + "]";
 	}
-	
-	
-	
-	
+
 }

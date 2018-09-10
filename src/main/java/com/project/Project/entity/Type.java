@@ -1,15 +1,15 @@
 package com.project.Project.entity;
 
-import javax.persistence.Entity;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-@Entity
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class Type {
 
 	private String id;
 	private String name;
-	
+
 	public Type() {
-		
+
 	}
 
 	public Type(String id, String name) {
@@ -37,8 +37,5 @@ public class Type {
 	public String toString() {
 		return "Type [id=" + id + ", name=" + name + "]";
 	}
-	
-	
-	
-	
+
 }
