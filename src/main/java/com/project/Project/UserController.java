@@ -59,26 +59,18 @@ public class UserController {
 	}
 	
 	@PostMapping("/submit")
-	public ModelAndView submit(@PathVariable("firstname") String fName, @PathVariable("lastname") String lName,
-			@PathVariable("email") String email, @PathVariable("zipcode") String zipcode,
-			@PathVariable("password") String p1, @PathVariable("password_confirm") String p2) {
-		User u1 = new User();
+	public ModelAndView submit(User u1, @RequestParam("password_confirm") String p2) {
 		
-		ModelAndView mv = new ModelAndView();
+		System.out.println(u1);
 		
-		if(p1 == p2) {
-			u1 = new User(fName, lName, email, zipcode, p1);
+		if(u1.getPassword().equals(p2)) {
 			ur.save(u1);
-			mv.addObject("index");
-			mv.addObject("firstname", u1.getFirstname());
+		
+			return new ModelAndView("index", "firstname", u1.getFirstname());
 		} else {
-			mv.addObject("register");
-			mv.addObject( "title", "the password must match");
+			return new ModelAndView("register", "title", "the password must match");
 		}
 		
-		
-		
-		return mv;
 	}
 	
 }
