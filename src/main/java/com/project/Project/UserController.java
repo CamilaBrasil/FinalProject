@@ -48,7 +48,7 @@ public class UserController {
 	
 	@RequestMapping("/login")
 	public ModelAndView login()  {
-		return new ModelAndView("index");
+		return new ModelAndView("login");
 	}
 	
 	@RequestMapping("/contact")
