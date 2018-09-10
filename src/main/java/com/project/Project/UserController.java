@@ -35,4 +35,9 @@ public class UserController {
 		
 		return mv;
 	}
+	
+//	@RequestMapping("/register")
+//	public ModelAndView register()  {
+//		return new ModelAndView("index");
+//	}
 }
