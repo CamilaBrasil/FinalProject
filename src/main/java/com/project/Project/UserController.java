@@ -36,8 +36,24 @@ public class UserController {
 		return mv;
 	}
 	
-//	@RequestMapping("/register")
-//	public ModelAndView register()  {
-//		return new ModelAndView("index");
-//	}
+	@RequestMapping("/register")
+	public ModelAndView register()  {
+		return new ModelAndView("register");
+	}
+	
+	@RequestMapping("/about")
+	public ModelAndView about()  {
+		return new ModelAndView("about");
+	}
+	
+	@RequestMapping("/login")
+	public ModelAndView login()  {
+		return new ModelAndView("index");
+	}
+	
+	@RequestMapping("/contact")
+	public ModelAndView contact()  {
+		return new ModelAndView("contact");
+	}
+	
 }
