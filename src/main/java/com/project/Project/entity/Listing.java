@@ -12,7 +12,7 @@ public class Listing {
 	private int page;
 	private int pages;
 	private String last_update;
-	private ArrayList<JobReturn> job;
+//	private ArrayList<JobReturn> job;
 
 	public Listing() {
 
@@ -24,7 +24,7 @@ public class Listing {
 		this.page = page;
 		this.pages = pages;
 		this.last_update = last_update;
-		this.job = job;
+		//this.job = job;
 	}
 
 	public int getTotal() {
@@ -67,18 +67,24 @@ public class Listing {
 		this.last_update = last_update;
 	}
 
-	public ArrayList<JobReturn> getJob() {
-		return job;
-	}
+//	public ArrayList<JobReturn> getJob() {
+//		return job;
+//	}
+//
+//	public void setJob(ArrayList<JobReturn> job) {
+//		this.job = job;
+//	}
 
-	public void setJob(ArrayList<JobReturn> job) {
-		this.job = job;
-	}
-
+//	@Override
+//	public String toString() {
+//		return "Listing [total=" + total + ", perpage=" + perpage + ", page=" + page + ", pages=" + pages
+//				+ ", last_update=" + last_update + ", job=" + job + "]";
+//	}
+	
 	@Override
 	public String toString() {
 		return "Listing [total=" + total + ", perpage=" + perpage + ", page=" + page + ", pages=" + pages
-				+ ", last_update=" + last_update + ", job=" + job + "]";
+				+ ", last_update=" + last_update;
 	}
 
 }
