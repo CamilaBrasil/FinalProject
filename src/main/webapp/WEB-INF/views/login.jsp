@@ -11,8 +11,8 @@
 </head>
 <body>
 
-	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-		<a class="navbar-brand" href="#">Navbar</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+		<a class="navbar-brand" href="/index">Home</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarColor01" aria-controls="navbarColor01"
 			aria-expanded="false" aria-label="Toggle navigation">
@@ -21,9 +21,6 @@
 
 		<div class="collapse navbar-collapse" id="navbarColor01">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active"><a class="nav-link" href="/index">Home
-						<span class="sr-only">(current)</span>
-				</a></li>
 				<li class="nav-item"><a class="nav-link" href="/login">Login</a>
 				</li>
 				<li class="nav-item"><a class="nav-link" href="register">Register</a>
@@ -39,39 +36,37 @@
 			</form>
 		</div>
 	</nav>
-	
-	
-	${email }
-${firstname }
-${password }
 
-	<form class="form-horizontal" action='' method="POST">
-		<fieldset>
-			<div id="legend">
-				<legend class="">Login</legend>
-			</div>
-			<div class="control-group">
-				<label class="control-label" for="email">Email</label>
-				<div class="controls">
-					<input type="text" id="username" name="email" placeholder="email"
-						class="input-xlarge">
+
+	<div style="padding: 5%">
+		<form class="form-horizontal" action="/submitlogin" method="POST">
+			<fieldset>
+				<div id="legend">
+					<legend class="">Login</legend>
 				</div>
-			</div>
 				<div class="control-group">
-				<!-- Password-->
-				<label class="control-label" for="password">Password</label>
-				<div class="controls">
-					<input type="password" id="password" name="password" placeholder="password"
-						class="input-xlarge">
+					<label class="control-label" for="email">Email</label>
+					<div class="controls">
+						<input type="text" id="username" name="email" placeholder="email"
+							class="input-xlarge">
+					</div>
 				</div>
-			</div>
-			<div class="control-group">
-				<div class="controls">
-					<button class="btn btn-info">Login</button>
+				<div class="control-group">
+					<!-- Password-->
+					<label class="control-label" for="password">Password</label>
+					<div class="controls">
+						<input type="password" id="password" name="password"
+							placeholder="password" class="input-xlarge">
+					</div>
 				</div>
-			</div>
-		</fieldset>
-	</form>
+				<div class="control-group">
+					<div class="controls">
+						<button class="btn btn-info">Login</button>
+					</div>
+				</div>
+			</fieldset>
+		</form>
+	</div>
 
 </body>
 </html>

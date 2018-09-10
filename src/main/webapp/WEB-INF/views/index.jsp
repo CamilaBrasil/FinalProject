@@ -35,6 +35,8 @@
 				<button class="btn btn-info my-2 my-sm-0" type="submit">Search</button>
 			</form>
 		</div>
-
+	</nav>
+	
+	 ${email } ${firstname } ${password }
 </body>
 </html>
