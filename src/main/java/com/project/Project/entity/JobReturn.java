@@ -12,13 +12,13 @@ public class JobReturn {
 	private String title;
 	private String description;
 	private String perks;
-	private String howto_apply;
-	private String post_date;
-	private int relocation_assitance;
-	private int telecommuting;
-	private ArrayList<Category> category;
-	private ArrayList<Type> type;
-	private ArrayList<Company> company;
+//	private String howto_apply;
+//	private String post_date;
+//	private int relocation_assitance;
+//	private int telecommuting;
+//	private ArrayList<Category> category;
+//	private ArrayList<Type> type;
+//	private ArrayList<Company> company;
 	
 	public JobReturn() {
 		
@@ -32,13 +32,13 @@ public class JobReturn {
 		this.title = title;
 		this.description = description;
 		this.perks = perks;
-		this.howto_apply = howto_apply;
-		this.post_date = post_date;
-		this.relocation_assitance = relocation_assitance;
-		this.telecommuting = telecommuting;
-		this.category = category;
-		this.type = type;
-		this.company = company;
+//		this.howto_apply = howto_apply;
+//		this.post_date = post_date;
+//		this.relocation_assitance = relocation_assitance;
+//		this.telecommuting = telecommuting;
+//		this.category = category;
+//		this.type = type;
+//		this.company = company;
 	}
 
 	public String getId() {
@@ -73,68 +73,74 @@ public class JobReturn {
 		this.perks = perks;
 	}
 
-	public String getHowto_apply() {
-		return howto_apply;
-	}
+//	public String getHowto_apply() {
+//		return howto_apply;
+//	}
+//
+//	public void setHowto_apply(String howto_apply) {
+//		this.howto_apply = howto_apply;
+//	}
+//
+//	public String getPost_date() {
+//		return post_date;
+//	}
+//
+//	public void setPost_date(String post_date) {
+//		this.post_date = post_date;
+//	}
+//
+//	public int getRelocation_assitance() {
+//		return relocation_assitance;
+//	}
+//
+//	public void setRelocation_assitance(int relocation_assitance) {
+//		this.relocation_assitance = relocation_assitance;
+//	}
+//
+//	public int getTelecommuting() {
+//		return telecommuting;
+//	}
+//
+//	public void setTelecommuting(int telecommuting) {
+//		this.telecommuting = telecommuting;
+//	}
+//
+//	public ArrayList<Category> getCategory() {
+//		return category;
+//	}
+//
+//	public void setCategory(ArrayList<Category> category) {
+//		this.category = category;
+//	}
+//
+//	public ArrayList<Type> getType() {
+//		return type;
+//	}
+//
+//	public void setType(ArrayList<Type> type) {
+//		this.type = type;
+//	}
+//
+//	public ArrayList<Company> getCompany() {
+//		return company;
+//	}
+//
+//	public void setCompany(ArrayList<Company> company) {
+//		this.company = company;
+//	}
 
-	public void setHowto_apply(String howto_apply) {
-		this.howto_apply = howto_apply;
-	}
-
-	public String getPost_date() {
-		return post_date;
-	}
-
-	public void setPost_date(String post_date) {
-		this.post_date = post_date;
-	}
-
-	public int getRelocation_assitance() {
-		return relocation_assitance;
-	}
-
-	public void setRelocation_assitance(int relocation_assitance) {
-		this.relocation_assitance = relocation_assitance;
-	}
-
-	public int getTelecommuting() {
-		return telecommuting;
-	}
-
-	public void setTelecommuting(int telecommuting) {
-		this.telecommuting = telecommuting;
-	}
-
-	public ArrayList<Category> getCategory() {
-		return category;
-	}
-
-	public void setCategory(ArrayList<Category> category) {
-		this.category = category;
-	}
-
-	public ArrayList<Type> getType() {
-		return type;
-	}
-
-	public void setType(ArrayList<Type> type) {
-		this.type = type;
-	}
-
-	public ArrayList<Company> getCompany() {
-		return company;
-	}
-
-	public void setCompany(ArrayList<Company> company) {
-		this.company = company;
-	}
-
+//	@Override
+//	public String toString() {
+//		return "JobReturn [id=" + id + ", title=" + title + ", description=" + description + ", perks=" + perks
+//				+ ", howto_apply=" + howto_apply + ", post_date=" + post_date + ", relocation_assitance="
+//				+ relocation_assitance + ", telecommuting=" + telecommuting + ", category=" + category + ", type="
+//				+ type + ", company=" + company + "]";
+//	}
+	
 	@Override
 	public String toString() {
 		return "JobReturn [id=" + id + ", title=" + title + ", description=" + description + ", perks=" + perks
-				+ ", howto_apply=" + howto_apply + ", post_date=" + post_date + ", relocation_assitance="
-				+ relocation_assitance + ", telecommuting=" + telecommuting + ", category=" + category + ", type="
-				+ type + ", company=" + company + "]";
+				+ ", howto_apply=";
 	}
 	
 }

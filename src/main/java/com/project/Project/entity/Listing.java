@@ -7,24 +7,52 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Listing {
 
+	private String id;
+	private String title;
+	private String description;
+	private String perks;
+
 	private int total;
 	private String perpage;
 	private int page;
 	private int pages;
 	private String last_update;
-//	private ArrayList<JobReturn> job;
+	private ArrayList<JobReturn> job;
 
 	public Listing() {
 
 	}
 
-	public Listing(int total, String perpage, int page, int pages, String last_update, ArrayList<JobReturn> job) {
-		this.total = total;
-		this.perpage = perpage;
-		this.page = page;
-		this.pages = pages;
-		this.last_update = last_update;
-		//this.job = job;
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getPerks() {
+		return perks;
+	}
+
+	public void setPerks(String perks) {
+		this.perks = perks;
 	}
 
 	public int getTotal() {
@@ -67,24 +95,19 @@ public class Listing {
 		this.last_update = last_update;
 	}
 
-//	public ArrayList<JobReturn> getJob() {
-//		return job;
-//	}
-//
-//	public void setJob(ArrayList<JobReturn> job) {
-//		this.job = job;
-//	}
+	public ArrayList<JobReturn> getJob() {
+		return job;
+	}
 
-//	@Override
-//	public String toString() {
-//		return "Listing [total=" + total + ", perpage=" + perpage + ", page=" + page + ", pages=" + pages
-//				+ ", last_update=" + last_update + ", job=" + job + "]";
-//	}
-	
+	public void setJob(ArrayList<JobReturn> job) {
+		this.job = job;
+	}
+
 	@Override
 	public String toString() {
-		return "Listing [total=" + total + ", perpage=" + perpage + ", page=" + page + ", pages=" + pages
-				+ ", last_update=" + last_update;
+		return "Listing [id=" + id + ", title=" + title + ", description=" + description + ", perks=" + perks
+				+ ", total=" + total + ", perpage=" + perpage + ", page=" + page + ", pages=" + pages + ", last_update="
+				+ last_update + ", job=" + job + "]";
 	}
 
 }

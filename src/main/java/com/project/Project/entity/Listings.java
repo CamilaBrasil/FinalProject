@@ -3,28 +3,17 @@ package com.project.Project.entity;
 import java.util.ArrayList;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-@JsonIgnoreProperties(ignoreUnknown=true)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Listings {
 
-	private String stat;
+	@JsonProperty("listing")
 	private ArrayList<Listing> listing;
 
 	public Listings() {
-
-	}
-
-	public Listings(String stat, ArrayList<Listing> listing) {
-		this.stat = stat;
-		this.listing = listing;
-	}
-
-	public String getStat() {
-		return stat;
-	}
-
-	public void setStat(String stat) {
-		this.stat = stat;
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	public ArrayList<Listing> getListing() {
@@ -37,9 +26,7 @@ public class Listings {
 
 	@Override
 	public String toString() {
-		return "Listings [stat=" + stat + ", listing=" + listing + "]";
+		return "Listings [listing=" + listing + "]";
 	}
-	
-	
 
 }
