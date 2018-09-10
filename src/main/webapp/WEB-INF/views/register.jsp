@@ -13,9 +13,8 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
 <body>
-
 	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-		<a class="navbar-brand" href="#">Navbar</a>
+		<a class="navbar-brand" href="/index">Home</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarColor01" aria-controls="navbarColor01"
 			aria-expanded="false" aria-label="Toggle navigation">
@@ -24,9 +23,6 @@
 
 		<div class="collapse navbar-collapse" id="navbarColor01">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active"><a class="nav-link" href="/index">Home
-						<span class="sr-only">(current)</span>
-				</a></li>
 				<li class="nav-item"><a class="nav-link" href="/login">Login</a>
 				</li>
 				<li class="nav-item"><a class="nav-link" href="register">Register</a>
@@ -43,62 +39,71 @@
 		</div>
 	</nav>
 
+	<h2>${title }</h2>
 
-	<form class="form-horizontal" action='' method="POST">
-		<fieldset>
-			<div id="legend">
-				<legend class="">Register</legend>
-			</div>
-			<div class="control-group">
-				<!-- Username -->
-				<label class="control-label" for="username">Username</label>
-				<div class="controls">
-					<input type="text" id="username" name="username" placeholder=""
-						class="input-xlarge">
-					<p class="help-block">Username can contain any letters or
-						numbers, without spaces</p>
-				</div>
-			</div>
 
-			<div class="control-group">
-				<!-- E-mail -->
-				<label class="control-label" for="email">E-mail</label>
-				<div class="controls">
-					<input type="text" id="email" name="email" placeholder=""
-						class="input-xlarge">
-					<p class="help-block">Please provide your E-mail</p>
+	<div style="padding: 5%">
+		<form class="form-horizontal" action="/submit" method="POST">
+			<fieldset>
+				<div id="legend">
+					<legend class="">Register</legend>
 				</div>
-			</div>
+				<div class="control-group">
+					<label class="control-label">First Name</label>
+					<div class="controls">
+						<input type="text" id="username" name="firstname"
+							placeholder="First Name" class="input-xlarge">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="lastname">Last Name</label>
+					<div class="controls">
+						<input type="text" id="lastname" name="lastname"
+							placeholder="Last Name" class="input-xlarge">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="email">E-mail</label>
+					<div class="controls">
+						<input type="text" id="email" name="email" placeholder="email"
+							class="input-xlarge">
+					</div>
+				</div>
 
-			<div class="control-group">
-				<!-- Password-->
-				<label class="control-label" for="password">Password</label>
-				<div class="controls">
-					<input type="password" id="password" name="password" placeholder="password"
-						class="input-xlarge">
-					<p class="help-block">Password should be at least 4 characters</p>
+				<div class="control-group">
+					<label class="control-label" for="zipcode">Zipcode</label>
+					<div class="controls">
+						<input type="text" id="zipcode" name="zipcode"
+							placeholder="zipcode" class="input-xlarge">
+					</div>
 				</div>
-			</div>
 
-			<div class="control-group">
-				<!-- Password -->
-				<label class="control-label" for="password_confirm">Password
-					(Confirm)</label>
-				<div class="controls">
-					<input type="password" id="password_confirm"
-						name="password_confirm" placeholder="" class="input-xlarge">
-					<p class="help-block">Please confirm password</p>
+				<div class="control-group">
+					<label class="control-label" for="password">Password</label>
+					<div class="controls">
+						<input type="password" id="password" name="password"
+							placeholder="password" class="input-xlarge">
+					</div>
 				</div>
-			</div>
 
-			<div class="control-group">
-				<!-- Button -->
-				<div class="controls">
-					<button class="btn btn-info">Register</button>
+				<div class="control-group">
+					<label class="control-label" for="password_confirm">Password
+						(Confirm)</label>
+					<div class="controls">
+						<input type="password" id="password_confirm"
+							name="password_confirm" placeholder="password"
+							class="input-xlarge">
+					</div>
 				</div>
-			</div>
-		</fieldset>
-	</form>
+
+				<div class="control-group">
+					<div class="controls">
+						<input type="submit" class="btn btn-info" value="Register">
+					</div>
+				</div>
+			</fieldset>
+		</form>
+	</div>
 
 </body>
 </html>

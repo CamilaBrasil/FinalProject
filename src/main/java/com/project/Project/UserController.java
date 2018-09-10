@@ -2,6 +2,8 @@ package com.project.Project;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -54,6 +56,29 @@ public class UserController {
 	@RequestMapping("/contact")
 	public ModelAndView contact()  {
 		return new ModelAndView("contact");
+	}
+	
+	@PostMapping("/submit")
+	public ModelAndView submit(@PathVariable("firstname") String fName, @PathVariable("lastname") String lName,
+			@PathVariable("email") String email, @PathVariable("zipcode") String zipcode,
+			@PathVariable("password") String p1, @PathVariable("password_confirm") String p2) {
+		User u1 = new User();
+		
+		ModelAndView mv = new ModelAndView();
+		
+		if(p1 == p2) {
+			u1 = new User(fName, lName, email, zipcode, p1);
+			ur.save(u1);
+			mv.addObject("index");
+			mv.addObject("firstname", u1.getFirstname());
+		} else {
+			mv.addObject("register");
+			mv.addObject( "title", "the password must match");
+		}
+		
+		
+		
+		return mv;
 	}
 	
 }

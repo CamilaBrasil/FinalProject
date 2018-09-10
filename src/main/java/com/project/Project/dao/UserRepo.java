@@ -9,4 +9,6 @@ import com.project.Project.entity.User;
 public interface UserRepo extends JpaRepository<User, Integer>{
 
 	User findByEmail(String keyword);
+	
+	
 }
