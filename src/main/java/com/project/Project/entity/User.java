@@ -1,9 +1,14 @@
 package com.project.Project.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -17,6 +22,9 @@ public class User {
 	private String zipcode;
 	private String password;
 	
+	@OneToMany(mappedBy= "user", cascade= CascadeType.ALL, orphanRemoval=true)
+	private List<FavJobs> favJobsList = new ArrayList<>();
+	
 	
 	public User() {
 		super();
@@ -24,7 +32,8 @@ public class User {
 	}
 
 
-	public User(Integer id, String firstname, String lastname, String email, String zipcode, String password) {
+	public User(Integer id, String firstname, String lastname, String email, String zipcode, String password,
+			List<FavJobs> favJobsList) {
 		super();
 		this.id = id;
 		this.firstname = firstname;
@@ -32,16 +41,19 @@ public class User {
 		this.email = email;
 		this.zipcode = zipcode;
 		this.password = password;
+		this.favJobsList = favJobsList;
 	}
 
 
-	public User(String firstname, String lastname, String email, String zipcode, String password) {
+	public User(String firstname, String lastname, String email, String zipcode, String password,
+			List<FavJobs> favJobsList) {
 		super();
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.email = email;
 		this.zipcode = zipcode;
 		this.password = password;
+		this.favJobsList = favJobsList;
 	}
 
 
@@ -105,11 +117,23 @@ public class User {
 	}
 
 
+	public List<FavJobs> getFavJobsList() {
+		return favJobsList;
+	}
+
+
+	public void setFavJobsList(List<FavJobs> favJobsList) {
+		this.favJobsList = favJobsList;
+	}
+
+
 	@Override
 	public String toString() {
-		return "id=" + id + ", firstname=" + firstname + ", lastname=" + lastname + ", email=" + email
-				+ ", zipcode=" + zipcode + ", password=" + password;
+		return "User [id=" + id + ", firstname=" + firstname + ", lastname=" + lastname + ", email=" + email
+				+ ", zipcode=" + zipcode + ", password=" + password + ", favJobsList=" + favJobsList + "]";
 	}
+
+
 	
 	
 
