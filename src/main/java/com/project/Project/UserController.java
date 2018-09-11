@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.project.Project.dao.QuizRepo;
 import com.project.Project.dao.UserRepo;
+import com.project.Project.entity.Quiz;
 import com.project.Project.entity.User;
 
 @Controller
@@ -16,6 +18,7 @@ import com.project.Project.entity.User;
 public class UserController {
 	@Autowired
 	UserRepo ur;
+	QuizRepo qr;
 	
 	@RequestMapping("/")
 	public ModelAndView index()  {
@@ -67,7 +70,7 @@ public class UserController {
 		if(u1.getPassword().equals(p2)) {
 			ur.save(u1);
 		
-			return new ModelAndView("quiz", "firstname", u1.getFirstname());
+			return new ModelAndView("quiz", "user", u1);
 		} else {
 			return new ModelAndView("register", "title", "the password must match");
 		}
@@ -85,12 +88,11 @@ public class UserController {
 	}
 	
 	@PostMapping("/submitquiz")
-	public ModelAndView submitquiz (@RequestParam("years") String y, @RequestParam("education") String e) {
+	public ModelAndView submitquiz (Quiz quiz, User u1) {
 		
-		ModelAndView mv = new ModelAndView ("quiz", "years", y);
-		mv.addObject("education", e);
+		qr.save(quiz);
 		
-		return mv;
+		return new ModelAndView ("index", "user", u1);
 	}
 
 }
