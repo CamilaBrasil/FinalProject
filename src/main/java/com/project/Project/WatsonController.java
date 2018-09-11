@@ -18,8 +18,8 @@ import com.ibm.watson.developer_cloud.service.security.IamOptions;
 @Controller
 public class WatsonController {
 	
-	@Value("${watsonprivatekey}")
-	private String watsonprivatekey;
+	@Value("${watsonapikey}")
+	private String watsonapikey;
 	
 	
 	
@@ -61,7 +61,7 @@ public class WatsonController {
 		
 		
 		
-		IamOptions options = new IamOptions.Builder().apiKey("${watsonapikey}").build();
+		IamOptions options = new IamOptions.Builder().apiKey(watsonapikey).build();
 
 		NaturalLanguageUnderstanding service = new NaturalLanguageUnderstanding("2018-03-16", options);
 		service.setEndPoint("https://gateway-wdc.watsonplatform.net/natural-language-understanding/api");
