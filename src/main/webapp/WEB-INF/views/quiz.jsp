@@ -37,29 +37,28 @@
 	</nav>
 
 	<div style="padding: 5%">
+<h1>Welcome, ${firstname }! Quiz time!!</h1>
 		<form>
 			<fieldset>
-				<legend>Welcome, ${firstname }! Quiz time!!</legend>
+				<legend>Years of experience</legend>
 				<div class="form-group">
 					<div class="custom-control custom-radio">
 						<input type="radio" id="customRadio1" name="customRadio"
-							class="custom-control-input" checked=""> <label
-							class="custom-control-label" for="customRadio1">Toggle
-							this custom radio</label>
+							class="custom-control-input" checked=""> 
+							<label class="custom-control-label" for="customRadio1">None</label>
 					</div>
 					<div class="custom-control custom-radio">
 						<input type="radio" id="customRadio2" name="customRadio"
 							class="custom-control-input"> <label
-							class="custom-control-label" for="customRadio2">Or toggle
-							this other custom radio</label>
+							class="custom-control-label" for="customRadio2">Around one</label>
 					</div>
 					<div class="custom-control custom-radio">
 						<input type="radio" id="customRadio3" name="customRadio"
-							class="custom-control-input" disabled=""> <label
-							class="custom-control-label" for="customRadio3">Disabled
-							custom radio</label>
+							class="custom-control-input" > <label
+							class="custom-control-label" for="customRadio3">Two</label>
 					</div>
 				</div>
+								<legend>Welcome, ${firstname }! Quiz time!!</legend>
 				<div class="form-group">
 					<div class="custom-control custom-checkbox">
 						<input type="checkbox" class="custom-control-input"
