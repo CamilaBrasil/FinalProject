@@ -5,7 +5,6 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Register form</title>
-<!-- <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css"> -->
 <link href="https://bootswatch.com/4/united/bootstrap.min.css"
 	rel="stylesheet" id="bootstrap-css">
 <script

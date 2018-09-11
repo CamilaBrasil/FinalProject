@@ -37,7 +37,6 @@
 		</div>
 	</nav>
 
-
 	<div style="padding: 5%">
 		<form class="form-horizontal" action="/submitlogin" method="POST">
 			<fieldset>

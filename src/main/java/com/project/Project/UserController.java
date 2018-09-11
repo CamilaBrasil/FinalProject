@@ -66,11 +66,21 @@ public class UserController {
 		if(u1.getPassword().equals(p2)) {
 			ur.save(u1);
 		
-			return new ModelAndView("index", "firstname", u1.getFirstname());
+			return new ModelAndView("quiz", "firstname", u1.getFirstname());
 		} else {
 			return new ModelAndView("register", "title", "the password must match");
 		}
 		
 	}
 	
+	@RequestMapping("/favorites")
+	public ModelAndView favorites () {
+		return new ModelAndView ("fav_jobs");
+	}
+	
+	@RequestMapping("/quiz")
+	public ModelAndView quiz () {
+		return new ModelAndView ("quiz");
+	}
+
 }
