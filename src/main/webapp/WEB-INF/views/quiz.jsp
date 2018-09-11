@@ -169,7 +169,7 @@
 					</div>
 					<div class="custom-control custom-checkbox">
 						<input type="checkbox" class="custom-control-input"
-							id="customCheck9" name="skills" value="HTML"><label
+							id="customCheck9" name="skills" value="${ }"><label
 							class="custom-control-label" for="customCheck9">iOS
 							Development</label>
 					</div>
