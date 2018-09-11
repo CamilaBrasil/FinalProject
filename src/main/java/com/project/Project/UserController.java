@@ -28,11 +28,11 @@ public class UserController {
 		User user = ur.findByEmail(email);
 		if(user.getPassword().equals(password)) {
 
-			mv.addObject("email", user.getEmail());
+//			mv.addObject("email", user.getEmail());
 			mv.addObject("firstname", user.getFirstname());
-			mv.addObject("lastname", user.getLastname());
-			mv.addObject("zipcode", user.getZipcode());
-			mv.addObject("password", user.getPassword());
+//			mv.addObject("lastname", user.getLastname());
+//			mv.addObject("zipcode", user.getZipcode());
+//			mv.addObject("password", user.getPassword());
 		}
 		
 		return mv;
@@ -84,11 +84,12 @@ public class UserController {
 	}
 	
 	@PostMapping("/submitquiz")
-	public ModelAndView submitquiz ( @RequestParam("years") String y) {
+	public ModelAndView submitquiz (@RequestParam("years") String y, @RequestParam("education") String e) {
 		
-		System.out.println(y);
+		ModelAndView mv = new ModelAndView ("quiz", "years", y);
+		mv.addObject("education", e);
 		
-		return new ModelAndView ("quiz", "years", y);
+		return mv;
 	}
 
 }

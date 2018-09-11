@@ -42,17 +42,17 @@
 		<h3>years = ${years }</h3>
 		<h3>education = ${education }</h3>
 		<h3>years = ${years }</h3>
-		
-	<form class="form-horizontal" action="/submitquiz" method="POST">
+
+		<form class="form-horizontal" action="/submitquiz" method="POST">
 			<fieldset>
-			
-			
+
+
 				<legend>Years of experience</legend>
 				<div class="form-group">
 					<div class="custom-control custom-radio">
 						<input type="radio" id="customRadio1" name="years"
-							class="custom-control-input" value="0"> <label
-							class="custom-control-label" for="customRadio1" checked>0 years</label>
+							class="custom-control-input" value="0" checked=""> <label
+							class="custom-control-label" for="customRadio1">0 years</label>
 					</div>
 					<div class="custom-control custom-radio">
 						<input type="radio" id="customRadio2" name="years"
@@ -81,87 +81,154 @@
 							years</label>
 					</div>
 				</div>
-				
-				
+
+
 				<legend>Education Level</legend>
 				<div class="form-group">
 					<div class="custom-control custom-radio">
-						<input type="radio" id="customRadio1" name="education"
-							class="custom-control-input" checked="" value="no "> <label
-							class="custom-control-label" for="customRadio1">Did not
-							complete high school/GED</label>
+						<input type="radio" id="customRadio7" name="education"
+							class="custom-control-input" value="High school"> <label
+							class="custom-control-label" for="customRadio7">High
+							school</label>
 					</div>
 					<div class="custom-control custom-radio">
-						<input type="radio" id="customRadio2" name="education"
-							class="custom-control-input"> <label
-							class="custom-control-label" for="customRadio2">Completed
-							GED/HSED</label>
-					</div>
-					<div class="custom-control custom-radio">
-						<input type="radio" id="customRadio3" name="education"
-							class="custom-control-input"> <label
-							class="custom-control-label" for="customRadio3">Graduated
-							from high school</label>
-					</div>
-					<div class="custom-control custom-radio">
-						<input type="radio" id="customRadio3" name="education"
-							class="custom-control-input"> <label
-							class="custom-control-label" for="customRadio3">Some
+						<input type="radio" id="customRadio8" name="education"
+							class="custom-control-input" value="Some college no degree">
+						<label class="custom-control-label" for="customRadio8">Some
 							college, no degree</label>
 					</div>
 					<div class="custom-control custom-radio">
-						<input type="radio" id="customRadio3" name="education"
-							class="custom-control-input"> <label
-							class="custom-control-label" for="customRadio3">Two-year
+						<input type="radio" id="customRadio9" name="education"
+							class="custom-control-input" value="Technical diploma"> <label
+							class="custom-control-label" for="customRadio9">Two-year
 							technical diploma</label>
 					</div>
 					<div class="custom-control custom-radio">
-						<input type="radio" id="customRadio3" name="education"
-							class="custom-control-input"> <label
-							class="custom-control-label" for="customRadio3">Two-year
+						<input type="radio" id="customRadio10" name="education"
+							class="custom-control-input" value="Associate degree"> <label
+							class="custom-control-label" for="customRadio10">Two-year
 							associate degree</label>
 					</div>
 					<div class="custom-control custom-radio">
-						<input type="radio" id="customRadio3" name="education"
-							class="custom-control-input"> <label
-							class="custom-control-label" for="customRadio3">Bachelor’s
+						<input type="radio" id="customRadio11" name="education"
+							class="custom-control-input" value="Bachelor's degree"> <label
+							class="custom-control-label" for="customRadio11">Bachelor’s
 							degree</label>
 					</div>
 					<div class="custom-control custom-radio">
-						<input type="radio" id="customRadio3" name="education"
-							class="custom-control-input"> <label
-							class="custom-control-label" for="customRadio3">Some
-							graduate degree courses</label>
-					</div>
-					<div class="custom-control custom-radio">
-						<input type="radio" id="customRadio3" name="education"
-							class="custom-control-input"> <label
-							class="custom-control-label" for="customRadio3">Graduate
+						<input type="radio" id="customRadio12" name="education"
+							class="custom-control-input" value="College degree"> <label
+							class="custom-control-label" for="customRadio12">Graduate
 							college degree</label>
 					</div>
-					<legend>Check box</legend>
-					<div class="form-group">
-						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input"
-								id="customCheck1" checked=""> <label
-								class="custom-control-label" for="customCheck1">Check
-								this custom checkbox</label>
-						</div>
-						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input"
-								id="customCheck2" disabled=""> <label
-								class="custom-control-label" for="customCheck2">Disabled
-								custom checkbox</label>
-						</div>
+				</div>
+
+				<legend>Skills</legend>
+				<div class="form-group">
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input"
+							id="customCheck1" name="skills" value=""> <label
+							class="custom-control-label" for="customCheck1">Software
+							development</label>
 					</div>
-					<div class="form-group">
-						<select class="custom-select">
-							<option selected="">Open this select menu</option>
-							<option value="1">One</option>
-							<option value="2">Two</option>
-							<option value="3">Three</option>
-						</select>
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input"
+							id="customCheck2" name="skills" value=""><label
+							class="custom-control-label" for="customCheck2">HTML</label>
 					</div>
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input"
+							id="customCheck3" name="skills" value=""> <label
+							class="custom-control-label" for="customCheck3">CSS</label>
+					</div>
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input"
+							id="customCheck4" name="skills" value="HTML"><label
+							class="custom-control-label" for="customCheck4">JavaScript</label>
+					</div>
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input"
+							id="customCheck5" name="skills" value=""> <label
+							class="custom-control-label" for="customCheck5">Java</label>
+					</div>
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input"
+							id="customCheck6" name="skills" value="HTML"><label
+							class="custom-control-label" for="customCheck6">Wordpress</label>
+					</div>
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input"
+							id="customCheck7" name="skills" value="HTML"><label
+							class="custom-control-label" for="customCheck7">JavaScript</label>
+					</div>
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input"
+							id="customCheck8" name="skills" value=""> <label
+							class="custom-control-label" for="customCheck8">Android
+							Development</label>
+					</div>
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input"
+							id="customCheck9" name="skills" value="HTML"><label
+							class="custom-control-label" for="customCheck9">iOS
+							Development</label>
+					</div>
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input"
+							id="customCheck10" name="skills" value="HTML"><label
+							class="custom-control-label" for="customCheck10">PHP</label>
+					</div>
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input"
+							id="customCheck11" name="skills" value="HTML"><label
+							class="custom-control-label" for="customCheck11">SQL
+							Databases</label>
+					</div>
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input"
+							id="customCheck12" name="skills" value=""> <label
+							class="custom-control-label" for="customCheck12">C++</label>
+					</div>
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input"
+							id="customCheck13" name="skills" value="HTML"><label
+							class="custom-control-label" for="customCheck13">Web
+							design</label>
+					</div>
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input"
+							id="customCheck14" name="skills" value="HTML"><label
+							class="custom-control-label" for="customCheck14">Angular</label>
+					</div>
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input"
+							id="customCheck15" name="skills" value=""> <label
+							class="custom-control-label" for="customCheck15">React</label>
+					</div>
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input"
+							id="customCheck16" name="skills" value="HTML"><label
+							class="custom-control-label" for="customCheck16">Written
+							communication</label>
+					</div>
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input"
+							id="customCheck17" name="skills" value="HTML"><label
+							class="custom-control-label" for="customCheck17">Verbal
+							communication</label>
+					</div>
+				</div>
+
+
+				<div class="form-group">
+					<select class="custom-select">
+						<option selected="">Open this select menu</option>
+						<option value="1">One</option>
+						<option value="2">Two</option>
+						<option value="3">Three</option>
+					</select>
+				</div>
+
 			</fieldset>
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</form>
