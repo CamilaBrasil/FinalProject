@@ -218,8 +218,8 @@
 							communication</label>
 					</div>
 				</div>
-				
-				
+
+
 				<legend>Type</legend>
 				<div class="form-group">
 					<div class="custom-control custom-radio">
@@ -229,11 +229,49 @@
 					</div>
 					<div class="custom-control custom-radio">
 						<input type="radio" id="customRadio2" name="type"
-							class="custom-control-input" value="Full time">
-						<label class="custom-control-label" for="customRadio2">Full time</label>
+							class="custom-control-input" value="Full time"> <label
+							class="custom-control-label" for="customRadio2">Full time</label>
 					</div>
 				</div>
 
+
+				<legend>Company size</legend>
+				<div class="form-group">
+					<div class="custom-control custom-radio">
+						<input type="radio" id="customRadio1" name="size"
+							class="custom-control-input" value="Small"> <label
+							class="custom-control-label" for="customRadio1">Small</label>
+					</div>
+					<div class="custom-control custom-radio">
+						<input type="radio" id="customRadio2" name="size"
+							class="custom-control-input" value="Medium"> <label
+							class="custom-control-label" for="customRadio2">Medium</label>
+					</div>
+					<div class="custom-control custom-radio">
+						<input type="radio" id="customRadio2" name="size"
+							class="custom-control-input" value="Medium"> <label
+							class="custom-control-label" for="customRadio2">Medium</label>
+					</div>
+				</div>
+
+				<legend>Location</legend>
+				<div class="form-group">
+					<div class="custom-control custom-radio">
+						<input type="radio" id="customRadio1" name="location"
+							class="custom-control-input" value="Small"> <label
+							class="custom-control-label" for="customRadio1">Small</label>
+					</div>
+					<div class="custom-control custom-radio">
+						<input type="radio" id="customRadio2" name="size"
+							class="custom-control-input" value="Medium"> <label
+							class="custom-control-label" for="customRadio2">Medium</label>
+					</div>
+					<div class="custom-control custom-radio">
+						<input type="radio" id="customRadio2" name="size"
+							class="custom-control-input" value="Medium"> <label
+							class="custom-control-label" for="customRadio2">Medium</label>
+					</div>
+				</div>
 
 				<div class="form-group">
 					<select class="custom-select">
