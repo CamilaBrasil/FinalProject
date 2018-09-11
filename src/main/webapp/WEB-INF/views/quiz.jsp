@@ -169,7 +169,7 @@
 					</div>
 					<div class="custom-control custom-checkbox">
 						<input type="checkbox" class="custom-control-input"
-							id="customCheck9" name="skills" value="${ }"><label
+							id="customCheck9" name="skills" value=""><label
 							class="custom-control-label" for="customCheck9">iOS
 							Development</label>
 					</div>
@@ -216,6 +216,21 @@
 							id="customCheck17" name="skills" value="HTML"><label
 							class="custom-control-label" for="customCheck17">Verbal
 							communication</label>
+					</div>
+				</div>
+				
+				
+				<legend>Type</legend>
+				<div class="form-group">
+					<div class="custom-control custom-radio">
+						<input type="radio" id="customRadio1" name="type"
+							class="custom-control-input" value="Part time"> <label
+							class="custom-control-label" for="customRadio1">Part time</label>
+					</div>
+					<div class="custom-control custom-radio">
+						<input type="radio" id="customRadio2" name="type"
+							class="custom-control-input" value="Full time">
+						<label class="custom-control-label" for="customRadio2">Full time</label>
 					</div>
 				</div>
 
