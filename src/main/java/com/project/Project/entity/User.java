@@ -1,14 +1,20 @@
 package com.project.Project.entity;
 
+import java.io.Serializable;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "user")
-public class User {
+public class User implements Serializable{
+	
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String firstname;
@@ -16,6 +22,11 @@ public class User {
 	private String email;
 	private String zipcode;
 	private String password;
+	
+	  @OneToOne(fetch = FetchType.LAZY,
+	            cascade =  CascadeType.ALL,
+	            mappedBy = "user")
+	  private Quiz quiz;
 	
 	
 	public User() {
