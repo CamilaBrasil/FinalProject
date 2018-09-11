@@ -37,50 +37,128 @@
 	</nav>
 
 	<div style="padding: 5%">
-<h1>Welcome, ${firstname }! Quiz time!!</h1>
-		<form>
+		<h1>Welcome, ${firstname }! Quiz time!! Resposta = ${years }</h1>
+		
+		
+		
+	<form class="form-horizontal" action="/submitquiz" method="POST">
 			<fieldset>
 				<legend>Years of experience</legend>
 				<div class="form-group">
 					<div class="custom-control custom-radio">
-						<input type="radio" id="customRadio1" name="customRadio"
-							class="custom-control-input" checked=""> 
-							<label class="custom-control-label" for="customRadio1">None</label>
+						<input type="radio" id="customRadio1" name="years"
+							class="custom-control-input" checked=""> <label
+							class="custom-control-label" value="0">0 years</label>
 					</div>
 					<div class="custom-control custom-radio">
-						<input type="radio" id="customRadio2" name="customRadio"
+						<input type="radio" id="customRadio2" name="years"
 							class="custom-control-input"> <label
-							class="custom-control-label" for="customRadio2">Around one</label>
+							class="custom-control-label" for="customRadio2">>= 1</label>
 					</div>
 					<div class="custom-control custom-radio">
-						<input type="radio" id="customRadio3" name="customRadio"
-							class="custom-control-input" > <label
-							class="custom-control-label" for="customRadio3">Two</label>
+						<input type="radio" id="customRadio3" name="years"
+							class="custom-control-input"> <label
+							class="custom-control-label" for="customRadio3">>= 2</label>
+					</div>
+					<div class="custom-control custom-radio">
+						<input type="radio" id="customRadio4" name="years"
+							class="custom-control-input"> <label
+							class="custom-control-label" for="customRadio4">>= 3</label>
+					</div>
+					<div class="custom-control custom-radio">
+						<input type="radio" id="customRadio5" name="years"
+							class="custom-control-input"> <label
+							class="custom-control-label" for="customRadio5">>= 5</label>
+					</div>
+					<div class="custom-control custom-radio">
+						<input type="radio" id="customRadio6" name="years"
+							class="custom-control-input"> <label
+							class="custom-control-label" for="customRadio6">Many many
+							years</label>
 					</div>
 				</div>
-								<legend>Welcome, ${firstname }! Quiz time!!</legend>
+				
+				
+				
+				<legend>Education Level</legend>
 				<div class="form-group">
-					<div class="custom-control custom-checkbox">
-						<input type="checkbox" class="custom-control-input"
-							id="customCheck1" checked=""> <label
-							class="custom-control-label" for="customCheck1">Check
-							this custom checkbox</label>
+					<div class="custom-control custom-radio">
+						<input type="radio" id="customRadio1" name="education"
+							class="custom-control-input" checked=""> <label
+							class="custom-control-label" for="customRadio1">Did not
+							complete high school/GED</label>
 					</div>
-					<div class="custom-control custom-checkbox">
-						<input type="checkbox" class="custom-control-input"
-							id="customCheck2" disabled=""> <label
-							class="custom-control-label" for="customCheck2">Disabled
-							custom checkbox</label>
+					<div class="custom-control custom-radio">
+						<input type="radio" id="customRadio2" name="education"
+							class="custom-control-input"> <label
+							class="custom-control-label" for="customRadio2">Completed
+							GED/HSED</label>
 					</div>
-				</div>
-				<div class="form-group">
-					<select class="custom-select">
-						<option selected="">Open this select menu</option>
-						<option value="1">One</option>
-						<option value="2">Two</option>
-						<option value="3">Three</option>
-					</select>
-				</div>
+					<div class="custom-control custom-radio">
+						<input type="radio" id="customRadio3" name="education"
+							class="custom-control-input"> <label
+							class="custom-control-label" for="customRadio3">Graduated
+							from high school</label>
+					</div>
+					<div class="custom-control custom-radio">
+						<input type="radio" id="customRadio3" name="education"
+							class="custom-control-input"> <label
+							class="custom-control-label" for="customRadio3">Some
+							college, no degree</label>
+					</div>
+					<div class="custom-control custom-radio">
+						<input type="radio" id="customRadio3" name="education"
+							class="custom-control-input"> <label
+							class="custom-control-label" for="customRadio3">Two-year
+							technical diploma</label>
+					</div>
+					<div class="custom-control custom-radio">
+						<input type="radio" id="customRadio3" name="education"
+							class="custom-control-input"> <label
+							class="custom-control-label" for="customRadio3">Two-year
+							associate degree</label>
+					</div>
+					<div class="custom-control custom-radio">
+						<input type="radio" id="customRadio3" name="education"
+							class="custom-control-input"> <label
+							class="custom-control-label" for="customRadio3">Bachelor’s
+							degree</label>
+					</div>
+					<div class="custom-control custom-radio">
+						<input type="radio" id="customRadio3" name="education"
+							class="custom-control-input"> <label
+							class="custom-control-label" for="customRadio3">Some
+							graduate degree courses</label>
+					</div>
+					<div class="custom-control custom-radio">
+						<input type="radio" id="customRadio3" name="education"
+							class="custom-control-input"> <label
+							class="custom-control-label" for="customRadio3">Graduate
+							college degree</label>
+					</div>
+					<legend>Check box</legend>
+					<div class="form-group">
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input"
+								id="customCheck1" checked=""> <label
+								class="custom-control-label" for="customCheck1">Check
+								this custom checkbox</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input"
+								id="customCheck2" disabled=""> <label
+								class="custom-control-label" for="customCheck2">Disabled
+								custom checkbox</label>
+						</div>
+					</div>
+					<div class="form-group">
+						<select class="custom-select">
+							<option selected="">Open this select menu</option>
+							<option value="1">One</option>
+							<option value="2">Two</option>
+							<option value="3">Three</option>
+						</select>
+					</div>
 			</fieldset>
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</form>

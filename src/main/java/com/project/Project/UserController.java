@@ -82,5 +82,12 @@ public class UserController {
 	public ModelAndView quiz () {
 		return new ModelAndView ("quiz");
 	}
+	
+	@PostMapping("/submitquiz")
+	public ModelAndView submitquiz ( @RequestParam("years") String y) {
+		
+		
+		return new ModelAndView ("quiz", "years", y);
+	}
 
 }

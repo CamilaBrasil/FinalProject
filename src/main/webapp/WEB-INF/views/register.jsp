@@ -50,7 +50,7 @@
 				<div class="control-group">
 					<label class="control-label">First Name</label>
 					<div class="controls">
-						<input type="text" id="username" name="firstname"
+						<input type="text" id="firstname" name="firstname"
 							placeholder="First Name" class="input-xlarge">
 					</div>
 				</div>
