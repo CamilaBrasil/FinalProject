@@ -1,10 +1,9 @@
 package com.project.Project;
 
 
-import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ibm.watson.developer_cloud.natural_language_understanding.v1.NaturalLanguageUnderstanding;
@@ -14,8 +13,16 @@ import com.ibm.watson.developer_cloud.natural_language_understanding.v1.model.En
 import com.ibm.watson.developer_cloud.natural_language_understanding.v1.model.Features;
 import com.ibm.watson.developer_cloud.natural_language_understanding.v1.model.KeywordsOptions;
 import com.ibm.watson.developer_cloud.service.security.IamOptions;
+
+
 @Controller
 public class WatsonController {
+	
+	@Value("${watsonprivatekey}")
+	private String watsonprivatekey;
+	
+	
+	
 	@RequestMapping("/index")
 	public ModelAndView WatsonKeyword() {
 //		System.out.println("Please Work");
@@ -52,7 +59,9 @@ public class WatsonController {
 //		HttpComponentsClientHttpRequestFactory requestFactory = new HttpComponentsClientHttpRequestFactory();
 //		requestFactory.setHttpClient(httpClient);
 		
-		IamOptions options = new IamOptions.Builder().apiKey("ROL_zkeMlylSOvTnli6WlmiNkhgS-MpAn5kZYEEfUzKz").build();
+		
+		
+		IamOptions options = new IamOptions.Builder().apiKey("${watsonapikey}").build();
 
 		NaturalLanguageUnderstanding service = new NaturalLanguageUnderstanding("2018-03-16", options);
 		service.setEndPoint("https://gateway-wdc.watsonplatform.net/natural-language-understanding/api");
