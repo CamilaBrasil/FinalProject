@@ -37,54 +37,57 @@
 	</nav>
 
 	<div style="padding: 5%">
-		<h1>Welcome, ${firstname }! Quiz time!! Resposta = ${years }</h1>
-		
-		
+		<h1>Welcome, ${firstname }! Quiz time!!</h1>
+		<br>
+		<h3>years = ${years }</h3>
+		<h3>education = ${education }</h3>
+		<h3>years = ${years }</h3>
 		
 	<form class="form-horizontal" action="/submitquiz" method="POST">
 			<fieldset>
+			
+			
 				<legend>Years of experience</legend>
 				<div class="form-group">
 					<div class="custom-control custom-radio">
 						<input type="radio" id="customRadio1" name="years"
-							class="custom-control-input" checked=""> <label
-							class="custom-control-label" value="0">0 years</label>
+							class="custom-control-input" value="0"> <label
+							class="custom-control-label" for="customRadio1" checked>0 years</label>
 					</div>
 					<div class="custom-control custom-radio">
 						<input type="radio" id="customRadio2" name="years"
-							class="custom-control-input"> <label
+							class="custom-control-input" value="1"> <label
 							class="custom-control-label" for="customRadio2">>= 1</label>
 					</div>
 					<div class="custom-control custom-radio">
 						<input type="radio" id="customRadio3" name="years"
-							class="custom-control-input"> <label
+							class="custom-control-input" value="2"> <label
 							class="custom-control-label" for="customRadio3">>= 2</label>
 					</div>
 					<div class="custom-control custom-radio">
 						<input type="radio" id="customRadio4" name="years"
-							class="custom-control-input"> <label
+							class="custom-control-input" value="3"> <label
 							class="custom-control-label" for="customRadio4">>= 3</label>
 					</div>
 					<div class="custom-control custom-radio">
 						<input type="radio" id="customRadio5" name="years"
-							class="custom-control-input"> <label
-							class="custom-control-label" for="customRadio5">>= 5</label>
+							class="custom-control-input" value="4"> <label
+							class="custom-control-label" for="customRadio5">>= 4</label>
 					</div>
 					<div class="custom-control custom-radio">
 						<input type="radio" id="customRadio6" name="years"
-							class="custom-control-input"> <label
+							class="custom-control-input" value="A lot"> <label
 							class="custom-control-label" for="customRadio6">Many many
 							years</label>
 					</div>
 				</div>
 				
 				
-				
 				<legend>Education Level</legend>
 				<div class="form-group">
 					<div class="custom-control custom-radio">
 						<input type="radio" id="customRadio1" name="education"
-							class="custom-control-input" checked=""> <label
+							class="custom-control-input" checked="" value="no "> <label
 							class="custom-control-label" for="customRadio1">Did not
 							complete high school/GED</label>
 					</div>
