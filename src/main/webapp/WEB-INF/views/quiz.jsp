@@ -37,6 +37,7 @@
 	</nav>
 
 	<div style="padding: 5%">
+		${email}
 		<h2>Welcome, ${user.firstname }! Quiz time!!</h2>
 
 
