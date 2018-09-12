@@ -46,7 +46,7 @@ public class UserController {
 //			mv.addObject("zipcode", user.getZipcode());
 //			mv.addObject("password", user.getPassword());
 
-				return new ModelAndView("index", "email", user.getEmail());
+				return new ModelAndView("quiz", "email", user.getEmail());
 			} else {
 				return new ModelAndView("login", "title", "The password does not match");
 			}
