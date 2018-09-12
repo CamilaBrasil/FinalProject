@@ -90,9 +90,9 @@ public class UserController {
 	@PostMapping("/submitquiz")
 	public ModelAndView submitquiz(Quiz quiz, @RequestParam("userid") int id) {
 
-		System.out.println(quiz);
 		quiz.setId(id);
-
+		System.out.println(quiz);
+		
 		qr.save(quiz);
 
 		return new ModelAndView("index", "user", ur.findById(quiz.getId()));

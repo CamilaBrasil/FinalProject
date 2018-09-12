@@ -123,18 +123,18 @@
 				<div class="form-group">
 					<div class="custom-control custom-checkbox">
 						<input type="checkbox" class="custom-control-input"
-							id="customCheck1" name="skills" value=""> <label
+							id="customCheck1" name="skills" value="aaa"> <label
 							class="custom-control-label" for="customCheck1">Software
 							development</label>
 					</div>
 					<div class="custom-control custom-checkbox">
 						<input type="checkbox" class="custom-control-input"
-							id="customCheck2" name="skills" value=""><label
+							id="customCheck2" name="skills" value="aaa"><label
 							class="custom-control-label" for="customCheck2">HTML</label>
 					</div>
 					<div class="custom-control custom-checkbox">
 						<input type="checkbox" class="custom-control-input"
-							id="customCheck3" name="skills" value=""> <label
+							id="customCheck3" name="skills" value="aaa"> <label
 							class="custom-control-label" for="customCheck3">CSS</label>
 					</div>
 					<div class="custom-control custom-checkbox">
