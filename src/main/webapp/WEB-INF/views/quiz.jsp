@@ -223,14 +223,14 @@
 				<legend>Type</legend>
 				<div class="form-group">
 					<div class="custom-control custom-radio">
-						<input type="radio" id="customRadio1" name="type"
+						<input type="radio" id="customRadio13" name="type"
 							class="custom-control-input" value="Part time"> <label
-							class="custom-control-label" for="customRadio1">Part time</label>
+							class="custom-control-label" for="customRadio13">Part time</label>
 					</div>
 					<div class="custom-control custom-radio">
-						<input type="radio" id="customRadio2" name="type"
+						<input type="radio" id="customRadio14" name="type"
 							class="custom-control-input" value="Full time"> <label
-							class="custom-control-label" for="customRadio2">Full time</label>
+							class="custom-control-label" for="customRadio14">Full time</label>
 					</div>
 				</div>
 
@@ -238,49 +238,50 @@
 				<legend>Company size</legend>
 				<div class="form-group">
 					<div class="custom-control custom-radio">
-						<input type="radio" id="customRadio1" name="size"
+						<input type="radio" id="customRadio15" name="size"
 							class="custom-control-input" value="Small"> <label
-							class="custom-control-label" for="customRadio1">Small</label>
+							class="custom-control-label" for="customRadio15">Small</label>
 					</div>
 					<div class="custom-control custom-radio">
-						<input type="radio" id="customRadio2" name="size"
+						<input type="radio" id="customRadio16" name="size"
 							class="custom-control-input" value="Medium"> <label
-							class="custom-control-label" for="customRadio2">Medium</label>
+							class="custom-control-label" for="customRadio16">Medium</label>
 					</div>
 					<div class="custom-control custom-radio">
-						<input type="radio" id="customRadio2" name="size"
+						<input type="radio" id="customRadio17" name="size"
 							class="custom-control-input" value="Medium"> <label
-							class="custom-control-label" for="customRadio2">Medium</label>
+							class="custom-control-label" for="customRadio17">Medium</label>
 					</div>
 				</div>
 
 				<legend>Location</legend>
 				<div class="form-group">
 					<div class="custom-control custom-radio">
-						<input type="radio" id="customRadio1" name="location"
-							class="custom-control-input" value="Small"> <label
-							class="custom-control-label" for="customRadio1">Small</label>
+						<input type="radio" id="customRadio18" name="location"
+							class="custom-control-input" value="Metro Detroit"> <label
+							class="custom-control-label" for="customRadio18">Metro Detroit</label>
 					</div>
 					<div class="custom-control custom-radio">
-						<input type="radio" id="customRadio2" name="size"
-							class="custom-control-input" value="Medium"> <label
-							class="custom-control-label" for="customRadio2">Medium</label>
+						<input type="radio" id="customRadio19" name="location"
+							class="custom-control-input" value="Ann Arbor"> <label
+							class="custom-control-label" for="customRadio19">Ann Arbor</label>
 					</div>
 					<div class="custom-control custom-radio">
-						<input type="radio" id="customRadio2" name="size"
-							class="custom-control-input" value="Medium"> <label
-							class="custom-control-label" for="customRadio2">Medium</label>
+						<input type="radio" id="customRadio20" name="location"
+							class="custom-control-input" value="All"> <label
+							class="custom-control-label" for="customRadio20">All</label>
 					</div>
 				</div>
 
-				<div class="form-group">
+<!-- 				<div class="form-group">
 					<select class="custom-select">
 						<option selected="">Open this select menu</option>
 						<option value="1">One</option>
 						<option value="2">Two</option>
 						<option value="3">Three</option>
 					</select>
-				</div>
+				</div> 
+				 -->
 
 			</fieldset>
 			<button type="submit" class="btn btn-primary">Submit</button>
