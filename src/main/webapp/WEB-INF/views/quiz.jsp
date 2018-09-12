@@ -37,16 +37,13 @@
 	</nav>
 
 	<div style="padding: 5%">
-		<h1>Welcome, ${user.firstname }! Quiz time!!</h1>
-		<br>
-		<h3>years = ${years }</h3>
-		<h3>education = ${education }</h3>
-		<h3>years = ${years }</h3>
+		<h2>Welcome, ${user.firstname }! Quiz time!!</h2>
+
 
 		<form class="form-horizontal" action="/submitquiz" method="POST">
 			<fieldset>
 
-
+<!-- YEARS_EXP -->
 				<legend>Years of experience</legend>
 				<div class="form-group">
 					<div class="custom-control custom-radio">
@@ -81,8 +78,7 @@
 							years</label>
 					</div>
 				</div>
-
-
+<!-- EDUCATION -->
 				<legend>Education Level</legend>
 				<div class="form-group">
 					<div class="custom-control custom-radio">
@@ -122,7 +118,7 @@
 							college degree</label>
 					</div>
 				</div>
-
+<!-- SKILLS -->
 				<legend>Skills</legend>
 				<div class="form-group">
 					<div class="custom-control custom-checkbox">
@@ -218,8 +214,7 @@
 							communication</label>
 					</div>
 				</div>
-
-
+<!-- TYPE -->
 				<legend>Type</legend>
 				<div class="form-group">
 					<div class="custom-control custom-radio">
@@ -233,8 +228,7 @@
 							class="custom-control-label" for="customRadio14">Full time</label>
 					</div>
 				</div>
-
-
+<!-- SIZE -->
 				<legend>Company size</legend>
 				<div class="form-group">
 					<div class="custom-control custom-radio">
@@ -253,7 +247,7 @@
 							class="custom-control-label" for="customRadio17">Medium</label>
 					</div>
 				</div>
-
+<!-- LOCATION -->
 				<legend>Location</legend>
 				<div class="form-group">
 					<div class="custom-control custom-radio">
