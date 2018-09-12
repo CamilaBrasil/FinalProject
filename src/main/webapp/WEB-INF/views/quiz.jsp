@@ -50,32 +50,32 @@
 				<legend>Years of experience</legend>
 				<div class="form-group">
 					<div class="custom-control custom-radio">
-						<input type="radio" id="customRadio1" name="years"
+						<input type="radio" id="customRadio1" name="yearsExp"
 							class="custom-control-input" value="0" checked=""> <label
 							class="custom-control-label" for="customRadio1">0 years</label>
 					</div>
 					<div class="custom-control custom-radio">
-						<input type="radio" id="customRadio2" name="years"
+						<input type="radio" id="customRadio2" name="yearsExp"
 							class="custom-control-input" value="1"> <label
 							class="custom-control-label" for="customRadio2">>= 1</label>
 					</div>
 					<div class="custom-control custom-radio">
-						<input type="radio" id="customRadio3" name="years"
+						<input type="radio" id="customRadio3" name="yearsExp"
 							class="custom-control-input" value="2"> <label
 							class="custom-control-label" for="customRadio3">>= 2</label>
 					</div>
 					<div class="custom-control custom-radio">
-						<input type="radio" id="customRadio4" name="years"
+						<input type="radio" id="customRadio4" name="yearsExp"
 							class="custom-control-input" value="3"> <label
 							class="custom-control-label" for="customRadio4">>= 3</label>
 					</div>
 					<div class="custom-control custom-radio">
-						<input type="radio" id="customRadio5" name="years"
+						<input type="radio" id="customRadio5" name="yearsExp"
 							class="custom-control-input" value="4"> <label
 							class="custom-control-label" for="customRadio5">>= 4</label>
 					</div>
 					<div class="custom-control custom-radio">
-						<input type="radio" id="customRadio6" name="years"
+						<input type="radio" id="customRadio6" name="yearsExp"
 							class="custom-control-input" value="A lot"> <label
 							class="custom-control-label" for="customRadio6">Many many
 							years</label>
@@ -87,7 +87,7 @@
 				<div class="form-group">
 					<div class="custom-control custom-radio">
 						<input type="radio" id="customRadio7" name="education"
-							class="custom-control-input" value="High school"> <label
+							class="custom-control-input" value="High school"  checked=""> <label
 							class="custom-control-label" for="customRadio7">High
 							school</label>
 					</div>
@@ -224,7 +224,7 @@
 				<div class="form-group">
 					<div class="custom-control custom-radio">
 						<input type="radio" id="customRadio13" name="type"
-							class="custom-control-input" value="Part time"> <label
+							class="custom-control-input" value="Part time"  checked=""> <label
 							class="custom-control-label" for="customRadio13">Part time</label>
 					</div>
 					<div class="custom-control custom-radio">
@@ -239,7 +239,7 @@
 				<div class="form-group">
 					<div class="custom-control custom-radio">
 						<input type="radio" id="customRadio15" name="size"
-							class="custom-control-input" value="Small"> <label
+							class="custom-control-input" value="Small"  checked=""> <label
 							class="custom-control-label" for="customRadio15">Small</label>
 					</div>
 					<div class="custom-control custom-radio">
@@ -258,7 +258,7 @@
 				<div class="form-group">
 					<div class="custom-control custom-radio">
 						<input type="radio" id="customRadio18" name="location"
-							class="custom-control-input" value="Metro Detroit"> <label
+							class="custom-control-input" value="Metro Detroit"  checked=""> <label
 							class="custom-control-label" for="customRadio18">Metro Detroit</label>
 					</div>
 					<div class="custom-control custom-radio">
@@ -283,9 +283,11 @@
 				</div> 
 				 -->
 
+
 			</fieldset>
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</form>
+		
 	</div>
 </body>
 </html>
