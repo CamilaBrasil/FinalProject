@@ -26,6 +26,11 @@ public class UserController {
 
 	}
 
+	@RequestMapping("/login")
+	public ModelAndView login() {
+		return new ModelAndView("login");
+	}
+
 	@RequestMapping("/submitlogin")
 	public ModelAndView loginPage(@RequestParam("email") String email, @RequestParam("password") String password) {
 
@@ -55,21 +60,6 @@ public class UserController {
 		return new ModelAndView("register");
 	}
 
-	@RequestMapping("/about")
-	public ModelAndView about() {
-		return new ModelAndView("about");
-	}
-
-	@RequestMapping("/login")
-	public ModelAndView login() {
-		return new ModelAndView("login");
-	}
-
-	@RequestMapping("/contact")
-	public ModelAndView contact() {
-		return new ModelAndView("contact");
-	}
-
 	@PostMapping("/submit")
 	public ModelAndView submit(User u1, @RequestParam("password_confirm") String p2) {
 
@@ -92,22 +82,35 @@ public class UserController {
 
 	}
 
-	@RequestMapping("/favorites")
-	public ModelAndView favorites() {
-		return new ModelAndView("fav_jobs");
-	}
-
 	@RequestMapping("/quiz")
 	public ModelAndView quiz() {
 		return new ModelAndView("quiz");
 	}
 
 	@PostMapping("/submitquiz")
-	public ModelAndView submitquiz(Quiz quiz) {
+	public ModelAndView submitquiz(Quiz quiz, @RequestParam("userid") int id) {
+
 		System.out.println(quiz);
+		quiz.setId(id);
+
 		qr.save(quiz);
 
-		return new ModelAndView("index", "user", quiz.getUser());
+		return new ModelAndView("index", "user", ur.findById(quiz.getId()));
+	}
+
+	@RequestMapping("/about")
+	public ModelAndView about() {
+		return new ModelAndView("about");
+	}
+
+	@RequestMapping("/contact")
+	public ModelAndView contact() {
+		return new ModelAndView("contact");
+	}
+
+	@RequestMapping("/favorites")
+	public ModelAndView favorites() {
+		return new ModelAndView("fav_jobs");
 	}
 
 }

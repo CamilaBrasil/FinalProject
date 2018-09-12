@@ -37,6 +37,7 @@
 		</div>
 	</nav>
 	
-	 ${user.email }
+	 ${user.email}
+	 ${user.firstname }
 </body>
 </html>

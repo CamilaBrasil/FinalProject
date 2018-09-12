@@ -37,7 +37,7 @@
 	</nav>
 
 	<div style="padding: 5%">
-		<h1>Welcome, ${firstname }! Quiz time!!</h1>
+		<h1>Welcome, ${user.firstname }! Quiz time!!</h1>
 		<br>
 		<h3>years = ${years }</h3>
 		<h3>education = ${education }</h3>
@@ -285,6 +285,7 @@
 
 
 			</fieldset>
+			<input type="hidden" name="userid" value="${user.id }">
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</form>
 		

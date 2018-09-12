@@ -2,12 +2,9 @@ package com.project.Project.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -16,7 +13,7 @@ public class Quiz {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="quiz_id")
+	@Column(name="user_id")
 	private Integer id;
 	@Column(name = "years_exp")
 	private String yearsExp;
@@ -26,9 +23,9 @@ public class Quiz {
 	private String size;
 	private String location;
 
-	@OneToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "user_id", nullable = false)
-	private User user;
+//	@OneToOne(fetch = FetchType.LAZY, optional = false)
+//	@JoinColumn(name = "user_id", nullable = false)
+//	private User user;
 
 	public Quiz() {
 	}
@@ -151,20 +148,6 @@ public class Quiz {
 		this.location = location;
 	}
 
-	/**
-	 * @return the user
-	 */
-	public User getUser() {
-		return user;
-	}
-
-	/**
-	 * @param user the user to set
-	 */
-	public void setUser(User user) {
-		this.user = user;
-	}
-
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -173,7 +156,7 @@ public class Quiz {
 	@Override
 	public String toString() {
 		return "Quiz [id=" + id + ", yearsExp=" + yearsExp + ", education=" + education + ", skills=" + skills
-				+ ", type=" + type + ", size=" + size + ", location=" + location + ", user=" + user + "]";
+				+ ", type=" + type + ", size=" + size + ", location=" + location + "]";
 	}
 
 }

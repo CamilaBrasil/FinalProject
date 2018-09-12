@@ -31,9 +31,6 @@ public class User {
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<FavJobs> favJobsList = new ArrayList<>();
 
-	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "user")
-	private Quiz quiz;
-
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
