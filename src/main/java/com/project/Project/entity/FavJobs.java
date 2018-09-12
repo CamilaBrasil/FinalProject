@@ -36,7 +36,7 @@ public class FavJobs {
 
 		this.favid = favid;
 		this.jobTitle = jobTitle;
-		this.keywords = keywords;
+		this.keywords = keyword;
 		this.joburl = joburl;
 		this.description = description;
 		this.location = location;
@@ -46,7 +46,7 @@ public class FavJobs {
 	public FavJobs(String jobTitle, String keyword, String joburl, String description, String location, User user) {
 		super();
 		this.jobTitle = jobTitle;
-		this.keywords = keywords;
+		this.keywords = keyword;
 		this.joburl = joburl;
 		this.description = description;
 		this.location = location;
