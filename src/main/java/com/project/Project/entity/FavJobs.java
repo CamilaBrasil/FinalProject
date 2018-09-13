@@ -23,16 +23,14 @@ public class FavJobs {
 	private String description;
 	private String location;
 	
-	@ManyToOne
-	@JoinColumn(name="user_id")
-	private User user;
+//	@ManyToOne
+//	private User user;
 
 	public FavJobs() {
 	
 	}
 
-	public FavJobs(Integer favid, String jobTitle, String keyword, String joburl, String description, String location,
-			User user) {
+	public FavJobs(Integer favid, String jobTitle, String keyword, String joburl, String description, String location) {
 
 		this.favid = favid;
 		this.jobTitle = jobTitle;
@@ -40,17 +38,17 @@ public class FavJobs {
 		this.joburl = joburl;
 		this.description = description;
 		this.location = location;
-		this.user = user;
+		//this.user = user;
 	}
 
-	public FavJobs(String jobTitle, String keyword, String joburl, String description, String location, User user) {
+	public FavJobs(String jobTitle, String keyword, String joburl, String description, String location) {
 		super();
 		this.jobTitle = jobTitle;
 		this.keywords = keyword;
 		this.joburl = joburl;
 		this.description = description;
 		this.location = location;
-		this.user = user;
+		//this.user = user;
 	}
 
 	public Integer getFavid() {
@@ -101,18 +99,18 @@ public class FavJobs {
 		this.location = location;
 	}
 
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
+//	public User getUser() {
+//		return user;
+//	}
+//
+//	public void setUser(User user) {
+//		this.user = user;
+//	}
 
 	@Override
 	public String toString() {
 		return "FavJobs [favid=" + favid + ", jobTitle=" + jobTitle + ", keywords=" + keywords + ", joburl=" + joburl
-				+ ", description=" + description + ", location=" + location + ", user=" + user + "]";
+				+ ", description=" + description + ", location=" + location + ", user="  + "]";
 	}
 	
 	

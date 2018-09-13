@@ -13,7 +13,7 @@ public class Quiz {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "user_id")
+	@Column(name = "skills_id")
 	private Integer id;
 	private String skills;
 

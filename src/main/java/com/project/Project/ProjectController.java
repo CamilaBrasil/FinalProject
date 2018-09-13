@@ -36,10 +36,16 @@ public class ProjectController {
 			System.out.println("checkbox is not checked");
 		}
 		System.out.println(checkboxValue);
+		System.out.println("test1");
+
 		String[] skillz = checkboxValue.split(",");
-		System.out.println(skillz);
-		
+		System.out.println(skillz.toString());
+		System.out.println("test2");
+
 		for(int i =0; i < skillz.length;i++) {
+			System.out.println(skillz.length);
+			System.out.println(skillz[i]);
+
 			qr.save(skillz[i]);
 		}
 

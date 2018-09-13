@@ -12,7 +12,7 @@ public interface UserRepo extends JpaRepository<User, Integer>{
 
 	User findByEmail(String keyword);
 //	Optional<User> findById(Integer id);
-	List<FavJobs> findFavJobsListByUser_id(Integer id);
+	//List<FavJobs> findFavJobsListByUser_id(Integer id);
 	
 	
 }

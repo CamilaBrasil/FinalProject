@@ -15,7 +15,7 @@ import com.project.Project.entity.FavJobs;
 public class TempController {
 	
 	@Autowired
-	UserRepo ur;
+	//UserRepo ur;
 //	QuizRepo qr;
 	JobsRepo jr;
 	
@@ -23,13 +23,13 @@ public class TempController {
 	
 	//Should be moved to JobsController 
 	
-	@RequestMapping("/favorites")
-	public ModelAndView favJobs() {
-		
-		List<FavJobs> jobs = ur.findFavJobsListByUser_id(16);
-		System.out.println(jobs.toString());
-		
-		return new ModelAndView("fav_jobs", "jobs", jobs);
-	}
+//	@RequestMapping("/favorites")
+//	public ModelAndView favJobs() {
+//		
+//		List<FavJobs> jobs = ur.findFavJobsListByUser_id(16);
+//		System.out.println(jobs.toString());
+//		
+//		return new ModelAndView("fav_jobs", "jobs", jobs);
+//	}
 
 }
