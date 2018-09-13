@@ -112,9 +112,4 @@ public class UserController {
 		return new ModelAndView("contact");
 	}
 
-	@RequestMapping("/favorites")
-	public ModelAndView favorites() {
-		return new ModelAndView("fav_jobs");
-	}
-
 }
