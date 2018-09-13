@@ -1,21 +1,24 @@
 package com.project.Project;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.project.Project.dao.JobsRepo;
 import com.project.Project.dao.QuizRepo;
 import com.project.Project.dao.UserRepo;
+import com.project.Project.entity.FavJobs;
 
 @Controller
 public class TempController {
 	
 	@Autowired
 	UserRepo ur;
-	
-	@Autowired
 	QuizRepo qr;
+	JobsRepo jr;
 	
 	
 	
@@ -24,9 +27,9 @@ public class TempController {
 	@RequestMapping("/favorites")
 	public ModelAndView favJobs() {
 		
+		List<FavJobs> jobs = jr.findAll();
 		
-		
-		return new ModelAndView("fav_jobs");
+		return new ModelAndView("fav_jobs", "jobs", jobs);
 	}
 
 }
