@@ -38,6 +38,6 @@
 	</nav>
 	
 	 ${user.email}
-	 ${user.firstname }
+	 ${user.firstname}
 </body>
 </html>

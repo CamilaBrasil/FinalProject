@@ -1,5 +1,7 @@
 package com.project.Project;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,10 +16,12 @@ import com.project.Project.entity.Quiz;
 import com.project.Project.entity.User;
 
 @Controller
-@SessionAttributes("email")
+@SessionAttributes("user")
 public class UserController {
 	@Autowired
 	UserRepo ur;
+	
+	@Autowired
 	QuizRepo qr;
 
 	@RequestMapping("/")
@@ -31,22 +35,22 @@ public class UserController {
 		return new ModelAndView("login");
 	}
 
-	@RequestMapping("/submitlogin")
-	public ModelAndView loginPage(@RequestParam("email") String email, @RequestParam("password") String password) {
+	@PostMapping("/submitlogin")
+	public ModelAndView loginPage(@RequestParam("email") String email, @RequestParam("password") String password, HttpSession session) {
 
-		ModelAndView mv = new ModelAndView("index");
+		//ModelAndView mv = new ModelAndView("index");
 		User user = ur.findByEmail(email);
 
 		if (user != null) {
-
 			if (user.getPassword().equals(password)) {
+				session.setAttribute("user", user);
 
 //			mv.addObject("firstname", user.getFirstname());
 //			mv.addObject("lastname", user.getLastname());
 //			mv.addObject("zipcode", user.getZipcode());
 //			mv.addObject("password", user.getPassword());
 
-				return new ModelAndView("quiz", "email", user.getEmail());
+				return new ModelAndView("index");
 			} else {
 				return new ModelAndView("login", "title", "The password does not match");
 			}
