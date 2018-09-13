@@ -1,16 +1,23 @@
 package com.project.Project;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.project.Project.dao.QuizRepo;
 import com.project.Project.entity.ParentJson;
+import com.project.Project.entity.Quiz;
 
 @Controller
 public class JobsController {
 
+	@Autowired
+	QuizRepo qr;
+	
 	@Value("${privatekey}")
 	private String privatekey;
 
@@ -23,6 +30,15 @@ public class JobsController {
 
 		System.out.println(test);
 		return new ModelAndView("jobid", "jobdata", test);
+	}
+	
+	@RequestMapping("/submitquiz")
+	public ModelAndView jobList(Quiz quiz) {
+		ModelAndView mc = new ModelAndView("job_results");
+		
+		System.out.println(quiz);
+		qr.save(quiz);
+		return new ModelAndView ("job_results");
 	}
 
 }
