@@ -5,7 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -18,11 +17,8 @@ public class Skills {
 	private Integer id;
 	@Column(name="skills")
 	private String skills;
-
-//	@ManyToOne(mappedBy="")
-//	@OneToOne(fetch = FetchType.LAZY, optional = false)
-//	@JoinColumn(name = "user_id", nullable = false)
-//	private User user;
+	private Integer user_id;
+	
 
 	public Skills() {
 	}
@@ -47,6 +43,14 @@ public class Skills {
 
 	public void setSkills(String skills) {
 		this.skills = skills;
+	}
+	
+	public int getUser_id() {
+		return user_id;
+	}
+
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
 	}
 
 	@Override

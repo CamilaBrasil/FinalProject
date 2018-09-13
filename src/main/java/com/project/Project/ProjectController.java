@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.project.Project.dao.QuizRepo;
 import com.project.Project.dao.UserRepo;
 import com.project.Project.entity.Skills;
+import com.project.Project.entity.User;
 
 @Controller
 @SessionAttributes("email")
@@ -30,7 +31,7 @@ public class ProjectController {
 //	}
 
 	@PostMapping("/submitq")
-	public void editCustomer(@RequestParam(value = "skills", required = false) String checkboxValue) {
+	public void editCustomer(@RequestParam(value = "skills", required = false) String checkboxValue, @RequestParam(value ="userObject") User user) {
 		if (checkboxValue != null) {
 			System.out.println("checkbox is checked");
 		} else {
@@ -42,7 +43,7 @@ public class ProjectController {
 		String[] skillz = checkboxValue.split(",");
 		System.out.println(skillz.toString());
 		System.out.println("test2");
-
+		System.out.println("USER: " + user);
 		for(int i =0; i < skillz.length;i++) {
 			Skills skill = new Skills();
 			skill.setSkills(skillz[i]);
