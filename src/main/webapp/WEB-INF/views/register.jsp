@@ -38,10 +38,11 @@
 		</div>
 	</nav>
 
-	<h2>${title }</h2>
+
 
 
 	<div style="padding: 5%">
+		<h2>${title }</h2>
 		<form class="form-horizontal" action="/submit" method="POST">
 			<fieldset>
 				<div id="legend">

@@ -21,7 +21,7 @@
 
 		<div class="collapse navbar-collapse" id="navbarColor01">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item"><a class="nav-link" href="/login">Login</a>
+				<li class="nav-item"><a class="nav-link" href="/">Home</a>
 				</li>
 				<li class="nav-item"><a class="nav-link" href="register">Register</a>
 				</li>
@@ -35,6 +35,8 @@
 	</nav>
 
 	<div style="padding: 5%">
+	
+	<h3>${title }</h3>
 		<form class="form-horizontal" action="/submitlogin" method="POST">
 			<fieldset>
 				<div id="legend">

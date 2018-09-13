@@ -20,7 +20,7 @@
 
 		<div class="collapse navbar-collapse" id="navbarColor01">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item"><a class="nav-link" href="/">Find Jobs</a>
+				<li class="nav-item"><a class="nav-link" href="/job_results">Find Jobs</a>
 				</li>
 				<li class="nav-item"><a class="nav-link" href="/favorites">Matches</a>
 				</li>
@@ -35,6 +35,8 @@
 			</form>
 		</div>
 	</nav>
+	
+	
 
 	<div style="padding: 5%">
 		${email}
@@ -49,6 +51,8 @@
 			id="fileupload" required><br><br>
 		<button type="submit" class="btn btn-primary">Upload!</button>
 		</form><br> -->
+		
+		
 <form class="form-horizontal" action="/submitq" method="POST">
 		<!-- YEARS_EXP -->
 		<legend>Years of experience</legend>

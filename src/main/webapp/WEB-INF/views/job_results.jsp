@@ -20,7 +20,9 @@
 
 		<div class="collapse navbar-collapse" id="navbarColor01">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item"><a class="nav-link" href="/">Find Jobs</a>
+				<li class="nav-item"><a class="nav-link" href="/home">Home</a>
+				</li>
+				<li class="nav-item"><a class="nav-link" href="/job_results">Find Jobs</a>
 				</li>
 				<li class="nav-item"><a class="nav-link" href="/favorites">Matches</a>
 				</li>
@@ -28,10 +30,10 @@
 				</li>
 				<li class="nav-item"><a class="nav-link" href="/contact">Contact</a>
 				</li>
+				<li class="nav-item"><a class="nav-link" href="/login">Log
+						Out</a></li>
 			</ul>
-	<p>Welcome, ${firstname }</p>
-		</div>
-	</nav>
+			
 
 <table class="table table-hover">
   <thead>

@@ -38,17 +38,30 @@
 
 
 	<div class="jumbotron">
-		<h1 class="display-3">Hello, world!</h1>
-		<p class="lead">This is a simple hero unit, a simple
-			jumbotron-style component for calling extra attention to featured
-			content or information.</p>
+		<h1 class="display-3">bla bla bla About the project</h1>
+		<p class="lead">Cupcake ipsum dolor sit amet cupcake. Caramels
+			tart cake. Tiramisu jelly-o lollipop cupcake. Toffee candy candy
+			canes bonbon jelly beans halvah. Wafer jujubes fruitcake chocolate
+			bar icing. Gummi bears lollipop chupa chups biscuit dragée cheesecake
+			ice cream toffee. Jelly beans croissant candy oat cake sesame snaps.
+			Bonbon gingerbread macaroon sugar plum toffee cookie apple pie. Donut
+			cupcake caramels halvah candy pastry candy canes cupcake. Gummies
+			donut tart cake jelly soufflé macaroon sesame snaps chupa chups.
+
+			Marzipan tiramisu cotton candy cookie wafer sesame snaps tootsie
+			roll. Carrot cake cupcake chocolate bar chupa chups gingerbread candy
+			canes gummies croissant cheesecake. Powder fruitcake candy canes
+			gummies cookie bear claw tootsie roll cotton candy. Donut liquorice
+			bonbon toffee sweet cake. Dragée soufflé donut halvah liquorice
+			cookie bonbon. Apple pie cake gummi bears chocolate candy caramels
+			bonbon biscuit. Lemon drops sweet roll sweet roll. Cotton candy
+			jelly-o gummies cake fruitcake bonbon sugar plum gummies biscuit.</p>
 		<hr class="my-4">
-		<p>It uses utility classes for typography and spacing to space
-			content out within the larger container.</p>
-		<p class="lead">
-			<a class="btn btn-info btn-lg" href="#" role="button">Learn
-				more</a>
-		</p>
+		<p>I love powder ice cream gummi bears sweet roll lemon drops
+			cupcake toffee gummies. Powder powder halvah. Brownie halvah I love
+			tiramisu dessert cookie liquorice pudding. Powder bonbon I love I
+			love apple pie icing toffee sweet.</p>
+		<p class="lead"></p>
 	</div>
 
 </body>
