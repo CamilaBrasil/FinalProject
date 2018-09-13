@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.project.Project.dao.QuizRepo;
 import com.project.Project.entity.ParentJson;
-import com.project.Project.entity.Quiz;
+import com.project.Project.entity.Skills;
 
 @Controller
 public class JobsController {

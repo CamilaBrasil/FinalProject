@@ -14,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.project.Project.dao.QuizRepo;
 import com.project.Project.dao.UserRepo;
-import com.project.Project.entity.Quiz;
+import com.project.Project.entity.Skills;
 import com.project.Project.entity.User;
 
 @Controller

@@ -2,6 +2,7 @@ package com.project.Project.entity;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,100 +25,109 @@ public class User {
 	private String zipcode;
 	private String password;
 
-	@OneToMany//(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-	@JoinColumn(name="user_id")
-	private List<FavJobs> favJobsList = new ArrayList<>();
+//	@OneToMany//(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+//	@JoinColumn(name="user_id")
+//	private List<FavJobs> favJobsList = new ArrayList<>();
+	@OneToMany(mappedBy="user")
+	private Set<FavJobs> favJobs;
+	
+//	@OneToMany//(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+//	@JoinColumn(name="user_id")
+//	private List<Skills> skillsList = new ArrayList<>();
+	@OneToMany(mappedBy="user")
+	private Set<Skills> skills;
 
 //	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
 //	private List<FavJobs> favJobsList = new ArrayList<>();
+	
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public User(Integer id, String firstname, String lastname, String email, String zipcode, String password,
-			List<FavJobs> favJobsList) {
-		super();
-		this.user_id = id;
-		this.firstname = firstname;
-		this.lastname = lastname;
-		this.email = email;
-		this.zipcode = zipcode;
-		this.password = password;
-		this.favJobsList = favJobsList;
-	}
+public User(Integer user_id, String firstname, String lastname, String email, String zipcode, String password,
+		Set<FavJobs> favJobs, Set<Skills> skills) {
+	super();
+	this.user_id = user_id;
+	this.firstname = firstname;
+	this.lastname = lastname;
+	this.email = email;
+	this.zipcode = zipcode;
+	this.password = password;
+	this.favJobs = favJobs;
+	this.skills = skills;
+}
 
-	public User(String firstname, String lastname, String email, String zipcode, String password,
-			List<FavJobs> favJobsList) {
-		super();
-		this.firstname = firstname;
-		this.lastname = lastname;
-		this.email = email;
-		this.zipcode = zipcode;
-		this.password = password;
-		this.favJobsList = favJobsList;
-	}
+public Integer getUser_id() {
+	return user_id;
+}
 
-	public Integer getId() {
-		return user_id;
-	}
+public void setUser_id(Integer user_id) {
+	this.user_id = user_id;
+}
 
-	public void setId(Integer id) {
-		this.user_id = id;
-	}
+public String getFirstname() {
+	return firstname;
+}
 
-	public String getFirstname() {
-		return firstname;
-	}
+public void setFirstname(String firstname) {
+	this.firstname = firstname;
+}
 
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
-	}
+public String getLastname() {
+	return lastname;
+}
 
-	public String getLastname() {
-		return lastname;
-	}
+public void setLastname(String lastname) {
+	this.lastname = lastname;
+}
 
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
-	}
+public String getEmail() {
+	return email;
+}
 
-	public String getEmail() {
-		return email;
-	}
+public void setEmail(String email) {
+	this.email = email;
+}
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+public String getZipcode() {
+	return zipcode;
+}
 
-	public String getZipcode() {
-		return zipcode;
-	}
+public void setZipcode(String zipcode) {
+	this.zipcode = zipcode;
+}
 
-	public void setZipcode(String zipcode) {
-		this.zipcode = zipcode;
-	}
+public String getPassword() {
+	return password;
+}
 
-	public String getPassword() {
-		return password;
-	}
+public void setPassword(String password) {
+	this.password = password;
+}
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+public Set<FavJobs> getFavJobs() {
+	return favJobs;
+}
 
-	public List<FavJobs> getFavJobsList() {
-		return favJobsList;
-	}
+public void setFavJobs(Set<FavJobs> favJobs) {
+	this.favJobs = favJobs;
+}
 
-	public void setFavJobsList(List<FavJobs> favJobsList) {
-		this.favJobsList = favJobsList;
-	}
+public Set<Skills> getSkills() {
+	return skills;
+}
 
-	@Override
-	public String toString() {
-		return "User [id=" + user_id + ", firstname=" + firstname + ", lastname=" + lastname + ", email=" + email
-				+ ", zipcode=" + zipcode + ", password=" + password + ", favJobsList=" + favJobsList + "]";
-	}
+public void setSkills(Set<Skills> skills) {
+	this.skills = skills;
+}
+
+@Override
+public String toString() {
+	return "User [user_id=" + user_id + ", firstname=" + firstname + ", lastname=" + lastname + ", email=" + email
+			+ ", zipcode=" + zipcode + ", password=" + password + ", favJobs=" + favJobs + ", skills=" + skills + "]";
+}
+
+	
 
 }
