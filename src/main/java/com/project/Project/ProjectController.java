@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.project.Project.dao.QuizRepo;
 import com.project.Project.dao.UserRepo;
+import com.project.Project.entity.Skills;
 
 @Controller
 @SessionAttributes("email")
@@ -43,10 +44,13 @@ public class ProjectController {
 		System.out.println("test2");
 
 		for(int i =0; i < skillz.length;i++) {
+			Skills skill = new Skills();
+			skill.setSkills(skillz[i]);
+			
 			System.out.println(skillz.length);
-			System.out.println(skillz[i]);
+			System.out.println(skill);
 
-			qr.save(skillz[i]);
+			qr.save(skill);
 		}
 
 	}

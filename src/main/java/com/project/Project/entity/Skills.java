@@ -5,26 +5,29 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "quiz")
-public class Quiz {
+@Table(name = "skills")
+public class Skills {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "skills_id")
 	private Integer id;
+	@Column(name="skills")
 	private String skills;
 
+//	@ManyToOne(mappedBy="")
 //	@OneToOne(fetch = FetchType.LAZY, optional = false)
 //	@JoinColumn(name = "user_id", nullable = false)
 //	private User user;
 
-	public Quiz() {
+	public Skills() {
 	}
 
-	public Quiz(Integer id, String skills) {
+	public Skills(Integer id, String skills) {
 		super();
 		this.id = id;
 		this.skills = skills;

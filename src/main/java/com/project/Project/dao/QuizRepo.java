@@ -2,10 +2,9 @@ package com.project.Project.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.project.Project.entity.Quiz;
+import com.project.Project.entity.Skills;
 
-public interface QuizRepo extends JpaRepository<Quiz, Integer> {
+public interface QuizRepo extends JpaRepository<Skills, Integer> {
 
-	void save(String skillz);
 
 }

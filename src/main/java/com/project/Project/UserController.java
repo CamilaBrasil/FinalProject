@@ -133,7 +133,7 @@ public class UserController {
 		Optional<User> u1 = ur.findById(2);
 		
 		
-		return new ModelAndView("fav_jobs", "jobs", u1.get().getFavJobsList());
+		return new ModelAndView("fav_jobs", "jobs", u1.get().getFavJobs());
 	}
 
 }
