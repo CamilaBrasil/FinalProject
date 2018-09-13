@@ -14,7 +14,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.project.Project.dao.QuizRepo;
 import com.project.Project.dao.UserRepo;
-import com.project.Project.entity.Quiz;
 import com.project.Project.entity.User;
 
 @Controller
@@ -126,6 +125,15 @@ public class UserController {
 	@RequestMapping("/contact")
 	public ModelAndView contact() {
 		return new ModelAndView("contact");
+	}
+	
+	@RequestMapping("/favorites")
+	public ModelAndView favJobs(HttpSession session) {
+		
+		Optional<User> u1 = ur.findById(2);
+		
+		
+		return new ModelAndView("fav_jobs", "jobs", u1.get().getFavJobsList());
 	}
 
 }

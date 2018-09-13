@@ -40,37 +40,22 @@
 		<thead>
 			<tr>
 				<th scope="col">Job Title</th>
-				<th scope="col">Company</th>
+				<th scope="col">URL</th>
 				<th scope="col">Description</th>
-				<th scope="col">Contact</th>
+				<th scope="col">Location</th>
 			</tr>
 		</thead>
-
-
-		<tbody>
-			<c:forEach var="t" items="${findTeam}">
-				<tr>
-					<td>${t.teamId}</td>
-					<td>${t.teamName}</td>
-					<td><a class="btn btn-light btn-sm"
-						href="/food/${food.id}/update">Edit</a> <a
-						class="btn btn-light btn-sm" href="/food/${food.id}/delete">Delete</a>
-					</td>
-				</tr>
-			</c:forEach>
-		</tbody>
-
 
 		<tbody>
 			<c:forEach var="j" items="${jobs}">
 				<tr class="table-active">
-
-					<tr class="table-primary">
+				<tr class="table-primary">
 					<td>${j.jobTitle}</td>
-					<td>${j.company}</td>
+					<td>${j.joburl}</td>
 					<td>${j.description}</td>
-					<td>${j.contact}</td>
-				</tr></c:forEach>
+					<td>${j.location}</td>
+				</tr>
+			</c:forEach>
 			<!-- 		<tr>
 					<th scope="row">Default</th>
 					<td>Column content</td>
