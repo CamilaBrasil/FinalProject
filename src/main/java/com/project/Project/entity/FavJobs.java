@@ -20,9 +20,7 @@ public class FavJobs {
 	private String joburl;
 	private String description;
 	private String location;
-	
-//	@ManyToOne
-//	private User user;
+	private Integer user_id;
 
 	public FavJobs() {
 	
@@ -36,7 +34,6 @@ public class FavJobs {
 		this.joburl = joburl;
 		this.description = description;
 		this.location = location;
-		//this.user = user;
 	}
 
 	public FavJobs(String jobTitle, String keyword, String joburl, String description, String location) {
@@ -46,7 +43,6 @@ public class FavJobs {
 		this.joburl = joburl;
 		this.description = description;
 		this.location = location;
-		//this.user = user;
 	}
 
 	public Integer getFavid() {
@@ -96,19 +92,28 @@ public class FavJobs {
 	public void setLocation(String location) {
 		this.location = location;
 	}
+	
+	
 
-//	public User getUser() {
-//		return user;
-//	}
-//
-//	public void setUser(User user) {
-//		this.user = user;
-//	}
+
+	/**
+	 * @return the user_id
+	 */
+	public Integer getUser_id() {
+		return user_id;
+	}
+
+	/**
+	 * @param user_id the user_id to set
+	 */
+	public void setUser_id(Integer user_id) {
+		this.user_id = user_id;
+	}
 
 	@Override
 	public String toString() {
 		return "FavJobs [favid=" + favid + ", jobTitle=" + jobTitle + ", keywords=" + keywords + ", joburl=" + joburl
-				+ ", description=" + description + ", location=" + location + ", user="  + "]";
+				+ ", description=" + description + ", location=" + location;
 	}
 	
 	

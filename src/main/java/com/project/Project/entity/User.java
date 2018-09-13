@@ -1,7 +1,5 @@
 package com.project.Project.entity;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -28,18 +26,15 @@ public class User {
 //	@OneToMany//(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
 //	@JoinColumn(name="user_id")
 //	private List<FavJobs> favJobsList = new ArrayList<>();
-	@OneToMany(mappedBy="user")
+	
+	@OneToMany()
+	@JoinColumn(name="user_id")
 	private Set<FavJobs> favJobs;
 	
-//	@OneToMany//(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-//	@JoinColumn(name="user_id")
-//	private List<Skills> skillsList = new ArrayList<>();
-	@OneToMany(mappedBy="user")
+	@OneToMany()
+	@JoinColumn(name="user_id")
 	private Set<Skills> skills;
 
-//	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-//	private List<FavJobs> favJobsList = new ArrayList<>();
-	
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -55,7 +50,7 @@ public User(Integer user_id, String firstname, String lastname, String email, St
 	this.zipcode = zipcode;
 	this.password = password;
 	this.favJobs = favJobs;
-	this.skills = skills;
+	//this.skills = skills;
 }
 
 public Integer getUser_id() {
@@ -114,18 +109,18 @@ public void setFavJobs(Set<FavJobs> favJobs) {
 	this.favJobs = favJobs;
 }
 
-public Set<Skills> getSkills() {
-	return skills;
-}
-
-public void setSkills(Set<Skills> skills) {
-	this.skills = skills;
-}
+//public Set<Skills> getSkills() {
+//	return skills;
+//}
+//
+//public void setSkills(Set<Skills> skills) {
+//	this.skills = skills;
+//}
 
 @Override
 public String toString() {
 	return "User [user_id=" + user_id + ", firstname=" + firstname + ", lastname=" + lastname + ", email=" + email
-			+ ", zipcode=" + zipcode + ", password=" + password + ", favJobs=" + favJobs + ", skills=" + skills + "]";
+			+ ", zipcode=" + zipcode + ", password=" + password + ", favJobs=" + favJobs + ", skills="  + "]"; //+ skills
 }
 
 	

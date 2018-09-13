@@ -32,6 +32,18 @@ public class JobsController {
 		return new ModelAndView("jobid", "jobdata", test);
 	}
 	
+	
+	@GetMapping("/jobs")
+	public ModelAndView jobs() {
+		RestTemplate restTemplate = new RestTemplate();
+
+		ParentJson test = restTemplate.getForObject("https://authenticjobs.com/api/?api_key=" + privatekey
+				+ "&method=aj.jobs.search&keywords=java&perpage=1&format=json", ParentJson.class);
+
+		System.out.println(test);
+		return new ModelAndView("job_results", "jobs", test);
+	}
+	
 //	@RequestMapping("/submitquiz1")
 //	public ModelAndView jobList(Quiz quiz) {
 //		ModelAndView mc = new ModelAndView("job_results");
