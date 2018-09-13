@@ -32,13 +32,13 @@ public class JobsController {
 		return new ModelAndView("jobid", "jobdata", test);
 	}
 	
-	@RequestMapping("/submitquiz")
-	public ModelAndView jobList(Quiz quiz) {
-		ModelAndView mc = new ModelAndView("job_results");
-		
-		System.out.println(quiz);
-		qr.save(quiz);
-		return new ModelAndView ("job_results");
-	}
+//	@RequestMapping("/submitquiz1")
+//	public ModelAndView jobList(Quiz quiz) {
+//		ModelAndView mc = new ModelAndView("job_results");
+//		
+//		System.out.println(quiz);
+//		qr.save(quiz);
+//		return new ModelAndView ("job_results");
+//	}
 
 }

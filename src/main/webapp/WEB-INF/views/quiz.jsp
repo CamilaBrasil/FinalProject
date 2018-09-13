@@ -49,7 +49,7 @@
 			id="fileupload" required><br><br>
 		<button type="submit" class="btn btn-primary">Upload!</button>
 		</form><br> -->
-<form class="form-horizontal" action="/submitquiz" method="POST">
+<form class="form-horizontal" action="/submitq" method="POST">
 		<!-- YEARS_EXP -->
 		<legend>Years of experience</legend>
 		<div class="form-group">

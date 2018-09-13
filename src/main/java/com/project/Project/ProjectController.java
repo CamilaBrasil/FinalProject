@@ -31,7 +31,7 @@ public class ProjectController {
 //		return new ModelAndView("index", "user", ur.findById(quiz.getId()));
 //	}
 	
-	@PostMapping(value = "/submitquiz")
+	@PostMapping("/submitq")
 	public void editCustomer(@RequestParam(value = "checkboxName", required = false) String checkboxValue) 
 	{
 	  if(checkboxValue != null)
