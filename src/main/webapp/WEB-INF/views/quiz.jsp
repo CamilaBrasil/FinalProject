@@ -130,28 +130,28 @@
 				<div class="form-group">
 					<div class="custom-control custom-checkbox">
 						<input type="checkbox" class="custom-control-input"
-							id="customCheck1" name="sd" value="software development"> <label
+							id="customCheck1" name="skills" value="software development"> <label
 							class="custom-control-label" for="customCheck1">Software
 							development</label>
 					</div>
 					<div class="custom-control custom-checkbox">
 						<input type="checkbox" class="custom-control-input"
-							id="customCheck2" name="html" value="html"><label
+							id="customCheck2" name="skills" value="html"><label
 							class="custom-control-label" for="customCheck2">HTML</label>
 					</div>
 					<div class="custom-control custom-checkbox">
 						<input type="checkbox" class="custom-control-input"
-							id="customCheck3" name="css" value="css"> <label
+							id="customCheck3" name="skills" value="css"> <label
 							class="custom-control-label" for="customCheck3">CSS</label>
 					</div>
 					<div class="custom-control custom-checkbox">
 						<input type="checkbox" class="custom-control-input"
-							id="customCheck4" name="js" value="javascript"><label
+							id="customCheck4" name="skills" value="javascript"><label
 							class="custom-control-label" for="customCheck4">JavaScript</label>
 					</div>
 					<div class="custom-control custom-checkbox">
 						<input type="checkbox" class="custom-control-input"
-							id="customCheck5" name="java" value="java"> <label
+							id="customCheck5" name="skills" value="java"> <label
 							class="custom-control-label" for="customCheck5">Java</label>
 					</div>
 					<div class="custom-control custom-checkbox">

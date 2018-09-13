@@ -6,4 +6,6 @@ import com.project.Project.entity.Quiz;
 
 public interface QuizRepo extends JpaRepository<Quiz, Integer> {
 
+	void save(String skillz);
+
 }
