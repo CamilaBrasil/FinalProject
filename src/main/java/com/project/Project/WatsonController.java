@@ -82,7 +82,6 @@ public class WatsonController {
 				"Bonus Points if you have:\r\n" + 
 				"Certifications:  AWS Solution Architect, AWS Cloud Practitioner, Azure DevOps or any similar\r\n" + 
 				"Experience with Machine Learning Solutions";
-		String model = "Machine Learning Solutions";
 
 		EntitiesOptions entitiesOptions = new EntitiesOptions.Builder().emotion(true).sentiment(true).limit(2).build();
 
