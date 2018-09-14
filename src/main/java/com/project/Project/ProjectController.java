@@ -44,17 +44,15 @@ public class ProjectController {
 		System.out.println(skillz.toString());
 		System.out.println("test2");
 
-		
 		for(int i =0; i < skillz.length;i++) {
 			Skills skill = new Skills();
 			skill.setSkills(skillz[i]);
-			skill.setId(id);
+			skill.setUser_id(id);
 			System.out.println(skillz.length);
 			System.out.println(skill);
 
 			qr.save(skill);
 		}
-
 	}
 
 }
