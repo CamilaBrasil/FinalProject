@@ -39,11 +39,7 @@ public class UserController {
 		return new ModelAndView("login");
 	}
 
-	/*
-	 * It will validate if the email is register to an user and if the password
-	 * match, in case of false it will return to the login option, if is correct it
-	 * will go to the home page
-	 */
+	// Submitting login and validating
 	@PostMapping("/submitlogin")
 	public ModelAndView loginPage(@RequestParam("email") String email, @RequestParam("password") String password,
 			HttpSession session) {
@@ -110,24 +106,6 @@ public class UserController {
 //		return new ModelAndView("FrontBack", "quiz", quiz);
 //	}
 
-	// Mapping only for testing
-	@RequestMapping("/quiz")
-	public ModelAndView quiz() {
-		return new ModelAndView("quiz");
-	}
-
-	@PostMapping("/submitquiz")
-	public ModelAndView submitquiz(@RequestParam("skills") String varSkills, @RequestParam("user_id") Integer user_id) {
-
-		Skills quiz = new Skills();
-		quiz.setSkills(varSkills);
-		quiz.setUser_id(user_id);
-		System.out.println(quiz);
-
-		qr.save(quiz);
-
-		return new ModelAndView("home", "user_id", quiz.getUserId());
-	}
 
 	// TODO it needs to be created a second jsp for when already connected
 	@RequestMapping("/about")

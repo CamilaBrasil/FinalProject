@@ -1,5 +1,6 @@
 package com.project.Project;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
@@ -93,6 +93,18 @@ public class JobsController {
 		jr.save(fav);
 
 		return new ModelAndView("home");
+	}
+	
+
+	@GetMapping("/gitjobs")
+	public ModelAndView index() {
+
+		RestTemplate restTemplate = new RestTemplate();
+		// using an array because the json data returns a json array as the parent
+		GithubJob[] quote = restTemplate.getForObject("https://jobs.github.com/positions.json?description=java&page=1",
+				GithubJob[].class);
+		System.out.println(Arrays.asList(quote));
+		return new ModelAndView("gitjobs", "githubresults", quote);
 	}
 
 }
