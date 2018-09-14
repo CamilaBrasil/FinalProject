@@ -50,7 +50,7 @@
 			<c:forEach var="j" items="${jobs}">
 				<tr class="table-active">
 				<tr class="table-primary">
-					<td>${j.title}</td>
+					<td>${j.jobTitle}</td>
 				</tr>
 			</c:forEach>
 			<!-- 		<tr>
