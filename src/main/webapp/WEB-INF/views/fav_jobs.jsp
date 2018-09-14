@@ -39,10 +39,10 @@
 	<table class="table table-hover">
 		<thead>
 			<tr>
-				<th scope="col">Job Title</th>
+				<!-- <th scope="col">Job Title</th>
 				<th scope="col">URL</th>
 				<th scope="col">Description</th>
-				<th scope="col">Location</th>
+				<th scope="col">Location</th> -->
 			</tr>
 		</thead>
 
@@ -50,10 +50,7 @@
 			<c:forEach var="j" items="${jobs}">
 				<tr class="table-active">
 				<tr class="table-primary">
-					<td>${j.jobTitle}</td>
-					<td>${j.joburl}</td>
-					<td>${j.description}</td>
-					<td>${j.location}</td>
+					<td>${j.title}</td>
 				</tr>
 			</c:forEach>
 			<!-- 		<tr>

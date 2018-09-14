@@ -1,5 +1,8 @@
 package com.project.Project;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -9,14 +12,17 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.project.Project.dao.QuizRepo;
+import com.project.Project.dao.UserRepo;
+import com.project.Project.entity.Listing;
 import com.project.Project.entity.ParentJson;
-import com.project.Project.entity.Skills;
+import com.project.Project.entity.User;
 
 @Controller
 public class JobsController {
 
 	@Autowired
 	QuizRepo qr;
+	UserRepo ur;
 	
 	@Value("${privatekey}")
 	private String privatekey;
@@ -40,8 +46,13 @@ public class JobsController {
 		ParentJson test = restTemplate.getForObject("https://authenticjobs.com/api/?api_key=" + privatekey
 				+ "&method=aj.jobs.search&keywords=java&perpage=1&format=json", ParentJson.class);
 
-		System.out.println(test);
-		return new ModelAndView("job_results", "jobs", test);
+		List<Listing> list = test.getTest().getListing();
+		//System.out.println(list.get(0).getJob().get(0).getTitle());
+		//System.out.println(list.get(0).getTitle());
+		
+		Optional<User> u1 = ur.findById(2);
+		ModelAndView mv = new ModelAndView("job_results", "list", list);
+		return mv.addObject("user", u1);
 	}
 	
 //	@RequestMapping("/submitquiz1")
@@ -52,5 +63,12 @@ public class JobsController {
 //		qr.save(quiz);
 //		return new ModelAndView ("job_results");
 //	}
+	
+	@RequestMapping("/savejob")
+	public ModelAndView saveJob() {
+		
+		
+		return new ModelAndView("job_results");
+	}
 
 }

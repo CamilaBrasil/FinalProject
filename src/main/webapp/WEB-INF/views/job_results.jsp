@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,9 +21,7 @@
 
 		<div class="collapse navbar-collapse" id="navbarColor01">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item"><a class="nav-link" href="/home">Home</a>
-				</li>
-				<li class="nav-item"><a class="nav-link" href="/job_results">Find Jobs</a>
+				<li class="nav-item"><a class="nav-link" href="/">Find Jobs</a>
 				</li>
 				<li class="nav-item"><a class="nav-link" href="/favorites">Matches</a>
 				</li>
@@ -30,32 +29,23 @@
 				</li>
 				<li class="nav-item"><a class="nav-link" href="/contact">Contact</a>
 				</li>
-				<li class="nav-item"><a class="nav-link" href="/login">Log
-						Out</a></li>
 			</ul>
-			
+		</div>
+	</nav>
 
-	<table class="table table-hover">
-		<thead>
-			<tr>
-				<th scope="col">Job Title</th>
-				<th scope="col">URL</th>
-				<th scope="col">Description</th>
-				<th scope="col">Location</th>
-			</tr>
-		</thead>
+	<p>Welcome, ${firstname}</p>
 
-		<tbody>
-			<c:forEach var="j" items="${jobs}">
-				<tr class="table-susse">
-				<tr class="table-primary">
-					<td>${j.jobTitle}</td>
-					<td>${j.joburl}</td>
-					<td>${j.description}</td>
-					<td>${j.location}</td>
-				</tr>
-			</c:forEach>
-</table> 
-
+	<div style="padding: 5%">
+		<table class="table table-hover">
+			<tbody>
+				<c:forEach var="l" items="${list}">
+					<p>title</p>
+					<p>${l.title}</p>
+					<input type="hidden" id="thisField" name="user_id" value=${l.}>
+				 <input type="hidden" id="thisField" name="user_id" value=${user.user_id}>
+					<a class="btn btn-light btn-sm" href="/savejob">Save</a>
+				</c:forEach>
+		</table>
+	</div>
 </body>
 </html>
