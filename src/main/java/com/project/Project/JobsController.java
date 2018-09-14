@@ -30,7 +30,7 @@ public class JobsController {
 	UserRepo ur;
 	@Autowired
 	JobsRepo jr;
-	
+
 	@Value("${privatekey}")
 	private String privatekey;
 
@@ -44,50 +44,55 @@ public class JobsController {
 //		System.out.println(test);
 //		return new ModelAndView("jobid", "jobdata", test);
 //	}
-	
-	//Show the jobs
+
+	// Show the jobs
 	@GetMapping("/jobs/{user_id}")
 	public ModelAndView jobs(@PathVariable("user_id") Integer user_id) {
 
 		String keywords = qr.findByUserId(user_id).getSkills();
 //		System.out.println("Keywords:  " + qr.findByUserId(user_id).getSkills());
-		
+
 		RestTemplate restTemplate = new RestTemplate();
 		ParentJson test = restTemplate.getForObject("https://authenticjobs.com/api/?api_key=" + privatekey
 				+ "&method=aj.jobs.search&keywords=" + keywords + "&perpage=1&format=json", ParentJson.class);
 
 		List<Listing> list = test.getTest().getListing();
-		
+
 		ModelAndView mv = new ModelAndView("job_results", "list", list);
 		return mv.addObject("user_id", user_id);
 	}
-	
-	
-	@RequestMapping("/savejob/{title}")
-	public ModelAndView saveJob(@PathVariable("title") String title, @RequestParam("user_id") Integer user_id) {
-		
+
+	@RequestMapping("/savejob/{title}/{user_id}")
+	public ModelAndView saveJob(@PathVariable("title") String title, @PathVariable("user_id") Integer user_id) {
+
+		String keywords = qr.findByUserId(user_id).getSkills();
+		RestTemplate restTemplate = new RestTemplate();
+		ParentJson test = restTemplate.getForObject("https://authenticjobs.com/api/?api_key=" + privatekey
+				+ "&method=aj.jobs.search&keywords=" + keywords + "&perpage=1&format=json", ParentJson.class);
+
+		List<Listing> list = test.getTest().getListing();
+
 		System.out.println("title:  " + title);
-		FavJobs fav = new FavJobs();
+		FavJobs fav = new FavJobs(title, user_id);
 //		fav.setDescription(job.getDescription());
-		fav.setJobTitle(title);
-		fav.setUser_id(user_id);		
+//		fav.setJobTitle(title);
+//		fav.setUser_id(user_id);
 		System.out.println("FavJob: " + fav.toString());
 		jr.save(fav);
-		
-		return new ModelAndView("job_results");
+
+		return new ModelAndView("home");
 	}
-	
+
 	@RequestMapping("/testJob")
-	public ModelAndView testJob () {
-		
+	public ModelAndView testJob() {
+
 		FavJobs fav = new FavJobs("test", 1);
 //		fav.setJobTitle("test");
 //		fav.setUser_id(1);
 		System.out.println(fav);
 		jr.save(fav);
-		
-		return new ModelAndView ("home");
+
+		return new ModelAndView("home");
 	}
-	
 
 }
