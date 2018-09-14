@@ -68,7 +68,7 @@ public class JobsController {
 		String keywords = qr.findByUserId(user_id).getSkills();
 		RestTemplate restTemplate = new RestTemplate();
 		ParentJson test = restTemplate.getForObject("https://authenticjobs.com/api/?api_key=" + privatekey
-				+ "&method=aj.jobs.search&keywords=" + keywords + "&perpage=1&format=json", ParentJson.class);
+				+ "&method=aj.jobs.search&keywords=" + keywords + "&perpage=10&format=json", ParentJson.class);
 
 		List<Listing> list = test.getTest().getListing();
 
