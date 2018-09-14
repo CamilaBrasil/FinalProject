@@ -3,13 +3,14 @@ package com.project.Project;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.project.Project.dao.QuizRepo;
 import com.project.Project.dao.UserRepo;
 import com.project.Project.entity.Skills;
-import com.project.Project.entity.User;
 
 @Controller
 @SessionAttributes("email")
@@ -19,16 +20,28 @@ public class ProjectController {
 	UserRepo ur;
 	QuizRepo qr;
 
-//	@PostMapping("/submitquiz")
-//	public ModelAndView submitquiz(Quiz quiz, @RequestParam("userid") int id) {
-//
-//		quiz.setId(id);
-//		System.out.println(quiz);
-//		
-//		qr.save(quiz);
-//
-//		return new ModelAndView("index", "user", ur.findById(quiz.getId()));
-//	}
+
+	@RequestMapping("/frontback")
+	public ModelAndView goToFrontBack() {
+		
+		
+		return new ModelAndView("FrontBack");
+	}
+	
+	@PostMapping("/frontback")
+	public ModelAndView goToIndexTest(@RequestParam("frontEnd") String front, @RequestParam("backEnd") String back) {
+		if(front.equals("yes"))  {
+			Skills skill = new Skills();
+			skill.setSkills(front);
+			qr.save(skill);
+			return new ModelAndView("index");
+		}
+			
+		
+		
+		
+		return new ModelAndView("FrontBack", "testFrontBack", front + " " + back);
+	}
 
 	@PostMapping("/submitq")
 	public void editCustomer(@RequestParam(value = "skills", required = false) String checkboxValue, @RequestParam(value ="userid") Integer id) {

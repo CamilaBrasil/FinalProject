@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.project.Project.dao.QuizRepo;
 import com.project.Project.dao.UserRepo;
+import com.project.Project.entity.Skills;
 import com.project.Project.entity.User;
 
 @Controller
@@ -21,28 +22,31 @@ import com.project.Project.entity.User;
 public class UserController {
 	@Autowired
 	UserRepo ur;
-	
+
 	@Autowired
 	QuizRepo qr;
 
-	//Home before user is register/login
+	// Home before user is register/login
 	@RequestMapping("/")
 	public ModelAndView index() {
 		return new ModelAndView("index");
 
 	}
 
-	//Form to login
+	// Form to login
 	@RequestMapping("/login")
 	public ModelAndView login() {
 		return new ModelAndView("login");
 	}
 
-	/* It will validate if the email is register to an user and if the password match, 
-	in case of false it will return to the login option, if is correct it will go to the home page*/
+	/*
+	 * It will validate if the email is register to an user and if the password
+	 * match, in case of false it will return to the login option, if is correct it
+	 * will go to the home page
+	 */
 	@PostMapping("/submitlogin")
-	public ModelAndView loginPage(@RequestParam("email") String email, @RequestParam("password") 
-	String password, HttpSession session) {
+	public ModelAndView loginPage(@RequestParam("email") String email, @RequestParam("password") String password,
+			HttpSession session) {
 
 		User user = ur.findByEmail(email);
 
@@ -58,23 +62,23 @@ public class UserController {
 			return new ModelAndView("login", "title", "The account was not found, check if the email is correct.");
 		}
 	}
-	
-	//Home page after the user register/login
+
+	// Home page after the user register/login
 	// TODO Needs to pass the session and get the user id.
 	@RequestMapping("/home")
 	public ModelAndView home(HttpSession session) {
 //		User user = ur.findByEmail(email);
-		
+
 		return new ModelAndView("home");
 	}
-	
-	//Calling jsp with the register form
+
+	// Calling jsp with the register form
 	@RequestMapping("/register")
 	public ModelAndView register() {
 		return new ModelAndView("register");
 	}
 
-	//Submiting the registration and doing basic validation
+	// Submiting the registration and doing basic validation
 	@PostMapping("/submit")
 	public ModelAndView submit(User u1, @RequestParam("password_confirm") String p2) {
 
@@ -95,44 +99,54 @@ public class UserController {
 
 	}
 
-	//Mapping only for testing 
+	@RequestMapping("/teste")
+	public ModelAndView teste1() {
+
+		Skills quiz = new Skills();
+		quiz.setSkills("none, none2, none3");
+		quiz.setUser_id(2);
+
+		qr.save(quiz);
+
+		return new ModelAndView("FrontBack", "quiz", quiz);
+	}
+
+	// Mapping only for testing
 	@RequestMapping("/quiz")
 	public ModelAndView quiz() {
 		return new ModelAndView("quiz");
 	}
 
-	
-//	@PostMapping("/submitquiz")
-//	public ModelAndView submitquiz(Quiz quiz, @RequestParam("userid") int id, HttpSession session) {
-//		
-//		Optional<User> user = ur.findById(id);
-//		session.setAttribute("user", user);
-//		quiz.setId(id);
-//		System.out.println(quiz);
-//		
-//		qr.save(quiz);
-//
-//		return new ModelAndView("home", "user", user);
-//	}
+	@PostMapping("/submitquiz")
+	public ModelAndView submitquiz(@RequestParam("skills")  String varSkills, @RequestParam("user_id") Integer user_id) {
 
-	//TODO it needs to be created a second jsp for when already connected
+		Skills quiz = new Skills();
+		quiz.setSkills(varSkills);
+		quiz.setUser_id(user_id);
+		System.out.println(quiz);
+
+		qr.save(quiz);
+
+		return new ModelAndView("home", "user_id", quiz.getUser_id());
+	}
+
+	// TODO it needs to be created a second jsp for when already connected
 	@RequestMapping("/about")
 	public ModelAndView about() {
 		return new ModelAndView("about");
 	}
 
-	//TODO it needs to be created a second jsp for when already connected
+	// TODO it needs to be created a second jsp for when already connected
 	@RequestMapping("/contact")
 	public ModelAndView contact() {
 		return new ModelAndView("contact");
 	}
-	
+
 	@RequestMapping("/favorites")
 	public ModelAndView favJobs(HttpSession session) {
-		
+
 		Optional<User> u1 = ur.findById(2);
-		
-		
+
 		return new ModelAndView("fav_jobs", "jobs", u1.get().getFavJobs());
 	}
 

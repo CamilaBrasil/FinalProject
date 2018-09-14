@@ -22,11 +22,29 @@ public class Skills {
 
 	public Skills() {
 	}
+	
+	public Skills(String skills) {
+		super();
+		this.skills = skills;
+	}
 
 	public Skills(Integer id, String skills) {
 		super();
 		this.id = id;
 		this.skills = skills;
+	}
+	
+	public Skills(String skills, Integer user_id) {
+		super();
+		this.skills = skills;
+		this.user_id = user_id;
+	}
+	
+	public Skills(Integer id, String skills, Integer user_id) {
+		super();
+		this.id = id;
+		this.skills = skills;
+		this.user_id = user_id;
 	}
 
 	public Integer getId() {

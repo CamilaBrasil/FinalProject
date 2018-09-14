@@ -53,7 +53,7 @@
 		</form><br> -->
 		
 		
-<form class="form-horizontal" action="/submitq" method="POST">
+<form class="form-horizontal" action="/submitquiz" method="POST">
 		<!-- YEARS_EXP -->
 		<legend>Years of experience</legend>
 		<div class="form-group">
@@ -283,7 +283,7 @@
 
 
 		<!-- </fieldset> -->
-		<input type="hidden" name="userid" value="${user.user_id}">
+		<input type="hidden" name="user_id" value="${user.user_id}">
 		<button type="submit" class="btn btn-primary">Submit</button>
 		</form>
 
