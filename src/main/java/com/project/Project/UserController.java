@@ -64,12 +64,11 @@ public class UserController {
 	}
 
 	// Home page after the user register/login
-	// TODO Needs to pass the session and get the user id.
 	@RequestMapping("/home")
-	public ModelAndView home(HttpSession session) {
+	public ModelAndView home(@RequestParam("user_id") Integer user_id) {
 //		User user = ur.findByEmail(email);
 
-		return new ModelAndView("home");
+		return new ModelAndView("home", "user_id", user_id);
 	}
 
 	// Calling jsp with the register form
@@ -92,24 +91,24 @@ public class UserController {
 		// Validating if the password and the confirm password are matching
 		if (u1.getPassword().equals(p2)) {
 			ur.save(u1);
-			return new ModelAndView("quiz", "user", u1);
+			return new ModelAndView("quiz", "user_id", u1.getUser_id());
 		} else {
 			return new ModelAndView("register", "title", "The password must match");
 		}
 
 	}
 
-	@RequestMapping("/teste")
-	public ModelAndView teste1() {
-
-		Skills quiz = new Skills();
-		quiz.setSkills("none, none2, none3");
-		quiz.setUser_id(2);
-
-		qr.save(quiz);
-
-		return new ModelAndView("FrontBack", "quiz", quiz);
-	}
+//	@RequestMapping("/teste")
+//	public ModelAndView teste1() {
+//
+//		Skills quiz = new Skills();
+//		quiz.setSkills("none, none2, none3");
+//		quiz.setUser_id(2);
+//
+//		qr.save(quiz);
+//
+//		return new ModelAndView("FrontBack", "quiz", quiz);
+//	}
 
 	// Mapping only for testing
 	@RequestMapping("/quiz")
@@ -118,7 +117,7 @@ public class UserController {
 	}
 
 	@PostMapping("/submitquiz")
-	public ModelAndView submitquiz(@RequestParam("skills")  String varSkills, @RequestParam("user_id") Integer user_id) {
+	public ModelAndView submitquiz(@RequestParam("skills") String varSkills, @RequestParam("user_id") Integer user_id) {
 
 		Skills quiz = new Skills();
 		quiz.setSkills(varSkills);
@@ -127,7 +126,7 @@ public class UserController {
 
 		qr.save(quiz);
 
-		return new ModelAndView("home", "user_id", quiz.getUser_id());
+		return new ModelAndView("home", "user_id", quiz.getUserId());
 	}
 
 	// TODO it needs to be created a second jsp for when already connected
@@ -143,10 +142,9 @@ public class UserController {
 	}
 
 	@RequestMapping("/favorites")
-	public ModelAndView favJobs(HttpSession session) {
+	public ModelAndView favJobs(User user) {
 
-		Optional<User> u1 = ur.findById(2);
-
+		Optional<User> u1 = ur.findById(user.getUser_id());
 		return new ModelAndView("fav_jobs", "jobs", u1.get().getFavJobs());
 	}
 

@@ -30,7 +30,7 @@
 				<li class="nav-item"><a class="nav-link" href="/contact">Contact</a>
 				</li>
 			</ul>
-			<p>Welcome, ${firstname }</p>
+			<p>Welcome, ${user.firstname}</p>
 		</div>
 	</nav>
 

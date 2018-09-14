@@ -25,6 +25,13 @@ public class FavJobs {
 	public FavJobs() {
 	
 	}
+	
+	public FavJobs(String jobTitle, Integer user_id) {
+
+		this.jobTitle = jobTitle;
+		this.user_id = user_id;
+	}
+
 
 	public FavJobs(Integer favid, String jobTitle, String keyword, String joburl, String description, String location) {
 

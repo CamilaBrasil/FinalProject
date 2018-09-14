@@ -38,12 +38,12 @@
 	<div style="padding: 5%">
 		<table class="table table-hover">
 			<tbody>
+			
 				<c:forEach var="l" items="${list}">
 					<p>title</p>
 					<p>${l.title}</p>
-					<input type="hidden" id="thisField" name="user_id" value=${l.}>
-				 <input type="hidden" id="thisField" name="user_id" value=${user.user_id}>
-					<a class="btn btn-light btn-sm" href="/savejob">Save</a>
+					<br>
+					<a href="/savejob/${l.title}/${user.user_id}"><button class="btn btn-light btn-sm">Save</button></a>
 				</c:forEach>
 		</table>
 	</div>

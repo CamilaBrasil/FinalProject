@@ -17,7 +17,8 @@ public class Skills {
 	private Integer id;
 	@Column(name="skills")
 	private String skills;
-	private Integer user_id;
+	@Column(name="user_id")
+	private Integer userId;
 	
 
 	public Skills() {
@@ -34,17 +35,17 @@ public class Skills {
 		this.skills = skills;
 	}
 	
-	public Skills(String skills, Integer user_id) {
+	public Skills(String skills, Integer userId) {
 		super();
 		this.skills = skills;
-		this.user_id = user_id;
+		this.userId = userId;
 	}
 	
-	public Skills(Integer id, String skills, Integer user_id) {
+	public Skills(Integer id, String skills, Integer userId) {
 		super();
 		this.id = id;
 		this.skills = skills;
-		this.user_id = user_id;
+		this.userId = userId;
 	}
 
 	public Integer getId() {
@@ -63,17 +64,17 @@ public class Skills {
 		this.skills = skills;
 	}
 	
-	public int getUser_id() {
-		return user_id;
+	public int getUserId() {
+		return userId;
 	}
 
-	public void setUser_id(int user_id) {
-		this.user_id = user_id;
+	public void setUser_id(int userId) {
+		this.userId = userId;
 	}
 
 	@Override
 	public String toString() {
-		return "Skills [id=" + id + ", skills=" + skills + ", user_id=" + user_id + "]";
+		return "Skills [id=" + id + ", skills=" + skills + ", user_id=" + userId + "]";
 	}
 
 

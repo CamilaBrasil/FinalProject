@@ -283,7 +283,7 @@
 
 
 		<!-- </fieldset> -->
-		<input type="hidden" name="user_id" value="${user.user_id}">
+		<input type="hidden" name="user_id" value="${user_id}">
 		<button type="submit" class="btn btn-primary">Submit</button>
 		</form>
 
