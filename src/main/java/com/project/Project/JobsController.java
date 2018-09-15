@@ -9,7 +9,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
@@ -95,6 +97,19 @@ public class JobsController {
 		jr.save(fav);
 
 		return new ModelAndView("home");
+	}
+	
+	@RequestMapping("/sillyq")
+	public ModelAndView testSillyQ() {
+		
+		return new ModelAndView("sillyquestions");
+	}
+	
+	@PostMapping("/submitsillyq")
+	public ModelAndView testSubmittSillyQ(@RequestParam("quest1") String quest1) {
+		
+		
+		return new ModelAndView("sillyquestions", "test", quest1);
 	}
 	
 	@RequestMapping("/testJobList")
