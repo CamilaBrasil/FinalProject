@@ -1,4 +1,4 @@
-package com.project.Project;
+package com.project.Project.entity;
 
 public class Job {
 	private String jobTitle;

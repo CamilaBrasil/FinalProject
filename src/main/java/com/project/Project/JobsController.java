@@ -16,11 +16,12 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
-//import com.apidemo.ApiDemo.entity.love.LoveMatcher;
 import com.project.Project.dao.JobsRepo;
 import com.project.Project.dao.QuizRepo;
 import com.project.Project.dao.UserRepo;
 import com.project.Project.entity.FavJobs;
+import com.project.Project.entity.GithubJob;
+import com.project.Project.entity.Job;
 import com.project.Project.entity.Listing;
 import com.project.Project.entity.ParentJson;
 
@@ -69,13 +70,14 @@ public class JobsController {
 		return mv.addObject("user_id", user_id);
 	}
 
+	//
 	@RequestMapping("/savejob/{title}/{user_id}")
 	public ModelAndView saveJob(@PathVariable("title") String title, @PathVariable("user_id") Integer user_id) {
 
 		String keywords = qr.findByUserId(user_id).getSkills();
 		RestTemplate restTemplate = new RestTemplate();
 		ParentJson test = restTemplate.getForObject("https://authenticjobs.com/api/?api_key=" + privatekey
-				+ "&method=aj.jobs.search&keywords=java&perpage=10&format=json", ParentJson.class);
+				+ "&method=aj.jobs.search&keywords=" + keywords + "&perpage=10&format=json", ParentJson.class);
 
 		List<Listing> list = test.getTest().getListing();
 		

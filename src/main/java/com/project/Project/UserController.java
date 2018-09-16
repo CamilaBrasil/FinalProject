@@ -94,17 +94,24 @@ public class UserController {
 
 	}
 
-//	@RequestMapping("/teste")
-//	public ModelAndView teste1() {
-//
-//		Skills quiz = new Skills();
-//		quiz.setSkills("none, none2, none3");
-//		quiz.setUser_id(2);
-//
-//		qr.save(quiz);
-//
-//		return new ModelAndView("FrontBack", "quiz", quiz);
-//	}
+	// Mapping only for testing
+	@RequestMapping("/quiz")
+	public ModelAndView quiz() {
+		return new ModelAndView("quiz");
+	}
+
+	@PostMapping("/submitquiz")
+	public ModelAndView submitquiz(@RequestParam("skills") String varSkills, @RequestParam("user_id") Integer user_id) {
+
+		Skills quiz = new Skills();
+		quiz.setSkills(varSkills);
+		quiz.setUser_id(user_id);
+		System.out.println(quiz);
+
+		qr.save(quiz);
+
+		return new ModelAndView("home", "user_id", quiz.getUserId());
+	}
 
 
 	// TODO it needs to be created a second jsp for when already connected
