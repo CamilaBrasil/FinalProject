@@ -110,8 +110,8 @@ public class UserController {
 	public ModelAndView submitquiz(@RequestParam("skills") String varSkills, @RequestParam("user_id") Integer user_id) {
 
 		Quiz quiz = new Quiz();
-		quiz.setSkills(varSkills);
-		quiz.setUser_id(user_id);
+//		quiz.setSkills(varSkills);
+//		quiz.setUser_id(user_id);
 		System.out.println(quiz);
 
 		qr.save(quiz);

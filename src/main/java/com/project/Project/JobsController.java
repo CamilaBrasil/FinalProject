@@ -83,7 +83,8 @@ public class JobsController {
 	@RequestMapping("/savejob/{title}/{user_id}")
 	public ModelAndView saveJob(@PathVariable("title") String title, @PathVariable("user_id") Integer user_id) {
 
-		String keywords = qr.findByUserId(user_id).getSkills();
+		String keywords = "";
+//		String keywords = qr.findByUserId(user_id).getSkills();
 		RestTemplate restTemplate = new RestTemplate();
 		ParentJson test = restTemplate.getForObject("https://authenticjobs.com/api/?api_key=" + privatekey
 				+ "&method=aj.jobs.search&keywords=" + keywords + "&perpage=10&format=json", ParentJson.class);
