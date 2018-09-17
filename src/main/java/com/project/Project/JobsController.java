@@ -29,6 +29,7 @@ import com.project.Project.entity.GithubJob;
 import com.project.Project.entity.Job;
 import com.project.Project.entity.Listing;
 import com.project.Project.entity.ParentJson;
+import com.project.Project.entity.UsaJobsJson;
 import com.project.Project.entity.User;
 
 
