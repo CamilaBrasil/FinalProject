@@ -33,7 +33,7 @@ public class User {
 	
 	@OneToMany()
 	@JoinColumn(name="user_id")
-	private Set<Skills> skills;
+	private Set<Quiz> skills;
 
 	public User() {
 		super();
@@ -41,7 +41,7 @@ public class User {
 	}
 
 public User(Integer user_id, String firstname, String lastname, String email, String zipcode, String password,
-		Set<FavJobs> favJobs, Set<Skills> skills) {
+		Set<FavJobs> favJobs, Set<Quiz> skills) {
 	super();
 	this.user_id = user_id;
 	this.firstname = firstname;

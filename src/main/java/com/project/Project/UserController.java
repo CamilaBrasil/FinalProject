@@ -14,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.project.Project.dao.QuizRepo;
 import com.project.Project.dao.UserRepo;
-import com.project.Project.entity.Skills;
+import com.project.Project.entity.Quiz;
 import com.project.Project.entity.User;
 
 @Controller
@@ -109,7 +109,7 @@ public class UserController {
 	@PostMapping("/submitquiz")
 	public ModelAndView submitquiz(@RequestParam("skills") String varSkills, @RequestParam("user_id") Integer user_id) {
 
-		Skills quiz = new Skills();
+		Quiz quiz = new Quiz();
 		quiz.setSkills(varSkills);
 		quiz.setUser_id(user_id);
 		System.out.println(quiz);
