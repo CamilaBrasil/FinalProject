@@ -34,7 +34,7 @@ public enum Keywords {
 		this.keywordFour = keywordFour;
 	}
 
-	public String[] keywordsArray(String answer) {
+	public static String[] getKeywordsArray(String answer) {
 		
 
 		if (answer.equals(LEADER.keywordOne)) {

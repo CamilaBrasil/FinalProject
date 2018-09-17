@@ -3,35 +3,19 @@ package com.project.Project;
 import java.util.List;
 
 public class Algorithm {
+	
+	private static String[] keywordsArray1;
+	private static String[] keywordsArray2;
+	private static String[] keywordsArray3;
 
-	private static String[] jackSkellington = { "Leader", "director", "manager", "head" };
-	private static String[] energetic = { "Energetic", "active", "enthusiastic", "dynamic" };
-	private static String[] peopleSkills = { "People Skills", "social", "cordial", "nice" };
-	private static String[] focus = { "Focus", "diligence", "plan", "strive" };
-	private static String[] organized = { "Organized", "detailed", "coordinate", "systematic" };
-	private static String[] teamPlayer = { "Team Player", "Team Work", "unity", "partnership" };
-	private static String[] projectManagement = { "Project Management", "administrate", "execute", "distribute" };
-	private static String[] conflictResolution = { "Conflict resolution", "diplomatic", "resolve", "descalate" };
-	private static String[] troubleShooting = { "Trouble Shooting", "crisis management", "critical thinking", "focus" };
-	private static String[] Polite = { "Polite", "civil", "cordial", "respectful" };
-	private static String[] techSmart = { "Tech Smart", "resourceful", "bright", "crafty" };
-	private static String[] pressure = { "Pressure", "stress", "tension", "grit" };
-	private static String[] Reliable = { "Reliable", "dependable", "responsible", "stable" };
-	private static String[] adaptability = { "Adaptability", "flexibility", "versatility", "resilient"};
-	private static String[] problemSolving = { "Problem Solving", "analytical", "rational", "thorough"};
-
-	static Integer[] keywords = new Integer[3];
-
-	// TODO Get the numbers from quiz and send back a keyword
+	// Getting answers and sending back combinations
 	@SuppressWarnings("null")
 	public static List<String> getKeywords(String keyOne, String keyTwo, String keyThree) {
 	
-		String[] test = new String[];
-		if (keyOne.equals(jackSkellington[1])) {
-			
-		}
-				
-				
+		keywordsArray1 = Keywords.getKeywordsArray(keyOne);
+		keywordsArray2 = Keywords.getKeywordsArray(keyTwo);
+		keywordsArray3 = Keywords.getKeywordsArray(keyThree);
+		
 		String keyword1 = null;
 		String keyword2 = null;
 		String keyword3 = null;
@@ -109,9 +93,10 @@ public class Algorithm {
 	// keyword for each job
 	public static String getResult(String desc) {
 
-//		String[] descArray = parseDesc(desc);
+		String[] descArray = parseDesc(desc);
 
-		return getRelevance(parseDesc(desc));
+		return null;
+//				getRelevance(parseDesc(desc));
 	}
 
 	// Parsing the description
@@ -122,26 +107,26 @@ public class Algorithm {
 		return words;
 	}
 
-	private static String getRelevance(String[] descArray) {
-	
-		int occurrencyOne;
-		int occurrencyTwo;
-		int occurrencyThree;
-		
-		for (int i = 0; i < keywords.length; i++) {
-			
-			for (int j = 0; j < descArray.length; j++) {
-				for (int k = 0; k < .length; k++) {
-					
-				}
-				
-			}
-			
-		}
-		
-		
-		return null;
-	}
+//	private static String getRelevance(String[] descArray) {
+//	
+//		int occurrencyOne;
+//		int occurrencyTwo;
+//		int occurrencyThree;
+//		
+//		for (int i = 0; i < keywords.length; i++) {
+//			
+//			for (int j = 0; j < descArray.length; j++) {
+//				for (int k = 0; k < .length; k++) {
+//					
+//				}
+//				
+//			}
+//			
+//		}
+//		
+//		
+//		return null;
+//	}
 
 	// TODO Get percentage per keyword
 	// TODO return relevance per keyword for each job
