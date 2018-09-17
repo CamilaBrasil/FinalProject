@@ -77,24 +77,27 @@ public class UserController {
 	@PostMapping("/submit")
 	public ModelAndView submit(User u1, @RequestParam("password_confirm") String p2) {
 
-		// Validating if the email is already register
-		System.out.println(u1);
-		if (ur.findByEmail(u1.getEmail()) != null) {
+		String email = u1.getEmail();
+		String password = u1.getPassword();
 
-			return new ModelAndView("register", "title", "This email is being used, please enter another or login");
-		}
-//		if (UserValidation.validateEmail(email) == true ) {
-//			
-//		}
-		// Validating if the password and the confirm password are matching
-		if (u1.getPassword().equals(p2)) {
+		// Validating if the email is already register
+		if (ur.findByEmail(email) != null) {
+			return new ModelAndView("register", "title", "This email is being used, please enter another or log in");
+
+		} else if (!UserValidation.validateEmail(email)) {
+			return new ModelAndView("register", "title", "Please enter a valid email");
+
+		} else if (!UserValidation.validatePassword(password)) {
+			return new ModelAndView("register", "title",
+					"The password must contain at least one number, one capital letter, one lower case and be 4 digits long");
 			
+		} else if (!u1.getPassword().equals(p2)) {
+			return new ModelAndView("register", "title", "The password must match");
+			
+		} else {
 			ur.save(u1);
 			return new ModelAndView("quiz", "user_id", u1.getUser_id());
-		} else {
-			return new ModelAndView("register", "title", "The password must match");
 		}
-
 	}
 
 	// Mapping only for testing
@@ -115,7 +118,6 @@ public class UserController {
 
 		return new ModelAndView("home", "user_id", quiz.getUserId());
 	}
-
 
 	// TODO it needs to be created a second jsp for when already connected
 	@RequestMapping("/about")
