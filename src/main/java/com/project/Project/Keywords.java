@@ -10,7 +10,7 @@ public enum Keywords {
 	TEAMPLAYER("team player", "Team Work", "unity", "partnership"),
 	PROJECTMANAGEMENT("project management", "administrate", "execute", "distribute"),
 	CONFLICTRESOLUTION("conflict resolution", "diplomatic", "resolve", "descalate"),
-	TROUBLESHOOTING("trouble shooting", "crisis management", "critical thinking", "focus"),
+	TROUBLESHOOTING("troubleshooting", "crisis management", "critical thinking", "focus"),
 	POLITE("polite", "civil", "cordial", "respectful"), 
 	TECHSMART("tech smart", "resourceful", "bright", "crafty"),
 	PRESSURE("pressure", "stress", "tension", "grit"), 

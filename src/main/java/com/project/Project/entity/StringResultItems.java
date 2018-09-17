@@ -8,8 +8,25 @@ public class StringResultItems {
 	
 	@JsonProperty("MatchedObjectDescriptor")
 	private MatchedObjectDescriptor match;
+	@JsonProperty("MatchedObjectId")
+	private Integer id;
 	
+	
+//	public String getSum() {
+//		return sum;
+//	}
+//
+//	public void setSum(String sum) {
+//		this.sum = sum;
+//	}
 
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	public StringResultItems() {
 		// TODO Auto-generated constructor stub
@@ -22,6 +39,12 @@ public class StringResultItems {
 	public void setMatch(MatchedObjectDescriptor match) {
 		this.match = match;
 	}
+
+	@Override
+	public String toString() {
+		return "StringResultItems [match=" + match + ", id=" + id + "]";
+	}
+
 
 //	public PositionLocation getLoc() {
 //		return loc;
@@ -39,10 +62,8 @@ public class StringResultItems {
 //		this.desc = desc;
 //	}
 
-	@Override
-	public String toString() {
-		return "StringResultItems [match=" + match +  "]";
-	}
+	
+	
 
 	
 	

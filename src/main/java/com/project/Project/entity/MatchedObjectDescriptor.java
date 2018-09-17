@@ -10,10 +10,21 @@ public class MatchedObjectDescriptor {
 	private String positionTitle;
 	@JsonProperty("PositionURI")
 	private String positionUri;
+	@JsonProperty("QualificationSummary")
+	private String sum;
+	
 
+	public String getSum() {
+		return sum;
+	}
+
+	public void setSum(String sum) {
+		this.sum = sum;
+	}
 	@JsonProperty("PositionLocation") // not working yet
 	private PositionLocation[] loc;
-//
+	
+
 //	@JsonProperty("PositionFormattedDescription")
 //	private PositionFormattedDescription[] desc;
 
@@ -56,7 +67,7 @@ public class MatchedObjectDescriptor {
 	@Override
 	public String toString() {
 		return "MatchedObjectDescriptor [positionTitle=" + positionTitle + ", positionUri=" + positionUri + ", loc="
-				+ Arrays.toString(loc) +  "]";
+				+ Arrays.toString(loc) + ", Summary=" + sum +  "]";
 	}
 	
 	

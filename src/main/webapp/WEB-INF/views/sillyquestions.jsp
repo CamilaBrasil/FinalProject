@@ -60,7 +60,7 @@
 			</div>
 			<div class="custom-control custom-radio">
 				<input type="radio" id="customRadio9" name="quest2"
-					class="custom-control-input" value="trouble shooting"> <label
+					class="custom-control-input" value="troubleshooting"> <label
 					class="custom-control-label" for="customRadio9">Mushrooms</label>
 			</div>
 			<div class="custom-control custom-radio">
@@ -90,7 +90,7 @@
 			</div>
 			<div class="custom-control custom-radio">
 				<input type="radio" id="customRadio14" name="quest3"
-					class="custom-control-input" value="adability"> <label
+					class="custom-control-input" value="adaptability"> <label
 					class="custom-control-label" for="customRadio14">Mountains</label>
 			</div>
 			<div class="custom-control custom-radio">
