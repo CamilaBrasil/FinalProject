@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 public class UserValidation {
 
 	private static final String EMAIL_REGEX = "^[\\w-\\+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-z]{2,})$";
-	private static final String PASSWORD_REGEX = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=/S+$).{8,}$";
+	private static final String PASSWORD_REGEX = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=/S+$).{4,}$";
 	private static Pattern pattern;
 	private static Matcher matcher;
 

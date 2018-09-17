@@ -39,6 +39,7 @@ public class JobsController {
 	@Value("${privatekey}")
 	private String privatekey;
 	
+	
 	//Arraylist of Job objects
 	ArrayList<Job> jobList = new ArrayList<>();
 	
@@ -109,7 +110,7 @@ public class JobsController {
 	
 	@PostMapping("/submitsillyq")
 	public ModelAndView testSubmittSillyQ(@RequestParam("quest1") String quest1, @RequestParam("quest2") String quest2, 
-			@RequestParam("quest2") String quest3) {
+			@RequestParam("quest3") String quest3) {
 		
 			ArrayList<Job> testList1 = storeKeywordJobs(quest1);
 			ArrayList<Job> testList2 = new ArrayList<Job>();
