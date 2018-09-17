@@ -261,7 +261,7 @@ public class JobsController {
 			job.setDesc(listing.getDescription());
 			jobList1.add(job);
 		}
-		
+		System.out.println(jobList1.get(0).getDesc());
 		// using an array because the json data returns a json array as the parent
 		GithubJob[] gitList = restTemplate.getForObject("https://jobs.github.com/positions.json?description="+ keyword+ "&page=1",
 				GithubJob[].class);
