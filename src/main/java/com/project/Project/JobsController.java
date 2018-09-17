@@ -198,64 +198,95 @@ public class JobsController {
 		return new ModelAndView("sillyquestions", "test", quest1);
 	}
 	
-	
+	//CAMILA
 	@RequestMapping("/findJobs")
 	public ModelAndView matches (User u1){
 
 		//TODO get users keywords saved in the db.
-		int keyOne = 0;
-		int keyTwo = 1;
-		int keyThree = 2;
+		String keyOne = "energetic";
+		String keyTwo = "troubleshooting";
+		String keyThree = "adaptability";
 		
+		//Getting all keywords combinations
 		List<String> keywords = Algorithm.getKeywords(keyOne, keyTwo, keyThree);
+		System.out.println(keywords);
 		ArrayList<Job> matches = new ArrayList<Job>();
-		
 		RestTemplate restTemplate = new RestTemplate();
 		
-		for (int i = 0; i < keywords.size(); i++) {
+//		for (int i = 0; i < keywords.size(); i++) {
+//			
 			
 			ParentJson test = restTemplate.getForObject("https://authenticjobs.com/api/?api_key=" + privatekey
-					+ "&method=aj.jobs.search&keywords=" + keywords.get(i) + "&perpage=10&format=json", ParentJson.class);
+					+ "&method=aj.jobs.search&keywords=" + keyOne + "&perpage=10&format=json", ParentJson.class);
 
+//			keywords.get(i)
+			
 			List<Listing> list = test.getTest().getListing();
 			
-			for (int j = 0; j < list.size(); j++) {
+//			for (int j = 0; j < list.size(); j++) {
 				
-				String desc = list.get(j).getDescription();
-				Job job = new Job(list.get(j).getTitle(), desc);
+				String desc = list.get(0).getDescription();
+				Job job = new Job(list.get(0).getTitle(), desc);
 				
 				//TODO Add in the jobs pojo add a string variable to store keyword and relevance;
 				
 				job.setKeywords(Algorithm.getResult(desc));
+				System.out.println("result: " + job.getKeywords());
 				
 				matches.add(job);
-			}
+//			}
 			
-		}
+//		}
 		
-		for (int i = 0; i < keywords.size(); i++) {
-			
-			GithubJob[] gitList = restTemplate.getForObject("https://jobs.github.com/positions.json?description=" + keywords.get(i) + "&page=1",
-					GithubJob[].class);
-
-			for (int j = 0; j < gitList.length; j++) {
-				
-				String desc = gitList[j].getDescription();
-				Job job = new Job(gitList[j].getTitle(), desc);
-				
-				//TODO Add in the jobs pojo add a string variable to store keyword and relevance;
-				
-				job.setKeywords(Algorithm.getResult(desc));
-				
-				matches.add(job);
-			}
-			
-		}
+		System.out.println("size: " + matches.size());
+		
+//		for (int i = 0; i < keywords.size(); i++) {
+//			
+//			GithubJob[] gitList = restTemplate.getForObject("https://jobs.github.com/positions.json?description=" + keywords.get(i) + "&page=1",
+//					GithubJob[].class);
+//
+//			for (int j = 0; j < gitList.length; j++) {
+//				
+//				String desc = gitList[j].getDescription();
+//				Job job = new Job(gitList[j].getTitle(), desc);
+//				
+//				//TODO Add in the jobs pojo add a string variable to store keyword and relevance;
+//				
+////				job.setKeywords(Algorithm.getResult(desc));
+//				
+//				matches.add(job);
+//			}
+//			
+//		}
 	
 		
-		return new ModelAndView("job_results", "jobs", matches);
+		
+		return new ModelAndView("index");
+//		return new ModelAndView("job_results", "jobs", matches);
 	}
 	
+	
+	@RequestMapping("/testKey")
+	public String testKey() {
+		
+		String keyOne = "energetic";
+		String keyTwo = "troubleshooting";
+		String keyThree = "adaptability";
+		
+		List<String> jobList = Algorithm.getKeywords(keyOne, keyTwo, keyThree);
+		
+		System.out.println(jobList.size());
+//		for (String job : jobList) {
+//			System.out.println(job);
+//		}
+		
+		//Getting all keywords combinations
+//		List<String> keywords = Algorithm.getKeywords(keyOne, keyTwo, keyThree);
+//		System.out.println(keywords);
+		
+		return "";
+	}
+
 	
 //	@RequestMapping("/testJobList")
 //	public void testJobList() {
