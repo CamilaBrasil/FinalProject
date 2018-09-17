@@ -3,20 +3,39 @@ package com.project.Project;
 import java.util.List;
 
 public class Algorithm {
-	private static String[][] keyArray = { { "Leader", "director", "manager", "head" },
-			{ "Energetic", "active", "enthusiastic", "dynamic" }, { "People Skills", "social", "cordial", "nice" },
-			{ "Focus", "diligence", "plan", "strive" }, { "Organized", "detailed", "coordinate", "systematic" },
-			{ "Team Player", "Team Work", "unity", "partnership" },
-			{ "Project Management", "administrate", "execute", "distribute" },
-			{ "Conflict resolution", "diplomatic", "resolve", "descalate" },
-			{ "Trouble Shooting", "crisis management", "critical thinking", "focus" },
-			{ "Polite", "civil", "cordial", "respectful" }, { "Tech Smart", "resourceful", "bright", "crafty" },
-			{ "Pressure", "stress", "tension", "grit" }, { "Reliable", "dependable", "responsible", "stable" },
-			{ "Adaptability", "flexibility", "versatility", "resilient" },
+
+	private static String[] leader = { "Leader", "director", "manager", "head" };
+	private static String[] energetic = { "Energetic", "active", "enthusiastic", "dynamic" };
+	private static String[] peopleSkills = { "People Skills", "social", "cordial", "nice" };
+	private static String[] focus = { "Focus", "diligence", "plan", "strive" };
+	private static String[] organized = { "Organized", "detailed", "coordinate", "systematic" };
+	private static String[] teamPlayer = { "Team Player", "Team Work", "unity", "partnership" };
+	private static String[] projectManagement = { "Project Management", "administrate", "execute", "distribute" };
+	private static String[] conflictResolution = { "Conflict resolution", "diplomatic", "resolve", "descalate" };
+	private static String[] troubleShooting = { "Trouble Shooting", "crisis management", "critical thinking", "focus" };
+	private static String[] Polite = { "Polite", "civil", "cordial", "respectful" };
+	private static String[] techSmart = { "Tech Smart", "resourceful", "bright", "crafty" };
+	private static String[] pressure = { "Pressure", "stress", "tension", "grit" };
+	private static String[] Reliable = { "Reliable", "dependable", "responsible", "stable" };
+	private static String[] adaptability = { "Adaptability", "flexibility", "versatility", "resilient"};
+	private static String[] energetic =
+	private static String[] energetic =
+	private static String[] energetic =
+	private static String[] energetic =
+
+, ,
+			},
 			{ "Problem Solving", "analytical", "rational", "thorough" }, };
 
+	static Integer[] keywords = new Integer[3];
+
 	// TODO Get the numbers from quiz and send back a keyword
+	@SuppressWarnings("null")
 	public static List<String> getKeywords(int keyOne, int keyTwo, int keyThree) {
+		keywords[0] = keyOne;
+		keywords[1] = keyTwo;
+		keywords[2] = keyThree;
+
 		String[] keywordsArray1 = { keyArray[keyOne][0], keyArray[keyOne][1], keyArray[keyOne][2],
 				keyArray[keyOne][3] };
 		String[] keywordsArray2 = { keyArray[keyTwo][0], keyArray[keyTwo][1], keyArray[keyTwo][2],
@@ -100,18 +119,41 @@ public class Algorithm {
 	// TODO Get a job description - Parse, do other steps and return relevance per
 	// keyword for each job
 	public static String getResult(String desc) {
-		parseDesc(desc);
 
-		return "";
+//		String[] descArray = parseDesc(desc);
+
+		return getRelevance(parseDesc(desc));
 	}
 
-	// TODO Count all 3 keywords found in the description
-	public static int parseDesc(String desc) {
+	// Parsing the description
+	public static String[] parseDesc(String desc) {
 		String regex = "[ .,?!]+";
 		String[] words = desc.split(regex);
 
-		return 1;
+		return words;
 	}
+
+	private static String getRelevance(String[] descArray) {
+	
+		int occurrencyOne;
+		int occurrencyTwo;
+		int occurrencyThree;
+		
+		for (int i = 0; i < keywords.length; i++) {
+			
+			for (int j = 0; j < descArray.length; j++) {
+				for (int k = 0; k < .length; k++) {
+					
+				}
+				
+			}
+			
+		}
+		
+		
+		return null;
+	}
+
 	// TODO Get percentage per keyword
 	// TODO return relevance per keyword for each job
 
