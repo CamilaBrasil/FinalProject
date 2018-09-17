@@ -45,6 +45,7 @@ public class JobsController {
 	@Value("${privatekey}")
 	private String privatekey;
 	
+	
 	//Arraylist of Job objects
 	ArrayList<Job> jobList = new ArrayList<>();
 	
@@ -115,7 +116,7 @@ public class JobsController {
 	
 	@PostMapping("/submitsillyq")
 	public ModelAndView testSubmittSillyQ(@RequestParam("quest1") String quest1, @RequestParam("quest2") String quest2, 
-			@RequestParam("quest2") String quest3) {
+			@RequestParam("quest3") String quest3) {
 		
 			ArrayList<Job> testList1 = storeKeywordJobs(quest1);
 			ArrayList<Job> testList2 = new ArrayList<Job>();
@@ -266,7 +267,7 @@ public class JobsController {
 			job.setDesc(listing.getDescription());
 			jobList1.add(job);
 		}
-		
+		System.out.println(jobList1.get(0).getDesc());
 		// using an array because the json data returns a json array as the parent
 		GithubJob[] gitList = restTemplate.getForObject("https://jobs.github.com/positions.json?description="+ keyword+ "&page=1",
 				GithubJob[].class);
