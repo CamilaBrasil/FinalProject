@@ -24,6 +24,7 @@ import com.project.Project.entity.GithubJob;
 import com.project.Project.entity.Job;
 import com.project.Project.entity.Listing;
 import com.project.Project.entity.ParentJson;
+import com.project.Project.entity.User;
 
 @Controller
 @SessionAttributes("user")
@@ -108,6 +109,7 @@ public class JobsController {
 		return new ModelAndView("sillyquestions");
 	}
 	
+	//TODO Check if we still need it
 	@PostMapping("/submitsillyq")
 	public ModelAndView testSubmittSillyQ(@RequestParam("quest1") String quest1, @RequestParam("quest2") String quest2, 
 			@RequestParam("quest3") String quest3) {
@@ -188,36 +190,107 @@ public class JobsController {
 		return new ModelAndView("sillyquestions", "test", quest1);
 	}
 	
-	@RequestMapping("/testJobList")
-	public void testJobList() {
+	
+	@RequestMapping("/findJobs")
+	public ModelAndView matches (User u1){
+
+		//TODO get users keywords saved in the db.
+		int keyOne = 0;
+		int keyTwo = 1;
+		int keyThree = 2;
+		
+		List<String> keywords = Algorithm.getKeywords(keyOne, keyTwo, keyThree);
+		ArrayList<Job> matches = new ArrayList<Job>();
+		
 		RestTemplate restTemplate = new RestTemplate();
-		ParentJson test = restTemplate.getForObject("https://authenticjobs.com/api/?api_key=" + privatekey
-				+ "&method=aj.jobs.search&keywords=java&perpage=10&format=json", ParentJson.class);
-
-		List<Listing> list = test.getTest().getListing();
-
-		for(Listing listing : list) {
-			Job job = new Job();
-			job.setJobTitle(listing.getTitle());
-			job.setDesc(listing.getDescription());
-			jobList.add(job);
+		
+		for (int i = 0; i < keywords.size(); i++) {
 			
-			System.out.println(job.getJobTitle());
+			ParentJson test = restTemplate.getForObject("https://authenticjobs.com/api/?api_key=" + privatekey
+					+ "&method=aj.jobs.search&keywords=" + keywords.get(i) + "&perpage=10&format=json", ParentJson.class);
+
+			List<Listing> list = test.getTest().getListing();
+			
+			for (int j = 0; j < list.size(); j++) {
+				
+				String desc = list.get(j).getDescription();
+				Job job = new Job(list.get(j).getTitle(), desc);
+				
+				//TODO Add in the jobs pojo add a string variable to store keyword and relevance;
+				
+				job.setKeywords(Algorithm.getResult(desc));
+				
+				matches.add(job);
+			}
+			
 		}
 		
 		// using an array because the json data returns a json array as the parent
-		GithubJob[] gitList = restTemplate.getForObject("https://jobs.github.com/positions.json?description=java&page=1",
-				GithubJob[].class);
+		
+		for (int i = 0; i < keywords.size(); i++) {
+			
+			GithubJob[] gitList = restTemplate.getForObject("https://jobs.github.com/positions.json?description=" + keywords.get(i) + "&page=1",
+					GithubJob[].class);
+
+			for (int j = 0; j < gitList.length; j++) {
+				
+				Job job = new Job();
+				jobList.add(job);
+				
+				String desc = list.get(j).getDescription();
+				Job job = new Job(git.getTitle(), desc);
+				
+				//TODO Add in the jobs pojo add a string variable to store keyword and relevance;
+				
+				job.setKeywords(Algorithm.getResult(desc));
+				
+				matches.add(job);
+			}
+			
+		}
+	
 		
 		
 		for(GithubJob git : gitList) {
-			Job job = new Job();
-			job.setJobTitle(git.getTitle());
-			job.setDesc(git.getDescription());
-			jobList.add(job);
+			
 
 		}
+
+		
+		
+		return new ModelAndView("job_results", "jobs", matches);
 	}
+	
+//	@RequestMapping("/testJobList")
+//	public void testJobList() {
+//		RestTemplate restTemplate = new RestTemplate();
+//		ParentJson test = restTemplate.getForObject("https://authenticjobs.com/api/?api_key=" + privatekey
+//				+ "&method=aj.jobs.search&keywords=java&perpage=10&format=json", ParentJson.class);
+//
+//		List<Listing> list = test.getTest().getListing();
+//
+//		for(Listing listing : list) {
+//			Job job = new Job();
+//			job.setJobTitle(listing.getTitle());
+//			job.setDesc(listing.getDescription());
+//			jobList.add(job);
+//			
+//			System.out.println(job.getJobTitle());
+//		}
+//		
+//		// using an array because the json data returns a json array as the parent
+//		GithubJob[] gitList = restTemplate.getForObject("https://jobs.github.com/positions.json?description=java&page=1",
+//				GithubJob[].class);
+//		
+//		
+//		for(GithubJob git : gitList) {
+//			Job job = new Job();
+//			job.setJobTitle(git.getTitle());
+//			job.setDesc(git.getDescription());
+//			jobList.add(job);
+//
+//		}
+//	}
 
 
 	@RequestMapping("/testJob")

@@ -6,6 +6,7 @@ public class Job {
 	private String company;
 	private String location;
 	private String jobURL;
+	private String keywords;
 	
 	public Job() {
 		
@@ -65,6 +66,14 @@ public class Job {
 
 	public void setJobURL(String jobURL) {
 		this.jobURL = jobURL;
+	}
+	
+		public String getKeywords() {
+		return keywords;
+	}
+
+	public void setKeywords(String keywords) {
+		this.keywords = keywords;
 	}
 
 	@Override

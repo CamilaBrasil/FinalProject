@@ -39,9 +39,9 @@
 		<table class="table table-hover">
 			<tbody>
 			
-				<c:forEach var="l" items="${list}">
+				<c:forEach var="j" items="${jobs}">
 					<p>title</p>
-					<p>${l.title}</p>
+					<p>${j.title}</p>
 					<br>
 					<a href="/savejob/${l.title}/${user.user_id}"><button class="btn btn-light btn-sm">Save</button></a>
 				</c:forEach>
