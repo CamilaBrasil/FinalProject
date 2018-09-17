@@ -83,9 +83,12 @@ public class UserController {
 
 			return new ModelAndView("register", "title", "This email is being used, please enter another or login");
 		}
-
+//		if (UserValidation.validateEmail(email) == true ) {
+//			
+//		}
 		// Validating if the password and the confirm password are matching
 		if (u1.getPassword().equals(p2)) {
+			
 			ur.save(u1);
 			return new ModelAndView("quiz", "user_id", u1.getUser_id());
 		} else {
