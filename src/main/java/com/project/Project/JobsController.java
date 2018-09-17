@@ -6,6 +6,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,6 +30,7 @@ import com.project.Project.entity.Job;
 import com.project.Project.entity.Listing;
 import com.project.Project.entity.ParentJson;
 import com.project.Project.entity.User;
+
 
 @Controller
 @SessionAttributes("user")
@@ -55,22 +61,22 @@ public class JobsController {
 		return new ModelAndView("jobid", "jobdata", test);
 	}
 
-	// Show the jobs
-	@GetMapping("/jobs/{user_id}")
-	public ModelAndView jobs(@PathVariable("user_id") Integer user_id) {
-
-		String keywords = qr.findByUserId(user_id).getSkills();
-		System.out.println("Keywords:  " + qr.findByUserId(user_id).getSkills());
-
-		RestTemplate restTemplate = new RestTemplate();
-		ParentJson test = restTemplate.getForObject("https://authenticjobs.com/api/?api_key=" + privatekey
-				+ "&method=aj.jobs.search&keywords=" + keywords + "&perpage=1&format=json", ParentJson.class);
-
-		List<Listing> list = test.getTest().getListing();
-
-		ModelAndView mv = new ModelAndView("job_results", "list", list);
-		return mv.addObject("user_id", user_id);
-	}
+//	// Show the jobs
+//	@GetMapping("/jobs/{user_id}")
+//	public ModelAndView jobs(@PathVariable("user_id") Integer user_id) {
+//
+//		String keywords = qr.findByUserId(user_id).getSkills();
+//		System.out.println("Keywords:  " + qr.findByUserId(user_id).getSkills());
+//
+//		RestTemplate restTemplate = new RestTemplate();
+//		ParentJson test = restTemplate.getForObject("https://authenticjobs.com/api/?api_key=" + privatekey
+//				+ "&method=aj.jobs.search&keywords=" + keywords + "&perpage=1&format=json", ParentJson.class);
+//
+//		List<Listing> list = test.getTest().getListing();
+//
+//		ModelAndView mv = new ModelAndView("job_results", "list", list);
+//		return mv.addObject("user_id", user_id);
+//	}
 
 	//
 	@RequestMapping("/savejob/{title}/{user_id}")
@@ -225,8 +231,6 @@ public class JobsController {
 			
 		}
 		
-		// using an array because the json data returns a json array as the parent
-		
 		for (int i = 0; i < keywords.size(); i++) {
 			
 			GithubJob[] gitList = restTemplate.getForObject("https://jobs.github.com/positions.json?description=" + keywords.get(i) + "&page=1",
@@ -234,11 +238,8 @@ public class JobsController {
 
 			for (int j = 0; j < gitList.length; j++) {
 				
-				Job job = new Job();
-				jobList.add(job);
-				
-				String desc = list.get(j).getDescription();
-				Job job = new Job(git.getTitle(), desc);
+				String desc = gitList[j].getDescription();
+				Job job = new Job(gitList[j].getTitle(), desc);
 				
 				//TODO Add in the jobs pojo add a string variable to store keyword and relevance;
 				
@@ -250,16 +251,9 @@ public class JobsController {
 		}
 	
 		
-		
-		for(GithubJob git : gitList) {
-			
-
-		}
-
-		
-		
 		return new ModelAndView("job_results", "jobs", matches);
 	}
+	
 	
 //	@RequestMapping("/testJobList")
 //	public void testJobList() {
@@ -363,48 +357,29 @@ public class JobsController {
 		return matchList;
 			
 	}
+	
+	@Value("${usajobs.key}")
+	String jobKey;
+	@RequestMapping("/usajobs") 
+	public void  usaJobs() { 
+		// add headers to our API request
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("Host", "data.usajobs.gov");
+		headers.add("User-Agent", "mila.brasil@gmail.com");
+		headers.add("Authorization-Key", jobKey); // adding the key from the application.properties file
+		headers.add("Accept", MediaType.APPLICATION_JSON_VALUE);
+		
+		// to attach the headers to our request we need the HttpEntity
+		HttpEntity<String> entity = new HttpEntity<>("parameters", headers);
+		
+		RestTemplate restTemplate = new RestTemplate(); // https://data.usajobs.gov/api/search?JobCategoryCode=2210
+		ResponseEntity<UsaJobsJson> response = restTemplate.exchange("https://data.usajobs.gov/api/Search?Keyword=computer&KeywordFilter=ALL&JobCategoryCode=0800", HttpMethod.GET, entity, UsaJobsJson.class);
+		// test to make sure we are getting data back
+		System.out.println(response.getBody());
+		
+		
+		//return new ModelAndView("usajobs", "match", response.getBody()); // reminder to fill this in
+	}
 }
-//	
-//	@RequestMapping("/jobid")
-//	public ModelAndView teste1() {
-//
-//		String authKey = "RIVv8gDUbN9Q7EAfFLcfcOSkuF0VaTY2L8AeHCnL5Q";
-//		
-//		String host = "data.usajobs.gov";  
-//		String userAgent = "mila.brasil@gmail.com";  
-//    
-//		            
-//		      
-////		    method: 'GET',      
-////		    headers: {          
-////		        "Host": host,          
-////		        "User-Agent": userAgent,          
-////		        "Authorization-Key": authKey      
-////		    }  
-////		}, function(error, response, body) {      
-////		    var data = JSON.parse(body);  
-////		});
-//		
-//		
-////		HttpHeaders headers = new HttpHeaders();
-////		headers.add("Host", host);
-////		headers.add("User-Agent", userAgent);
-////		headers.add("Authorization-Key", authKey);
-////		headers.add("Accept", MediaType.APPLICATION_JSON_VALUE);
-////		
-////		//To attach the headers to our request we need the HttpEntity
-////		HttpEntity<String> entity = new HttpEntity<>("parameters", headers);
-////		
-////		RestTemplate restTemp = new RestTemplate();
-////		ResponseEntity<> response = restTemp.exchange("https://data.usajobs.gov/api/search?JobCategoryCode=2210&Keyword=Software Development&LocationName=Washington, DC",
-////				HttpMethod.GET, entity, LoveMatcher.class);
-////		
-////		//Test to make sure we are getting data back
-////		System.out.println(response.getBody());
-////		
-////
-////		
-////		return new ModelAndView("love_match", "response", response);
-//	}
-//
-//}
+
+
