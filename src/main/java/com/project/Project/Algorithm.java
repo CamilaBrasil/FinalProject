@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Algorithm {
 
-	private static String[] leader = { "Leader", "director", "manager", "head" };
+	private static String[] jackSkellington = { "Leader", "director", "manager", "head" };
 	private static String[] energetic = { "Energetic", "active", "enthusiastic", "dynamic" };
 	private static String[] peopleSkills = { "People Skills", "social", "cordial", "nice" };
 	private static String[] focus = { "Focus", "diligence", "plan", "strive" };
@@ -18,31 +18,20 @@ public class Algorithm {
 	private static String[] pressure = { "Pressure", "stress", "tension", "grit" };
 	private static String[] Reliable = { "Reliable", "dependable", "responsible", "stable" };
 	private static String[] adaptability = { "Adaptability", "flexibility", "versatility", "resilient"};
-	private static String[] energetic =
-	private static String[] energetic =
-	private static String[] energetic =
-	private static String[] energetic =
-
-, ,
-			},
-			{ "Problem Solving", "analytical", "rational", "thorough" }, };
+	private static String[] problemSolving = { "Problem Solving", "analytical", "rational", "thorough"};
 
 	static Integer[] keywords = new Integer[3];
 
 	// TODO Get the numbers from quiz and send back a keyword
 	@SuppressWarnings("null")
-	public static List<String> getKeywords(int keyOne, int keyTwo, int keyThree) {
-		keywords[0] = keyOne;
-		keywords[1] = keyTwo;
-		keywords[2] = keyThree;
-
-		String[] keywordsArray1 = { keyArray[keyOne][0], keyArray[keyOne][1], keyArray[keyOne][2],
-				keyArray[keyOne][3] };
-		String[] keywordsArray2 = { keyArray[keyTwo][0], keyArray[keyTwo][1], keyArray[keyTwo][2],
-				keyArray[keyTwo][3] };
-		String[] keywordsArray3 = { keyArray[keyThree][0], keyArray[keyThree][1], keyArray[keyThree][2],
-				keyArray[keyThree][3] };
-
+	public static List<String> getKeywords(String keyOne, String keyTwo, String keyThree) {
+	
+		String[] test = new String[];
+		if (keyOne.equals(jackSkellington[1])) {
+			
+		}
+				
+				
 		String keyword1 = null;
 		String keyword2 = null;
 		String keyword3 = null;
