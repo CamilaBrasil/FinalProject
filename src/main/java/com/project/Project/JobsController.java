@@ -6,6 +6,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,6 +29,7 @@ import com.project.Project.entity.GithubJob;
 import com.project.Project.entity.Job;
 import com.project.Project.entity.Listing;
 import com.project.Project.entity.ParentJson;
+import com.project.Project.entity.UsaJobsJson;
 
 @Controller
 @SessionAttributes("user")
@@ -290,48 +296,29 @@ public class JobsController {
 		return matchList;
 			
 	}
+	
+	@Value("${usajobs.key}")
+	String jobKey;
+	@RequestMapping("/usajobs") 
+	public void  usaJobs() { 
+		// add headers to our API request
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("Host", "data.usajobs.gov");
+		headers.add("User-Agent", "mila.brasil@gmail.com");
+		headers.add("Authorization-Key", jobKey); // adding the key from the application.properties file
+		headers.add("Accept", MediaType.APPLICATION_JSON_VALUE);
+		
+		// to attach the headers to our request we need the HttpEntity
+		HttpEntity<String> entity = new HttpEntity<>("parameters", headers);
+		
+		RestTemplate restTemplate = new RestTemplate(); // https://data.usajobs.gov/api/search?JobCategoryCode=2210
+		ResponseEntity<UsaJobsJson> response = restTemplate.exchange("https://data.usajobs.gov/api/Search?Keyword=computer&KeywordFilter=ALL&JobCategoryCode=0800", HttpMethod.GET, entity, UsaJobsJson.class);
+		// test to make sure we are getting data back
+		System.out.println(response.getBody());
+		
+		
+		//return new ModelAndView("usajobs", "match", response.getBody()); // reminder to fill this in
+	}
 }
-//	
-//	@RequestMapping("/jobid")
-//	public ModelAndView teste1() {
-//
-//		String authKey = "RIVv8gDUbN9Q7EAfFLcfcOSkuF0VaTY2L8AeHCnL5Q";
-//		
-//		String host = "data.usajobs.gov";  
-//		String userAgent = "mila.brasil@gmail.com";  
-//    
-//		            
-//		      
-////		    method: 'GET',      
-////		    headers: {          
-////		        "Host": host,          
-////		        "User-Agent": userAgent,          
-////		        "Authorization-Key": authKey      
-////		    }  
-////		}, function(error, response, body) {      
-////		    var data = JSON.parse(body);  
-////		});
-//		
-//		
-////		HttpHeaders headers = new HttpHeaders();
-////		headers.add("Host", host);
-////		headers.add("User-Agent", userAgent);
-////		headers.add("Authorization-Key", authKey);
-////		headers.add("Accept", MediaType.APPLICATION_JSON_VALUE);
-////		
-////		//To attach the headers to our request we need the HttpEntity
-////		HttpEntity<String> entity = new HttpEntity<>("parameters", headers);
-////		
-////		RestTemplate restTemp = new RestTemplate();
-////		ResponseEntity<> response = restTemp.exchange("https://data.usajobs.gov/api/search?JobCategoryCode=2210&Keyword=Software Development&LocationName=Washington, DC",
-////				HttpMethod.GET, entity, LoveMatcher.class);
-////		
-////		//Test to make sure we are getting data back
-////		System.out.println(response.getBody());
-////		
-////
-////		
-////		return new ModelAndView("love_match", "response", response);
-//	}
-//
-//}
+
+
