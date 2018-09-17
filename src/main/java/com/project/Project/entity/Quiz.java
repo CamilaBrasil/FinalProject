@@ -16,13 +16,13 @@ public class Quiz {
 	@Column(name = "quiz_id")
 	private Integer id;
 	@Column(name="answer1")
-	private Integer answer1;
+	private String answer1;
 	@Column(name="answer2")
-	private Integer answer2;
+	private String answer2;
 	@Column(name="answer3")
-	private Integer answer3;
+	private String answer3;
 	@Column(name="user_id")
-	private Integer userId;
+	private String userId;
 	
 
 	public Quiz() {
@@ -30,7 +30,8 @@ public class Quiz {
 	}
 
 
-	public Quiz(Integer id, Integer answer1, Integer answer2, Integer answer3, Integer userId) {
+	public Quiz(Integer id, String answer1, String answer2, String answer3, String userId) {
+		super();
 		this.id = id;
 		this.answer1 = answer1;
 		this.answer2 = answer2;
@@ -38,7 +39,9 @@ public class Quiz {
 		this.userId = userId;
 	}
 
-	public Quiz(Integer answer1, Integer answer2, Integer answer3, Integer userId) {
+
+	public Quiz(String answer1, String answer2, String answer3, String userId) {
+		super();
 		this.answer1 = answer1;
 		this.answer2 = answer2;
 		this.answer3 = answer3;
@@ -56,56 +59,53 @@ public class Quiz {
 	}
 
 
-	public Integer getAnswer1() {
+	public String getAnswer1() {
 		return answer1;
 	}
 
 
-	public void setAnswer1(Integer answer1) {
+	public void setAnswer1(String answer1) {
 		this.answer1 = answer1;
 	}
 
 
-	public Integer getAnswer2() {
+	public String getAnswer2() {
 		return answer2;
 	}
 
 
-	public void setAnswer2(Integer answer2) {
+	public void setAnswer2(String answer2) {
 		this.answer2 = answer2;
 	}
 
 
-	public Integer getAnswer3() {
+	public String getAnswer3() {
 		return answer3;
 	}
 
 
-	public void setAnswer3(Integer answer3) {
+	public void setAnswer3(String answer3) {
 		this.answer3 = answer3;
 	}
 
 
-	public Integer getUserId() {
+	public String getUserId() {
 		return userId;
 	}
 
 
-	public void setUserId(Integer userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 
 
 	@Override
 	public String toString() {
-		return "Skills [id=" + id + ", answer1=" + answer1 + ", answer2=" + answer2 + ", answer3=" + answer3
-				+ ", userId=" + userId + "]";
+		return "Quiz [id=" + id + ", answer1=" + answer1 + ", answer2=" + answer2 + ", answer3=" + answer3 + ", userId="
+				+ userId + "]";
 	}
-	
-	
 
 
-	
 	
 
 }
