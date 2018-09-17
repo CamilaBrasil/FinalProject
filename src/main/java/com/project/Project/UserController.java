@@ -103,13 +103,17 @@ public class UserController {
 	// Mapping only for testing
 	@RequestMapping("/quiz")
 	public ModelAndView quiz() {
-		return new ModelAndView("quiz");
+		return new ModelAndView("sillyquestions");
 	}
 
 	@PostMapping("/submitquiz")
-	public ModelAndView submitquiz(@RequestParam("skills") String varSkills, @RequestParam("user_id") Integer user_id) {
+	public ModelAndView submitquiz(@RequestParam("quest1") String quest1, @RequestParam("quest2") String quest2, @RequestParam("quest3") String quest3) {
 
 		Quiz quiz = new Quiz();
+		quiz.setAnswer1(quest1);
+		quiz.setAnswer2(quest2);
+		quiz.setAnswer3(quest3);
+		quiz.setUserId(1);
 //		quiz.setSkills(varSkills);
 //		quiz.setUser_id(user_id);
 		System.out.println(quiz);
