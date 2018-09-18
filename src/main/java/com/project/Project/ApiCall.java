@@ -26,11 +26,12 @@ public class ApiCall {
 		ArrayList<Job> matches = new ArrayList<Job>();
 
 		RestTemplate restTemplate = new RestTemplate();
+		System.out.println(keywords);
 
 		for (int i = 0; i < keywords.size(); i++) {
 
 			GithubJob[] gitList = restTemplate.getForObject(
-					"https://jobs.github.com/positions.json?description=" + keywords.get(i) + "&page=1",
+					"https://jobs.github.com/positions.json?description=" + keywords.get(i) + "&page=10",
 					GithubJob[].class);
 
 			for (int j = 0; j < gitList.length; j++) {
@@ -38,14 +39,15 @@ public class ApiCall {
 				String desc = gitList[j].getDescription();
 				Job job = new Job(gitList[j].getTitle(), desc);
 				job.setKeywords(Algorithm.getResult(desc, answerOne, answerTwo, answerThree));
+				matches.add(job);
 //				System.out.println("result: " + job.getKeywords());
 
 				// Checking if the same job already exist in the array
-				for (int k = 0; k < matches.size(); k++) {
-					if (!matches.get(k).getDesc().equals(desc)) {
-						matches.add(job);
-					}
-				}
+//				for (int k = 0; k < matches.size(); k++) {
+//					if (!matches.get(k).getDesc().equals(desc)) {
+//						matches.add(job);
+//					}
+//				}
 
 			}
 		}
@@ -73,14 +75,16 @@ public class ApiCall {
 				String desc = list.get(j).getDescription();
 				Job job = new Job(list.get(j).getTitle(), desc);
 				job.setKeywords(Algorithm.getResult(desc, answerOne, answerTwo, answerThree));
+				System.out.println(job.getJobTitle());
+				matches.add(job);
 //				System.out.println("result: " + job.getKeywords());
-
+				
 				// Checking if the same job already exist in the array
-				for (int k = 0; k < matches.size(); k++) {
-					if (!matches.get(k).getDesc().equals(desc)) {
-						matches.add(job);
-					}
-				}
+//				for (int k = 0; k < matches.size(); k++) {
+//					if (!matches.get(k).getDesc().equals(desc)) {
+//						matches.add(job);
+//					}
+//				}
 			}
 		}
 		return matches;
@@ -117,14 +121,15 @@ public class ApiCall {
 			String desc = jobs.get(j).getMatch().getSum();
 			Job job = new Job(jobs.get(j).getMatch().getPositionTitle(), desc);
 			job.setKeywords(Algorithm.getResult(desc, answerOne, answerTwo, answerThree));
+			matches.add(job);
 //			System.out.println("result: " + job.getKeywords());
 
 			// Checking if the same job already exist in the array
-			for (int k = 0; k < matches.size(); k++) {
-				if (!matches.get(k).getDesc().equals(desc)) {
-					matches.add(job);
-				}
-			}
+//			for (int k = 0; k < matches.size(); k++) {
+//				if (!matches.get(k).getDesc().equals(desc)) {
+//					matches.add(job);
+//				}
+//			}
 		}
 		return matches;
 

@@ -35,16 +35,46 @@
 	<p>Welcome, ${firstname}</p>
 
 	<div style="padding: 5%">
+
+
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th scope="col">Match %</th>
+					<th scope="col">Title</th>
+					<th scope="col">Location</th>
+					<th scope="col">Description</th>
+					<th scope="col">Job application</th>
+					<th scope="col">Save</th>
+				</tr>
+			</thead>
+			<c:forEach var="j" items="${jobs}">
+				<tr class="table-primary">
+					<td>${j.keywords}</td>
+					<td>${j.jobTitle}</td>
+					<td>location</td>
+					<td>button</td>
+					<td>url</td>
+					<td><a href="/savejob/${l.jobTitle}/${user.user_id}"><button
+						class="btn btn-light btn-sm">Save</button></a>
+					</td>
+				</tr>
+				<tr class="table-info">
+					<th scope="row">Info</th>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</c:forEach>
+
+		</table>
+
 		<table class="table table-hover">
 			<tbody>
 
-				<c:forEach var="j" items="${jobs}">
-					<p>title</p>
-					<p>${j.title}</p>
-					<br>
-					<a href="/savejob/${l.title}/${user.user_id}"><button
-							class="btn btn-light btn-sm">Save</button></a>
-				</c:forEach>
+
+				<p></p>
+				<br>
 		</table>
 	</div>
 </body>

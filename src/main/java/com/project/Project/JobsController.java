@@ -60,6 +60,8 @@ public class JobsController {
 		ArrayList<Job> matches = new ArrayList<Job>();
 		Quiz quiz = qr.findByUserId(u1.getUser_id());
 		System.out.println(quiz.getAnswer1());
+		System.out.println(quiz.getAnswer2());
+		System.out.println(quiz.getAnswer3());
 
 		String answerOne = quiz.getAnswer1();
 		String answerTwo = quiz.getAnswer2();
@@ -68,8 +70,8 @@ public class JobsController {
 		ApiCall ac = new ApiCall();
 		
 		matches.addAll(ac.getGitHubJobs(answerOne, answerTwo, answerThree));
-//		matches.addAll(ac.getAuthenticJobs(answerOne, answerTwo, answerThree, privatekey));
-//		matches.addAll(ac.getUsaJobs(answerOne, answerTwo, answerThree, jobKey));
+		matches.addAll(ac.getAuthenticJobs(answerOne, answerTwo, answerThree, privatekey));
+		matches.addAll(ac.getUsaJobs(answerOne, answerTwo, answerThree, jobKey));
 
 		System.out.println("size: " + matches.size());
 

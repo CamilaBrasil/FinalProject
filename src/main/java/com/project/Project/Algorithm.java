@@ -82,26 +82,26 @@ public class Algorithm {
 			}
 		
 		int total = occurrenceOne + occurrenceTwo + occurrenceThree;
-		System.out.println("Total: " + total);
-		System.out.println("One: " + occurrenceOne + "Two: " + occurrenceTwo + "Three: " + occurrenceThree);
+//		System.out.println("Total: " + total);
+//		System.out.println("One: " + occurrenceOne + "Two: " + occurrenceTwo + "Three: " + occurrenceThree);
 		
 		
 		if(occurrenceOne != 0) {
 			occurrenceOne = (occurrenceOne * 100) / total;
 			relevance += keywordsArray1[0] + ": " + occurrenceOne + "%  ";
-			System.out.println("Relevance 1: " + relevance);
+//			System.out.println("Relevance 1: " + relevance);
 		}
 		
 		if(occurrenceTwo != 0) {
 			occurrenceTwo = (occurrenceTwo * 100) / total;
 			relevance += keywordsArray2[0] + ": " + occurrenceTwo + "%  ";
-			System.out.println("Relevance 2: " + relevance);
+//			System.out.println("Relevance 2: " + relevance);
 		}
 		
 		if(occurrenceThree != 0) {
 			occurrenceThree = (occurrenceThree * 100) / total;
 			relevance += keywordsArray2[0] + ": " + occurrenceThree + "%  ";
-			System.out.println("Relevance 3: " + relevance);
+//			System.out.println("Relevance 3: " + relevance);
 		}
 
 		return relevance;
