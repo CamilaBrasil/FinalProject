@@ -11,27 +11,26 @@
 </head>
 <body>
 
-	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-		<a class="navbar-brand" href="/index">Home</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+		<a class="navbar-brand" href="/index"></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarColor01" aria-controls="navbarColor01"
 			aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
-
 		<div class="collapse navbar-collapse" id="navbarColor01">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item"><a class="nav-link" href="/">Find Jobs</a>
+				<li class="nav-item"><a class="nav-link" href="/home">Home</a>
 				</li>
+				<li class="nav-item"><a class="nav-link"
+					href="/findJobs">Find Jobs</a></li>
 				<li class="nav-item"><a class="nav-link" href="/favorites">Saved Jobs</a>
 				</li>
-				
+			
+				<li class="nav-item"><a class="nav-link" href="">Log Out</a></li>
 			</ul>
-			<p>Welcome, ${user.firstname}</p>
 		</div>
 	</nav>
-
-
 
 	<table class="table table-hover">
 		<thead>

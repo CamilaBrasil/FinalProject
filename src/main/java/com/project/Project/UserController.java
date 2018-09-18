@@ -20,9 +20,9 @@ import com.project.Project.entity.User;
 @Controller
 @SessionAttributes("user")
 public class UserController {
+
 	@Autowired
 	UserRepo ur;
-
 	@Autowired
 	QuizRepo qr;
 
@@ -79,8 +79,8 @@ public class UserController {
 
 		String email = u1.getEmail();
 		String password = u1.getPassword();
-		System.out.println("p2" + p2);
-		System.out.println("");
+//		System.out.println("p2" + p2);
+//		System.out.println("");
 		// Validating if the email is already register
 		if (ur.findByEmail(email) != null) {
 			return new ModelAndView("register", "title", "This email is being used, please enter another or log in");
@@ -93,7 +93,7 @@ public class UserController {
 			return new ModelAndView("register", "title", "The password must match");
 			
 		} else {
-			System.out.println(u1.getPassword());
+//			System.out.println(u1.getPassword());
 			session.setAttribute("user", u1);
 			ur.save(u1);
 			return new ModelAndView("sillyquestions");
@@ -116,7 +116,7 @@ public class UserController {
 		quiz.setUserId(user.getUser_id());
 //		quiz.setSkills(varSkills);
 //		quiz.setUser_id(user_id);
-		System.out.println(quiz);
+//		System.out.println(quiz);
 
 		qr.save(quiz);
 

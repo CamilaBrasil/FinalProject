@@ -53,10 +53,13 @@ public class JobsController {
 
 	
 	@RequestMapping("/findJobs")
-	public ModelAndView matches(User u1) {
+	public ModelAndView matches(HttpSession session) {
 
+		User u1 = (User) session.getAttribute("user");
+		
 		ArrayList<Job> matches = new ArrayList<Job>();
-		Quiz quiz = qr.findById(u1.getUser_id()).get();
+		Quiz quiz = qr.findByUserId(u1.getUser_id());
+		System.out.println(quiz.getAnswer1());
 
 		String answerOne = quiz.getAnswer1();
 		String answerTwo = quiz.getAnswer2();
@@ -64,9 +67,9 @@ public class JobsController {
 		
 		ApiCall ac = new ApiCall();
 		
-		matches.addAll(ac.getAuthenticJobs(answerOne, answerTwo, answerThree, privatekey));
 		matches.addAll(ac.getGitHubJobs(answerOne, answerTwo, answerThree));
-		matches.addAll(ac.getUsaJobs(answerOne, answerTwo, answerThree, jobKey));
+//		matches.addAll(ac.getAuthenticJobs(answerOne, answerTwo, answerThree, privatekey));
+//		matches.addAll(ac.getUsaJobs(answerOne, answerTwo, answerThree, jobKey));
 
 		System.out.println("size: " + matches.size());
 
