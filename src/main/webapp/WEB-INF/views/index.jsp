@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Login/Index page</title>
+<title>Login</title>
 <link href="https://bootswatch.com/4/united/bootstrap.min.css"
 	rel="stylesheet" id="bootstrap-css">
 <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
@@ -27,39 +27,43 @@
 				</li>
 				<li class="nav-item"><a class="nav-link" href="register">Register</a>
 				</li>
-				<li class="nav-item"><a class="nav-link" href="/about">About</a>
-				</li>
-				<li class="nav-item"><a class="nav-link" href="/contact">Contact</a>
-				</li>
+		
 			</ul>
 
 		</div>
 	</nav>
 
 	<div class="jumbotron">
-		<h1 class="display-3">Final Project Demo</h1>
+		<h1 class="display-3">TinTech</h1>
 
-		<p class="lead">Cupcake ipsum dolor sit amet gummi bears. Sesame
-			snaps bear claw candy sweet topping. Fruitcake danish jelly beans ice
-			cream sesame snaps. Apple pie sesame snaps cheesecake tiramisu
-			chocolate. Candy caramels jelly beans dragée danish candy soufflé
-			croissant. Jelly cake tart pudding oat cake lollipop cake. Powder
-			cake chocolate cake macaroon. Caramels liquorice sweet chupa chups
-			danish. Pie sweet marzipan caramels cake pudding toffee macaroon
-			fruitcake. Chocolate cake carrot cake toffee gummi bears caramels
-			muffin chocolate bar. Jelly oat cake liquorice sesame snaps oat cake.
-			Biscuit sesame snaps jelly-o cotton candy muffin bear claw. Fruitcake
-			muffin muffin oat cake pie tiramisu dragée bear claw pastry. Lollipop
-			gummies icing gummies gingerbread cookie halvah jujubes. Tart candy
-			canes caramels tootsie roll soufflé gummies gingerbread.</p>
+			<p class="lead">Did you know that your favorite pizza topping
+			can help determine what your next job will be? Job searching in the
+			21st century can be stressful and time consuming. In many ways,
+			looking for a job can be a job itself. One of the main hitches in the
+			modern job search process is online job search engines that ask you a
+			million questions and still give you a list of jobs that have no
+			relevance to the kind of job youâ€™re looking for or who you are as a
+			candidate. TinTech is a web app that gives tech job seekers a quick,
+			fun way of finding jobs that are relevant to them. The name â€œTinTechâ€
+			is a play on the dating app â€œTinderâ€ because TinTech uses a similar
+			strategy to dating apps that match people with potential mates based
+			on their answers to personality-based questions. A user registers on
+			TinTech and selects their top three technical skills, they then take
+			a short, multiple choice, BuzzFeed-esque, personality quiz which has
+			a soft skill keyword attached to each answer. Using an algorithm that
+			matches those keywords to job descriptions from the Authentic Jobs,
+			USAJobs, and GitHub Jobs APIs, TinTech then displays a list of
+			matching jobs and a percentage showing the relevance of each job
+			based on how many times the given keywords appear in the job
+			description. The user can then click a link which will take them to
+			the job application and save jobs so they can come back to them
+			later. TinTech helps tech job seekers save time on the job search by
+			matching them with jobs based on both hard and soft skills. Tell us
+			your favorite pizza topping, find your dream tech job, and work your
+			best life!</p>
 		<hr class="my-4">
-		<p>Cake toffee tiramisu topping liquorice lollipop. Brownie
-			gummies macaroon ice cream macaroon chupa chups chocolate bar bear
-			claw pastry. Marshmallow lollipop muffin lemon drops soufflé
-			croissant. Powder gummies cake cake chocolate caramels pie.</p>
-		<p class="lead">
-			<a class="btn btn-info btn-lg" href="#" role="button">Learn more</a>
-		</p>
+	
+	
 	</div>
 
 </body>

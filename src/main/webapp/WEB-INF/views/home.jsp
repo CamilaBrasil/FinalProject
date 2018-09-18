@@ -27,10 +27,7 @@
 					href="/jobs/${user.user_id}">Find Jobs</a></li>
 				<li class="nav-item"><a class="nav-link" href="/favorites">Matches</a>
 				</li>
-				<li class="nav-item"><a class="nav-link" href="/about">About</a>
-				</li>
-				<li class="nav-item"><a class="nav-link" href="/contact">Contact</a>
-				</li>
+			
 				<li class="nav-item"><a class="nav-link" href="">Log Out</a></li>
 			</ul>
 
@@ -69,8 +66,7 @@
 			best life!</p>
 		<hr class="my-4">
 		
-			<a class="btn btn-info btn-lg" href="/about" role="button">Learn
-				more</a>
+			
 		</p>
 	</div>
 </body>
