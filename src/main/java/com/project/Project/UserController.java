@@ -61,10 +61,10 @@ public class UserController {
 
 	// Home page after the user register/login
 	@RequestMapping("/home")
-	public ModelAndView home(@RequestParam("user_id") Integer user_id) {
-//		User user = ur.findByEmail(email);
+	public ModelAndView home(HttpSession session) {
+		User user = (User) session.getAttribute("user");
 
-		return new ModelAndView("home", "user_id", user_id);
+		return new ModelAndView("home", "user", user);
 	}
 
 	// Calling jsp with the register form
@@ -75,28 +75,28 @@ public class UserController {
 
 	// Submiting the registration and doing basic validation
 	@PostMapping("/submit")
-	public ModelAndView submit(User u1, @RequestParam("password_confirm") String p2) {
+	public ModelAndView submit(User u1, @RequestParam("password") String p1, @RequestParam("password_confirm") String p2, HttpSession session) {
 
 		String email = u1.getEmail();
 		String password = u1.getPassword();
-
+		System.out.println("p2" + p2);
+		System.out.println("");
 		// Validating if the email is already register
 		if (ur.findByEmail(email) != null) {
 			return new ModelAndView("register", "title", "This email is being used, please enter another or log in");
 
-		} else if (!UserValidation.validateEmail(email)) {
-			return new ModelAndView("register", "title", "Please enter a valid email");
-
-		} else if (!UserValidation.validatePassword(password)) {
-			return new ModelAndView("register", "title",
-					"The password must contain at least one number, one capital letter, one lower case and be 4 digits long");
+//		} else if (!UserValidation.validatePassword(p2)) {
+//			return new ModelAndView("register", "title",
+//					"The password must contain at least one number, one capital letter, one lower case and be 4 digits long");
 			
-		} else if (!u1.getPassword().equals(p2)) {
+		} else if (!p2.equals(p1)) {
 			return new ModelAndView("register", "title", "The password must match");
 			
 		} else {
+			System.out.println(u1.getPassword());
+			session.setAttribute("user", u1);
 			ur.save(u1);
-			return new ModelAndView("quiz", "user_id", u1.getUser_id());
+			return new ModelAndView("sillyquestions");
 		}
 	}
 

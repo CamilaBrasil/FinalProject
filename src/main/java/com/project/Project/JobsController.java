@@ -29,6 +29,7 @@ import com.project.Project.entity.GithubJob;
 import com.project.Project.entity.Job;
 import com.project.Project.entity.Listing;
 import com.project.Project.entity.ParentJson;
+import com.project.Project.entity.Quiz;
 import com.project.Project.entity.UsaJobsJson;
 import com.project.Project.entity.User;
 
@@ -46,42 +47,12 @@ public class JobsController {
 
 	@Value("${privatekey}")
 	private String privatekey;
-	
-	
-	//Arraylist of Job objects
-	ArrayList<Job> jobList = new ArrayList<>();
-	
-	@GetMapping("/jobid")
-	public ModelAndView jobId() {
-		RestTemplate restTemplate = new RestTemplate();
 
-		ParentJson test = restTemplate.getForObject("https://authenticjobs.com/api/?api_key=" + privatekey
-				+ "&method=aj.jobs.search&keywords=java&perpage=1&format=json", ParentJson.class);
-
-		System.out.println(test);
-		return new ModelAndView("jobid", "jobdata", test);
-	}
-
-//	// Show the jobs
-//	@GetMapping("/jobs/{user_id}")
-//	public ModelAndView jobs(@PathVariable("user_id") Integer user_id) {
-//
-//		String keywords = qr.findByUserId(user_id).getSkills();
-//		System.out.println("Keywords:  " + qr.findByUserId(user_id).getSkills());
-//
-//		RestTemplate restTemplate = new RestTemplate();
-//		ParentJson test = restTemplate.getForObject("https://authenticjobs.com/api/?api_key=" + privatekey
-//				+ "&method=aj.jobs.search&keywords=" + keywords + "&perpage=1&format=json", ParentJson.class);
-//
-//		List<Listing> list = test.getTest().getListing();
-//
-//		ModelAndView mv = new ModelAndView("job_results", "list", list);
-//		return mv.addObject("user_id", user_id);
-//	}
-
-	//
 	@RequestMapping("/savejob/{title}/{user_id}")
 	public ModelAndView saveJob(@PathVariable("title") String title, @PathVariable("user_id") Integer user_id) {
+		
+		//Arraylist of Job objects
+		ArrayList<Job> jobList = new ArrayList<>();
 
 		String keywords = "";
 //		String keywords = qr.findByUserId(user_id).getSkills();
@@ -110,6 +81,7 @@ public class JobsController {
 
 		return new ModelAndView("home");
 	}
+	
 	
 	@RequestMapping("/sillyq")
 	public ModelAndView testSillyQ() {
@@ -202,136 +174,85 @@ public class JobsController {
 	@RequestMapping("/findJobs")
 	public ModelAndView matches (User u1){
 
-		//TODO get users keywords saved in the db.
-		String keyOne = "energetic";
-		String keyTwo = "troubleshooting";
-		String keyThree = "adaptability";
+		Quiz quiz = qr.findById(u1.getUser_id()).get();
 		
-		//Getting all keywords combinations
+		String keyOne = quiz.getAnswer1();
+		String keyTwo = quiz.getAnswer2();
+		String keyThree = quiz.getAnswer3();
+		
+		//Getting all keywords
 		List<String> keywords = Algorithm.getKeywords(keyOne, keyTwo, keyThree);
-		System.out.println(keywords);
+
 		ArrayList<Job> matches = new ArrayList<Job>();
+		matches.addAll(getAuthenticJobs(keyOne, keyTwo, keyThree));
+		
+//		matches.addAll(getGitHubJobs(keyOne, keyTwo, keyThree));
+	
+		System.out.println("size: " + matches.size());
+		
+		return new ModelAndView("job_results", "jobs", matches);
+	}
+
+
+	private void getGitHubJobs(String keyOne, String keyTwo, String keyThree) {
+		
+		//Getting all keywords
+		List<String> keywords = Algorithm.getKeywords(keyOne, keyTwo, keyThree);
+		ArrayList<Job> matches = new ArrayList<Job>();
+		
 		RestTemplate restTemplate = new RestTemplate();
 		
-//		for (int i = 0; i < keywords.size(); i++) {
-//			
+		for (int i = 0; i < keywords.size(); i++) {
 			
-			ParentJson test = restTemplate.getForObject("https://authenticjobs.com/api/?api_key=" + privatekey
-					+ "&method=aj.jobs.search&keywords=" + keyOne + "&perpage=10&format=json", ParentJson.class);
+			GithubJob[] gitList = restTemplate.getForObject("https://jobs.github.com/positions.json?description=" + keywords.get(i) + "&page=1",
+					GithubJob[].class);
 
-//			keywords.get(i)
-			
-			List<Listing> list = test.getTest().getListing();
-			
-//			for (int j = 0; j < list.size(); j++) {
+			for (int j = 0; j < gitList.length; j++) {
 				
-				String desc = list.get(0).getDescription();
-				Job job = new Job(list.get(0).getTitle(), desc);
+				String desc = gitList[j].getDescription();
+				Job job = new Job(gitList[j].getTitle(), desc);
 				
 				//TODO Add in the jobs pojo add a string variable to store keyword and relevance;
 				
-				job.setKeywords(Algorithm.getResult(desc));
+//				job.setKeywords(Algorithm.getResult(desc));
+				ArrayList<Job> matches1 = new ArrayList<Job>();
+				matches1.add(job);
+			}
+			
+		}
+	}
+
+
+	private ArrayList<Job> getAuthenticJobs(String keyOne, String keyTwo, String keyThree) {
+		
+		//Getting all keywords
+		List<String> keywords = Algorithm.getKeywords(keyOne, keyTwo, keyThree);
+		ArrayList<Job> matches = new ArrayList<Job>();
+		
+		RestTemplate restTemplate = new RestTemplate();
+		
+		for (int i = 0; i < keywords.size(); i++) {
+			
+			ParentJson test = restTemplate.getForObject("https://authenticjobs.com/api/?api_key=" + privatekey
+					+ "&method=aj.jobs.search&keywords=" + keywords.get(i) +"&perpage=10&format=json", ParentJson.class);
+
+			List<Listing> list = test.getTest().getListing();
+			
+			for (int j = 0; j < list.size(); j++) {
+				
+				String desc = list.get(0).getDescription();
+				Job job = new Job(list.get(0).getTitle(), desc);
+				job.setKeywords(Algorithm.getResult(desc, keyOne, keyTwo, keyThree));
 				System.out.println("result: " + job.getKeywords());
 				
 				matches.add(job);
-//			}
-			
-//		}
-		
-		System.out.println("size: " + matches.size());
-		
-//		for (int i = 0; i < keywords.size(); i++) {
-//			
-//			GithubJob[] gitList = restTemplate.getForObject("https://jobs.github.com/positions.json?description=" + keywords.get(i) + "&page=1",
-//					GithubJob[].class);
-//
-//			for (int j = 0; j < gitList.length; j++) {
-//				
-//				String desc = gitList[j].getDescription();
-//				Job job = new Job(gitList[j].getTitle(), desc);
-//				
-//				//TODO Add in the jobs pojo add a string variable to store keyword and relevance;
-//				
-////				job.setKeywords(Algorithm.getResult(desc));
-//				
-//				matches.add(job);
-//			}
-//			
-//		}
-	
-		
-		
-		return new ModelAndView("index");
-//		return new ModelAndView("job_results", "jobs", matches);
+			}
+		}
+		return matches;
 	}
 	
 	
-	@RequestMapping("/testKey")
-	public String testKey() {
-		
-		String keyOne = "energetic";
-		String keyTwo = "troubleshooting";
-		String keyThree = "adaptability";
-		
-		List<String> jobList = Algorithm.getKeywords(keyOne, keyTwo, keyThree);
-		
-		System.out.println(jobList.size());
-//		for (String job : jobList) {
-//			System.out.println(job);
-//		}
-		
-		//Getting all keywords combinations
-//		List<String> keywords = Algorithm.getKeywords(keyOne, keyTwo, keyThree);
-//		System.out.println(keywords);
-		
-		return "";
-	}
 
-	
-//	@RequestMapping("/testJobList")
-//	public void testJobList() {
-//		RestTemplate restTemplate = new RestTemplate();
-//		ParentJson test = restTemplate.getForObject("https://authenticjobs.com/api/?api_key=" + privatekey
-//				+ "&method=aj.jobs.search&keywords=java&perpage=10&format=json", ParentJson.class);
-//
-//		List<Listing> list = test.getTest().getListing();
-//
-//		for(Listing listing : list) {
-//			Job job = new Job();
-//			job.setJobTitle(listing.getTitle());
-//			job.setDesc(listing.getDescription());
-//			jobList.add(job);
-//			
-//			System.out.println(job.getJobTitle());
-//		}
-//		
-//		// using an array because the json data returns a json array as the parent
-//		GithubJob[] gitList = restTemplate.getForObject("https://jobs.github.com/positions.json?description=java&page=1",
-//				GithubJob[].class);
-//		
-//		
-//		for(GithubJob git : gitList) {
-//			Job job = new Job();
-//			job.setJobTitle(git.getTitle());
-//			job.setDesc(git.getDescription());
-//			jobList.add(job);
-//
-//		}
-//	}
-
-
-	@RequestMapping("/testJob")
-	public ModelAndView testJob() {
-
-		FavJobs fav = new FavJobs("test", 1);
-		fav.setJobTitle("test");
-		fav.setUser_id(1);
-		System.out.println(fav);
-		jr.save(fav);
-
-		return new ModelAndView("home");
-	}
-	
 
 	@GetMapping("/gitjobs")
 	public ModelAndView index() {
@@ -388,7 +309,6 @@ public class JobsController {
 			}
 		}
 		return matchList;
-			
 	}
 	
 	@Value("${usajobs.key}")
