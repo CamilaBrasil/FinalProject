@@ -3,10 +3,12 @@ package com.project.Project;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.project.Project.dao.JobsRepo;
 import com.project.Project.dao.QuizRepo;
 import com.project.Project.dao.UserRepo;
+import com.project.Project.entity.FavJobs;
 
 @Controller
 public class TestingController {
@@ -24,19 +26,19 @@ public class TestingController {
 	public void testAlgorithm() {
 
 		String keyOne = "leader";
-		String keyTwo = "problem solving";
+		String keyTwo = "resolution";
 		String keyThree = "energetic";
 
 		String description = "Our developers create industry-leading digital work for some of the most recognized brands on the planet. A successful "
 				+ "candidate will bring a track record of constantly innovating and maintaining a broad knowledge of development principles, industry "
 				+ "trends, and emerging technologies. Expert-level knowledge of one or more system languages, database architecture, and Unix operating "
-				+ "systems is required — experience working in an agency or project-driven environment is a plus.\r\n"
+				+ "systems is required — experience working leader in an agency or project-driven environment is a plus.\r\n"
 				+ "\r\n" + "Primary responsibilities:\r\n" + "\r\n"
 				+ "Develop back-end solutions for data-driven executions in web, mobile, and emerging technology. Projects including but not limited to "
 				+ "API development, custom content management, front-end integration, image/video rendering, and other complex builds.\r\n"
 				+ "Lead the way on project architecture and database structure while utilizing best practices in performance, stability, scalability and "
 				+ "security.\r\n"
-				+ "Contribute to concept development with multi-disciplinary teams of developers, creatives, and producers.\r\n"
+				+ "Contribute to concept development with multi-disciplinary teams of problem solving developers, creatives, and producers.\r\n"
 				+ "Maintain proficiency in the widest possible range of back-end web development areas including Python, Java, shell scripting, database "
 				+ "architecture, and Unix operating systems. Our front-end developers will lean on you to design API services, set up deployment servers, "
 				+ "and more.\r\n"
@@ -59,8 +61,20 @@ public class TestingController {
 		
 		System.out.println(Algorithm.getKeywords(keyOne, keyTwo, keyThree));
 		System.out.println(descArray.toString());
-		System.out.println("Relevance: " + Algorithm.getRelevance(descArray));
+		System.out.println("Relevance: " + Algorithm.getRelevance(descArray, keyOne, keyTwo, keyThree));
 		
+	}
+	
+	@RequestMapping("/testJob")
+	public ModelAndView testJob() {
+
+		FavJobs fav = new FavJobs("test", 1);
+		fav.setJobTitle("test");
+		fav.setUser_id(1);
+		System.out.println(fav);
+		jr.save(fav);
+
+		return new ModelAndView("home");
 	}
 
 }

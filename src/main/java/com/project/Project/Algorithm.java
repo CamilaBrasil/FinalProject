@@ -26,10 +26,10 @@ public class Algorithm {
 		return allKeywords;
 	}
 
-	public static String getResult(String desc) {
+	public static String getResult(String desc, String keyOne, String keyTwo, String keyThree) {
 
 		
-		return getRelevance(parseDesc(desc));
+		return getRelevance(parseDesc(desc), keyOne, keyTwo, keyThree);
 	}
 
 	// Parsing the description
@@ -42,72 +42,7 @@ public class Algorithm {
 	}
 
 	
-	public static String getRelevance(String[] descArray) {
-	
-		int occurrenceOne = 0;
-		int occurrenceTwo = 0;
-		int occurrenceThree = 0;
-		String relevance = "";
-		
-		
-		//Getting occurrence of the first keyword string
-		for (int i = 0; i < keywordsArray1.length; i++) {
-			for (int j = 0; j < descArray.length; j++) {
-					if(descArray[j].equalsIgnoreCase(keywordsArray1[i])) {
-						occurrenceOne++;
-					}
-				}
-			}
-		
-		//Getting occurrence of the second keyword string
-		for (int i = 0; i < keywordsArray2.length; i++) {
-			for (int j = 0; j < descArray.length; j++) {
-					if(descArray[j].equalsIgnoreCase(keywordsArray2[i])) {
-						occurrenceTwo++;
-					}
-				}
-			}
-		
-		//Getting occurrence of the third keyword string
-		for (int i = 0; i < keywordsArray3.length; i++) {
-			for (int j = 0; j < descArray.length; j++) {
-					if(descArray[j].equalsIgnoreCase(keywordsArray3[i])) {
-						occurrenceThree++;
-					}
-				}
-			}
-		
-		int total = occurrenceOne + occurrenceTwo + occurrenceThree;
-//		System.out.println("Total: " + total);
-//		System.out.println("One: " + occurrenceOne + "Two: " + occurrenceTwo + "Three: " + occurrenceThree);
-		
-		
-		if(occurrenceOne != 0) {
-			occurrenceOne = (occurrenceOne * 100) / total;
-			relevance += keywordsArray1[0] + ": " + occurrenceOne + "%  ";
-//			System.out.println("Relevance 1: " + relevance);
-		}
-		
-		if(occurrenceTwo != 0) {
-			occurrenceTwo = (occurrenceTwo * 100) / total;
-			relevance += keywordsArray2[0] + ": " + occurrenceTwo + "%  ";
-//			System.out.println("Relevance 2: " + relevance);
-		}
-		
-		if(occurrenceThree != 0) {
-			occurrenceThree = (occurrenceThree * 100) / total;
-			relevance += keywordsArray2[0] + ": " + occurrenceThree + "%  ";
-//			System.out.println("Relevance 3: " + relevance);
-		}
-	
-
-		return relevance;
-	
-}
-	
-	
-	//Only for testing
-	public static String TestRelevance(String[] descArray, String keyOne, String keyTwo, String keyThree) {
+	public static String getRelevance(String[] descArray, String keyOne, String keyTwo, String keyThree) {
 		
 		int occurrenceOne = 0;
 		int occurrenceTwo = 0;
@@ -147,26 +82,26 @@ public class Algorithm {
 			}
 		
 		int total = occurrenceOne + occurrenceTwo + occurrenceThree;
-//		System.out.println("Total: " + total);
-//		System.out.println("One: " + occurrenceOne + "Two: " + occurrenceTwo + "Three: " + occurrenceThree);
+		System.out.println("Total: " + total);
+		System.out.println("One: " + occurrenceOne + "Two: " + occurrenceTwo + "Three: " + occurrenceThree);
 		
 		
 		if(occurrenceOne != 0) {
 			occurrenceOne = (occurrenceOne * 100) / total;
 			relevance += keywordsArray1[0] + ": " + occurrenceOne + "%  ";
-//			System.out.println("Relevance 1: " + relevance);
+			System.out.println("Relevance 1: " + relevance);
 		}
 		
 		if(occurrenceTwo != 0) {
 			occurrenceTwo = (occurrenceTwo * 100) / total;
 			relevance += keywordsArray2[0] + ": " + occurrenceTwo + "%  ";
-//			System.out.println("Relevance 2: " + relevance);
+			System.out.println("Relevance 2: " + relevance);
 		}
 		
 		if(occurrenceThree != 0) {
 			occurrenceThree = (occurrenceThree * 100) / total;
 			relevance += keywordsArray2[0] + ": " + occurrenceThree + "%  ";
-//			System.out.println("Relevance 3: " + relevance);
+			System.out.println("Relevance 3: " + relevance);
 		}
 
 		return relevance;
