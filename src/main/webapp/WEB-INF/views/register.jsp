@@ -65,8 +65,8 @@
 				<div class="control-group">
 					<label class="control-label" for="email">E-mail</label>
 					<div class="controls">
-						<input type="text" id="email" name="email" placeholder="email"
-							class="input-xlarge">
+						<input type="email" id="email" name="email" placeholder="email"
+							class="input-xlarge" required>
 					</div>
 				</div>
 
@@ -82,7 +82,7 @@
 					<label class="control-label" for="password">Password</label>
 					<div class="controls">
 						<input type="password" id="password" name="password"
-							placeholder="password" class="input-xlarge">
+							placeholder="password" class="input-xlarge" required>
 					</div>
 				</div>
 
@@ -92,7 +92,7 @@
 					<div class="controls">
 						<input type="password" id="password_confirm"
 							name="password_confirm" placeholder="password"
-							class="input-xlarge">
+							class="input-xlarge" required>
 					</div>
 				</div>
 
