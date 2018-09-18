@@ -60,7 +60,7 @@
 			
 			<div class="custom-control custom-radio">
 				<input type="radio" id="customRadio3" name="quest1"
-					class="custom-control-input" value="people skills"> <label
+					class="custom-control-input" value="friendly"> <label
 					class="custom-control-label" for="customRadio3">Mickey Mouse</label>
 			</div><br>
 					<img src="/images/Cubsimba.png" alt="Young Simba" height="150" width="150">
@@ -81,7 +81,7 @@
 			
 			<div class="custom-control custom-radio">
 				<input type="radio" id="customRadio6" name="quest1"
-					class="custom-control-input" value="team player"> <label
+					class="custom-control-input" value="supportive"> <label
 					class="custom-control-label" for="customRadio6">Snow White</label>
 			</div>
 		</div><br>
@@ -93,14 +93,14 @@
 		<div class="form-group">
 			<div class="custom-control custom-radio">
 				<input type="radio" id="customRadio7" name="quest2"
-					class="custom-control-input" value="project management" checked=""> <label
+					class="custom-control-input" value="management" checked=""> <label
 					class="custom-control-label" for="customRadio7">Pepperoni</label>
 			</div><br>
 								<img src="/images/bacon.jpg" alt="Bacon" height="150" width="150">
 			
 			<div class="custom-control custom-radio">
 				<input type="radio" id="customRadio8" name="quest2"
-					class="custom-control-input" value="conflict resolution"> <label
+					class="custom-control-input" value="resolution"> <label
 					class="custom-control-label" for="customRadio8">Bacon</label>
 			</div><br>
 								<img src="/images/shrooms.jpg" alt="Shrooms" height="150" width="150">
@@ -121,7 +121,7 @@
 			
 			<div class="custom-control custom-radio">
 				<input type="radio" id="customRadio11" name="quest2"
-					class="custom-control-input" value="teach smart"> <label
+					class="custom-control-input" value="resourceful"> <label
 					class="custom-control-label" for="customRadio11">Pineapple</label>
 			</div><br>
 								<img src="/images/peppers.jpg" alt="Green Peppers" height="150" width="150">
@@ -154,7 +154,7 @@
 			
 			<div class="custom-control custom-radio">
 				<input type="radio" id="customRadio15" name="quest3"
-					class="custom-control-input" value="problem solving"> <label
+					class="custom-control-input" value="analytical"> <label
 					class="custom-control-label" for="customRadio15">Forest</label>
 			</div><br>
 					<img src="/images/farm.jpg" alt="Farm" height="150" width="150">
@@ -168,14 +168,14 @@
 			
 			<div class="custom-control custom-radio">
 				<input type="radio" id="customRadio17" name="quest3"
-					class="custom-control-input" value="work ethic"> <label
+					class="custom-control-input" value="ethical"> <label
 					class="custom-control-label" for="customRadio17">Desert</label>
 			</div><br>
 					<img src="/images/detroit.jpg" alt="Detroit" height="150" width="150">
 			
 			<div class="custom-control custom-radio">
 				<input type="radio" id="customRadio18" name="quest3"
-					class="custom-control-input" value="interpersonal skills"> <label
+					class="custom-control-input" value="professional"> <label
 					class="custom-control-label" for="customRadio18">City</label><br><br>
 
 			<button type="submit" class="btn btn-primary">Submit</button>
