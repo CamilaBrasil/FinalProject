@@ -23,10 +23,6 @@ public class User {
 	private String zipcode;
 	private String password;
 
-//	@OneToMany//(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-//	@JoinColumn(name="user_id")
-//	private List<FavJobs> favJobsList = new ArrayList<>();
-	
 	@OneToMany()
 	@JoinColumn(name="user_id")
 	private Set<FavJobs> favJobs;
