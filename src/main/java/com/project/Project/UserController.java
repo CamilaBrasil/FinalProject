@@ -45,11 +45,11 @@ public class UserController {
 			HttpSession session) {
 
 		User user = ur.findByEmail(email);
-
+		
 		if (user != null) {
 			if (user.getPassword().equals(password)) {
 				session.setAttribute("user", user);
-
+				
 				return new ModelAndView("home", "user", user);
 			} else {
 				return new ModelAndView("login", "title", "The password does not match");
@@ -107,13 +107,13 @@ public class UserController {
 	}
 
 	@PostMapping("/submitquiz")
-	public ModelAndView submitquiz(@RequestParam("quest1") String quest1, @RequestParam("quest2") String quest2, @RequestParam("quest3") String quest3) {
-
+	public ModelAndView submitquiz(@RequestParam("quest1") String quest1, @RequestParam("quest2") String quest2, @RequestParam("quest3") String quest3, HttpSession session) {
+		User user = (User) session.getAttribute("user");
 		Quiz quiz = new Quiz();
 		quiz.setAnswer1(quest1);
 		quiz.setAnswer2(quest2);
 		quiz.setAnswer3(quest3);
-		quiz.setUserId(1);
+		quiz.setUserId(user.getUser_id());
 //		quiz.setSkills(varSkills);
 //		quiz.setUser_id(user_id);
 		System.out.println(quiz);
