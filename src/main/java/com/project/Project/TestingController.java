@@ -1,14 +1,17 @@
 package com.project.Project;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.project.Project.dao.JobsRepo;
 import com.project.Project.dao.QuizRepo;
 import com.project.Project.dao.UserRepo;
 import com.project.Project.entity.FavJobs;
+import com.project.Project.entity.Job;
 
 @Controller
 public class TestingController {
@@ -19,6 +22,12 @@ public class TestingController {
 	UserRepo ur;
 	@Autowired
 	JobsRepo jr;
+	
+	@Value("${privatekey}")
+	private String privatekey;
+	
+	@Value("${usajobs.key}")
+	String jobKey;
 
 	// Test - Retrieving keywords from the ENUM Keywords.
 	//		  Parsing description and getting relevance
@@ -66,15 +75,44 @@ public class TestingController {
 	}
 	
 	@RequestMapping("/testJob")
-	public ModelAndView testJob() {
+	public void testJob() {
 
 		FavJobs fav = new FavJobs("test", 1);
 		fav.setJobTitle("test");
 		fav.setUser_id(1);
 		System.out.println(fav);
 		jr.save(fav);
+	}
+	
+	// API WENT DOWN FOR MAINTANCE ON 09/18
+	@RequestMapping("/testAuthentic")
+	public void testAuthentic() {
+		JobsController jc = new JobsController();
+		ArrayList<Job> jobList = jc.getAuthenticJobs("leader", "resolution", "energetic", privatekey);
 
-		return new ModelAndView("home");
+		for (int i = 0; i < jobList.size(); i++) {
+			System.out.println(jobList.get(i).getJobTitle());
+		}
+	}
+	
+	@RequestMapping("/testGitHub")
+	public void testGitHub() {
+		JobsController jc = new JobsController();
+		ArrayList<Job> jobList = jc.getGitHubJobs("leader", "resolution", "energetic");
+
+		for (int i = 0; i < jobList.size(); i++) {
+			System.out.println(jobList.get(i).getJobTitle());
+		}
+	}
+	
+	@RequestMapping("/testUSAJobs")
+	public void testUSAJobs() {
+		JobsController jc = new JobsController();
+		ArrayList<Job> jobList = jc.getUsaJobs("leader", "resolution", "energetic", jobKey);
+
+		for (int i = 0; i < jobList.size(); i++) {
+			System.out.println(jobList.get(i).getJobTitle());
+		}
 	}
 
 }
