@@ -25,7 +25,7 @@
 				</li>
 				<li class="nav-item"><a class="nav-link"
 					href="/jobs/${user.user_id}">Find Jobs</a></li>
-				<li class="nav-item"><a class="nav-link" href="/favorites">Matches</a>
+				<li class="nav-item"><a class="nav-link" href="/favorites">Saved Jobs</a>
 				</li>
 			
 				<li class="nav-item"><a class="nav-link" href="">Log Out</a></li>

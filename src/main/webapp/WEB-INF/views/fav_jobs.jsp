@@ -23,7 +23,7 @@
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item"><a class="nav-link" href="/">Find Jobs</a>
 				</li>
-				<li class="nav-item"><a class="nav-link" href="/favorites">Matches</a>
+				<li class="nav-item"><a class="nav-link" href="/favorites">Saved Jobs</a>
 				</li>
 				<li class="nav-item"><a class="nav-link" href="/about">About</a>
 				</li>
