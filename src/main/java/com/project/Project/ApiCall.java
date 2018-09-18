@@ -14,6 +14,7 @@ import com.project.Project.entity.GithubJob;
 import com.project.Project.entity.Job;
 import com.project.Project.entity.Listing;
 import com.project.Project.entity.ParentJson;
+import com.project.Project.entity.StringResultItems;
 import com.project.Project.entity.UsaJobsJson;
 
 public class ApiCall {
@@ -38,14 +39,14 @@ public class ApiCall {
 				Job job = new Job(gitList[j].getTitle(), desc);
 				job.setKeywords(Algorithm.getResult(desc, answerOne, answerTwo, answerThree));
 //				System.out.println("result: " + job.getKeywords());
-				
-				//Checking if the same job already exist in the array
+
+				// Checking if the same job already exist in the array
 				for (int k = 0; k < matches.size(); k++) {
-					if(!matches.get(k).getDesc().equals(desc)) {
+					if (!matches.get(k).getDesc().equals(desc)) {
 						matches.add(job);
 					}
 				}
-			
+
 			}
 		}
 		return matches;
@@ -74,9 +75,9 @@ public class ApiCall {
 				job.setKeywords(Algorithm.getResult(desc, answerOne, answerTwo, answerThree));
 //				System.out.println("result: " + job.getKeywords());
 
-				//Checking if the same job already exist in the array
+				// Checking if the same job already exist in the array
 				for (int k = 0; k < matches.size(); k++) {
-					if(!matches.get(k).getDesc().equals(desc)) {
+					if (!matches.get(k).getDesc().equals(desc)) {
 						matches.add(job);
 					}
 				}
@@ -85,10 +86,10 @@ public class ApiCall {
 		return matches;
 	}
 
-	public ArrayList<Job> getUsaJobs(String keyOne, String keyTwo, String keyThree, String jobKey2) {
+	public ArrayList<Job> getUsaJobs(String answerOne, String answerTwo, String answerThree, String jobKey2) {
 
 		// Getting all keywords
-		List<String> keywords = Algorithm.getKeywords(keyOne, keyTwo, keyThree);
+		List<String> keywords = Algorithm.getKeywords(answerOne, answerTwo, answerThree);
 		ArrayList<Job> matches = new ArrayList<Job>();
 
 		RestTemplate restTemplate = new RestTemplate();
@@ -103,22 +104,30 @@ public class ApiCall {
 		// to attach the headers to our request we need the HttpEntity
 		HttpEntity<String> entity = new HttpEntity<>("parameters", headers);
 
-		ResponseEntity<UsaJobsJson> response = restTemplate.exchange(
-				"https://data.usajobs.gov/api/Search?Keyword=" + keywords + "&KeywordFilter=ALL&JobCategoryCode=0800",
-				HttpMethod.GET, entity, UsaJobsJson.class);
+		ResponseEntity<UsaJobsJson> response = restTemplate.exchange("https://data.usajobs.gov/api/Search?Keyword="
+				+ keywords.get(0) + "&KeywordFilter=ALL&JobCategoryCode=0800", HttpMethod.GET, entity,
+				UsaJobsJson.class);
+
+		ArrayList<StringResultItems> jobs = response.getBody().getSr().getItems();
 		
 		System.out.println(response.getBody().getSr().getItems().get(0).getMatch().getPositionTitle());
-		
-		// System.out.println(response.getBody());
 
-		//Checking if the same job already exist in the array
-//		for (int k = 0; k < matches.size(); k++) {
-//			if(!matches.get(k).getDesc().equals(desc)) {
-//				matches.add(job);
-//			}
-//		}
+		for (int j = 0; j < jobs.size(); j++) {
 
+			String desc = jobs.get(j).getMatch().getSum();
+			Job job = new Job(jobs.get(j).getMatch().getPositionTitle(), desc);
+			job.setKeywords(Algorithm.getResult(desc, answerOne, answerTwo, answerThree));
+//			System.out.println("result: " + job.getKeywords());
+
+			// Checking if the same job already exist in the array
+			for (int k = 0; k < matches.size(); k++) {
+				if (!matches.get(k).getDesc().equals(desc)) {
+					matches.add(job);
+				}
+			}
+		}
 		return matches;
+
 	}
 
 }

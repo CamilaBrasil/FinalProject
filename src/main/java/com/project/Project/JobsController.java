@@ -66,9 +66,9 @@ public class JobsController {
 		
 		matches.addAll(ac.getAuthenticJobs(answerOne, answerTwo, answerThree, privatekey));
 		matches.addAll(ac.getGitHubJobs(answerOne, answerTwo, answerThree));
-//		matches.addAll(ac.getUsaJobs(answerOne, answerTwo, answerThree, jobKey));
+		matches.addAll(ac.getUsaJobs(answerOne, answerTwo, answerThree, jobKey));
 
-//		System.out.println("size: " + matches.size());
+		System.out.println("size: " + matches.size());
 
 		return new ModelAndView("job_results", "jobs", matches);
 	}
