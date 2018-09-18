@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Login/Index page</title>
+<title>Home</title>
 <link href="https://bootswatch.com/4/united/bootstrap.min.css"
 	rel="stylesheet" id="bootstrap-css">
 <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
@@ -23,44 +23,54 @@
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item"><a class="nav-link" href="/home">Home</a>
 				</li>
-				<li class="nav-item"><a class="nav-link" href="/jobs/${user.user_id}">Find Jobs</a>
-				</li>
+				<li class="nav-item"><a class="nav-link"
+					href="/jobs/${user.user_id}">Find Jobs</a></li>
 				<li class="nav-item"><a class="nav-link" href="/favorites">Matches</a>
 				</li>
 				<li class="nav-item"><a class="nav-link" href="/about">About</a>
 				</li>
 				<li class="nav-item"><a class="nav-link" href="/contact">Contact</a>
 				</li>
-				<li class="nav-item"><a class="nav-link" href="">Log
-						Out</a></li>
+				<li class="nav-item"><a class="nav-link" href="">Log Out</a></li>
 			</ul>
 
 		</div>
 	</nav>
 
 	<div class="jumbotron">
-		<h1 class="display-3">Welcome, ${user.firstname} ${user.lastname}</h1>
+		<h1 class="display-3">Hello ${user.firstname} ${user.lastname}!</h1>
+		<br>
+		<br><h1>Welcome to TinTech!</h1><br>
 
-		<p class="lead">Pudding ice cream sweet roll caramels wafer
-			topping marzipan caramels. Sugar plum biscuit tart gummi bears
-			gummies. Marzipan tart brownie. Topping jelly cake macaroon candy
-			canes sweet. Cookie cupcake cheesecake sesame snaps cotton candy.
-			Gingerbread tart macaroon jelly croissant sugar plum. Sugar plum
-			pudding pudding candy powder topping cupcake gingerbread powder. Cake
-			fruitcake candy sweet tart sweet roll apple pie. Danish gummi bears
-			oat cake topping toffee sweet. Tart dessert croissant powder cake oat
-			cake ice cream. Wafer marshmallow donut jujubes pie sugar plum
-			biscuit icing. Ice cream pie danish liquorice bonbon dessert
-			cheesecake chocolate. Gingerbread drag�e lollipop croissant toffee
-			biscuit tootsie roll. Halvah fruitcake gummies jelly beans. Ice cream
-			cake jelly-o icing danish tootsie roll carrot cake oat cake pie.
-			Tootsie roll bear claw icing marzipan.</p>
+		<p class="lead">Did you know that your favorite pizza topping
+			can help determine what your next job will be? Job searching in the
+			21st century can be stressful and time consuming. In many ways,
+			looking for a job can be a job itself. One of the main hitches in the
+			modern job search process is online job search engines that ask you a
+			million questions and still give you a list of jobs that have no
+			relevance to the kind of job you’re looking for or who you are as a
+			candidate. TinTech is a web app that gives tech job seekers a quick,
+			fun way of finding jobs that are relevant to them. The name “TinTech”
+			is a play on the dating app “Tinder” because TinTech uses a similar
+			strategy to dating apps that match people with potential mates based
+			on their answers to personality-based questions. A user registers on
+			TinTech and selects their top three technical skills, they then take
+			a short, multiple choice, BuzzFeed-esque, personality quiz which has
+			a soft skill keyword attached to each answer. Using an algorithm that
+			matches those keywords to job descriptions from the Authentic Jobs,
+			USAJobs, and GitHub Jobs APIs, TinTech then displays a list of
+			matching jobs and a percentage showing the relevance of each job
+			based on how many times the given keywords appear in the job
+			description. The user can then click a link which will take them to
+			the job application and save jobs so they can come back to them
+			later. TinTech helps tech job seekers save time on the job search by
+			matching them with jobs based on both hard and soft skills. Tell us
+			your favorite pizza topping, find your dream tech job, and work your
+			best life!</p>
 		<hr class="my-4">
-		<p>Croissant chocolate bar cake muffin oat cake pudding gummi
-			bears oat cake dessert. Brownie jelly beans lemon drops marshmallow
-			macaroon jujubes sweet.</p>
-		<p class="lead">
-			<a class="btn btn-info btn-lg" href="/about" role="button">Learn more</a>
+		
+			<a class="btn btn-info btn-lg" href="/about" role="button">Learn
+				more</a>
 		</p>
 	</div>
 </body>
