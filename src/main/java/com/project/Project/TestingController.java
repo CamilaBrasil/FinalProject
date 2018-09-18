@@ -106,11 +106,13 @@ public class TestingController {
 	@RequestMapping("/testUSAJobs")
 	public void testUSAJobs() {
 		ApiCall ac = new ApiCall();
-		ArrayList<Job> jobList = ac.getUsaJobs("leader", "resolution", "energetic", jobKey);
+//		ArrayList<Job> jobList = ac.getUsaJobs("leader", "resolution", "energetic", jobKey);
+		
+		ac.getUsaJobs("leader", "resolution", "energetic", jobKey);
 
-		for (int i = 0; i < jobList.size(); i++) {
-			System.out.println(jobList.get(i).getJobTitle());
-		}
+//		for (int i = 0; i < jobList.size(); i++) {
+//			System.out.println(jobList.get(i).getJobTitle());
+//		}
 	}
 
 }

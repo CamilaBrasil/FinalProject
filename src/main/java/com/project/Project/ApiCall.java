@@ -104,8 +104,10 @@ public class ApiCall {
 		HttpEntity<String> entity = new HttpEntity<>("parameters", headers);
 
 		ResponseEntity<UsaJobsJson> response = restTemplate.exchange(
-				"https://data.usajobs.gov/api/Search?Keyword=computer&KeywordFilter=ALL&JobCategoryCode=0800",
+				"https://data.usajobs.gov/api/Search?Keyword=" + keywords + "&KeywordFilter=ALL&JobCategoryCode=0800",
 				HttpMethod.GET, entity, UsaJobsJson.class);
+		
+		System.out.println(response.getBody().getSr().getItems().get(0).getMatch().getPositionTitle());
 		
 		// System.out.println(response.getBody());
 

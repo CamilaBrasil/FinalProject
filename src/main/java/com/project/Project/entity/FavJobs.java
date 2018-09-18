@@ -27,24 +27,21 @@ public class FavJobs {
 	}
 	
 	public FavJobs(String jobTitle, Integer user_id) {
-
 		this.jobTitle = jobTitle;
 		this.user_id = user_id;
 	}
-
-
-	public FavJobs(Integer favid, String jobTitle, String keyword, String joburl, String description, String location) {
-
-		this.favid = favid;
+	
+	public FavJobs(Integer user_id, String jobTitle, String keyword, String joburl, String description, String location) {
 		this.jobTitle = jobTitle;
 		this.keywords = keyword;
 		this.joburl = joburl;
 		this.description = description;
 		this.location = location;
+		this.user_id = user_id;
 	}
 
+
 	public FavJobs(String jobTitle, String keyword, String joburl, String description, String location) {
-		super();
 		this.jobTitle = jobTitle;
 		this.keywords = keyword;
 		this.joburl = joburl;
