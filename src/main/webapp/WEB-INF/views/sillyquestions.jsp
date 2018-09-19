@@ -25,18 +25,43 @@
 						Jobs</a></li>
 				<li class="nav-item"><a class="nav-link" href="/favorites">Saved
 						Jobs</a></li>
-
-				<li class="nav-item"><a class="nav-link" href="">Log Out</a></li>
+				<li class="nav-item"><a class="nav-link" href="/logout">Log Out</a></li>
 			</ul>
 		</div>
 	</nav>
-
 	<div style="padding: 5%">
 		<h2>Welcome, ${user.firstname }! Quiz time!!</h2>
+		</div>
+		
+		<div style="padding: 5% " >
+				<h4>Select 3 Technical Skills</h4>
+				<br><select>				
+  					<option value="java">Java</option>
+ 				    <option value="Python">html</option>
+                    <option value="c#">C#</option>
+               </select><br>
+               
+               
+                	<br><select>				
+  					<option value="css">CSS</option>
+ 				    <option value="javascript">JavaScript</option>
+                    <option value="jquery">JQuery</option>
+               </select><br>
+				
+               	<br><select>				
+  					<option value="Spring">Spring</option>
+ 				    <option value="Angular">Angular</option>
+                    <option value="sql">SQL</option>
+               </select><br>
+				</div>
+
+
+	<div style="padding: 5%">
 		<form class="form-horizontal" action="/submitquiz" method="POST">
 			<legend>Favorite Disney Character</legend>
 			<img src="/images/JackSkellington.jpg" alt="Jack Skellington"
 				height="150" width="150">
+				
 
 			<div class="form-group">
 				<div class="custom-control custom-radio">
