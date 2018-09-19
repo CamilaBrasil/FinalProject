@@ -27,7 +27,7 @@
 				<li class="nav-item"><a class="nav-link" href="/favorites">Saved
 						Jobs</a></li>
 
-				<li class="nav-item"><a class="nav-link" href="">Log Out</a></li>
+				<li class="nav-item"><a class="nav-link" href="logout">Log Out</a></li>
 			</ul>
 		</div>
 	</nav>
@@ -46,9 +46,6 @@
 			<c:forEach var="j" items="${jobs}">
 				<tr class="table-primary">
 					<td><a href="${j.joburl}" target="_blank">Application</a></td>
-					<td><a href="/deletejob"><button
-						class="btn btn-light btn-sm">Delete</button></a>
-					</td>
 				</tr>
 			<!-- 	<tr class="table-info">
 					<th scope="row">Info</th>

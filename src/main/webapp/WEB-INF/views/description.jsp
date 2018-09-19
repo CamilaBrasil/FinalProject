@@ -25,7 +25,7 @@
 				<li class="nav-item"><a class="nav-link" href="/favorites">Saved Jobs</a>
 				</li>
 			
-				<li class="nav-item"><a class="nav-link" href="">Log Out</a></li>
+				<li class="nav-item"><a class="nav-link" href="/logout">Log Out</a></li>
 			</ul>
 		</div>
 	</nav>
