@@ -42,7 +42,7 @@
 				<tr>
 					<th scope="col">Match %</th>
 					<th scope="col">Title</th>
-					<th scope="col"></th>
+					<th scope="col">Apply</th>
 					<th scope="col">Save</th>
 				</tr>
 			</thead>
@@ -52,7 +52,6 @@
 					<tr class="table-primary">
 						<td>${j.keywords}</td>
 						<td>${j.jobTitle}</td>
-						<td>button</td>
 						<td><a href="${j.joburl}" target="_blank">Application</a></td>
 						<td><a href="/savejob/${count.index}"><button
 									class="btn btn-light btn-sm">Save</button></a></td>
