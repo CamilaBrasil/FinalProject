@@ -19,19 +19,21 @@ import com.project.Project.entity.UsaJobsJson;
 
 public class ApiCall {
 
-	public ArrayList<Job> getGitHubJobs(String answerOne, String answerTwo, String answerThree) {
+	public ArrayList<Job> getGitHubJobs(String answerOne, String answerTwo, String answerThree, String answerFour, String answerFive, String answerSix) {
 
-		// Getting all keywords
-		List<String> keywords = Algorithm.getKeywords(answerOne, answerTwo, answerThree);
+		List<String> skills = new ArrayList<>();
+		skills.add(answerFour);
+		skills.add(answerFive);
+		skills.add(answerSix);
 		ArrayList<Job> matches = new ArrayList<Job>();
 
 		RestTemplate restTemplate = new RestTemplate();
 //		System.out.println(keywords);
 
-		for (int i = 0; i < keywords.size(); i++) {
+		for (int i = 0; i < skills.size(); i++) {
 
 			GithubJob[] gitList = restTemplate.getForObject(
-					"https://jobs.github.com/positions.json?description=" + keywords.get(i) + "&page=10",
+					"https://jobs.github.com/positions.json?description=" + skills.get(i) + "&page=10",
 					GithubJob[].class);
 
 			for (int j = 0; j < gitList.length; j++) {
@@ -50,18 +52,20 @@ public class ApiCall {
 		return matches;
 	}
 
-	public ArrayList<Job> getAuthenticJobs(String answerOne, String answerTwo, String answerThree, String privateKey) {
+	public ArrayList<Job> getAuthenticJobs(String answerOne, String answerTwo, String answerThree, String answerFour, String answerFive, String answerSix, String privateKey) {
 
-		// Getting all keywords
-		List<String> keywords = Algorithm.getKeywords(answerOne, answerTwo, answerThree);
+		List<String> skills = new ArrayList<>();
+		skills.add(answerFour);
+		skills.add(answerFive);
+		skills.add(answerSix);
 		ArrayList<Job> matches = new ArrayList<Job>();
 
 		RestTemplate restTemplate = new RestTemplate();
 
-		for (int i = 0; i < keywords.size(); i++) {
+		for (int i = 0; i < skills.size(); i++) {
 
 			ParentJson authList = restTemplate.getForObject("https://authenticjobs.com/api/?api_key=" + privateKey
-					+ "&method=aj.jobs.search&keywords=" + keywords.get(i) + "&perpage=10&format=json",
+					+ "&method=aj.jobs.search&keywords=" + skills.get(i) + "&perpage=10&format=json",
 					ParentJson.class);
 
 			List<Listing> list = authList.getTest().getListing();
@@ -84,10 +88,14 @@ public class ApiCall {
 		return matches;
 	}
 
-	public ArrayList<Job> getUsaJobs(String answerOne, String answerTwo, String answerThree, String jobKey2) {
+	public ArrayList<Job> getUsaJobs(String answerOne, String answerTwo, String answerThree, String answerFour, String answerFive, String answerSix, String jobKey2) {
 
 		// Getting all keywords
-		List<String> keywords = Algorithm.getKeywords(answerOne, answerTwo, answerThree);
+		List<String> skills = new ArrayList<>();
+		skills.add(answerFour);
+		skills.add(answerFive);
+		skills.add(answerSix);
+		
 		ArrayList<Job> matches = new ArrayList<Job>();
 
 		RestTemplate restTemplate = new RestTemplate();
@@ -102,24 +110,29 @@ public class ApiCall {
 		// to attach the headers to our request we need the HttpEntity
 		HttpEntity<String> entity = new HttpEntity<>("parameters", headers);
 
-		ResponseEntity<UsaJobsJson> response = restTemplate.exchange("https://data.usajobs.gov/api/Search?Keyword="
-				+ keywords.get(0) + "&KeywordFilter=ALL&JobCategoryCode=0800", HttpMethod.GET, entity,
-				UsaJobsJson.class);
+		for (int i = 0; i < skills.size(); i++) {
 
-		ArrayList<StringResultItems> jobs = response.getBody().getSr().getItems();
+			ResponseEntity<UsaJobsJson> response = restTemplate
+					.exchange(
+							"https://data.usajobs.gov/api/Search?Keyword=" + skills.get(i)
+									+ "&KeywordFilter=ALL&JobCategoryCode=0800",
+							HttpMethod.GET, entity, UsaJobsJson.class);
 
-		System.out.println(response.getBody().getSr().getItems().get(0).getMatch().getPositionTitle());
+			ArrayList<StringResultItems> jobs = response.getBody().getSr().getItems();
 
-		for (int j = 0; j < jobs.size(); j++) {
+			System.out.println(response.getBody().getSr().getItems().get(0).getMatch().getPositionTitle());
 
-			String desc = jobs.get(j).getMatch().getSum();
-			Job job = new Job(jobs.get(j).getMatch().getPositionTitle(), desc);
-			job.setLocation(jobs.get(j).getMatch().getLoc().toString());
-			job.setJoburl(jobs.get(j).getMatch().getPositionUri());
-			job.setKeywords(Algorithm.getResult(desc, answerOne, answerTwo, answerThree));
-			matches.add(job);
+			for (int j = 0; j < jobs.size(); j++) {
+
+				String desc = jobs.get(j).getMatch().getSum();
+				Job job = new Job(jobs.get(j).getMatch().getPositionTitle(), desc);
+				job.setLocation(jobs.get(j).getMatch().getLoc().toString());
+				job.setJoburl(jobs.get(j).getMatch().getPositionUri());
+				job.setKeywords(Algorithm.getResult(desc, answerOne, answerTwo, answerThree));
+				matches.add(job);
 //			System.out.println("result: " + job.getKeywords());
 
+			}
 		}
 		return matches;
 

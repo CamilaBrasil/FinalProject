@@ -51,13 +51,16 @@ public class JobsController {
 		String answerOne = quiz.getAnswer1();
 		String answerTwo = quiz.getAnswer2();
 		String answerThree = quiz.getAnswer3();
+		String answerFour = quiz.getAnswer5();
+		String answerFive = quiz.getAnswer5();
+		String answerSix = quiz.getAnswer6();
 		
 		ApiCall ac = new ApiCall();
 //		ArrayList<Job> matches = testList(answerOne, answerTwo, answerThree, ac, privatekey, jobKey);
 		ArrayList<Job> matches = new ArrayList<Job>();
-		matches.addAll(ac.getGitHubJobs(answerOne, answerTwo, answerThree));
-		matches.addAll(ac.getAuthenticJobs(answerOne, answerTwo, answerThree, privatekey));
-		matches.addAll(ac.getUsaJobs(answerOne, answerTwo, answerThree, jobKey));
+		matches.addAll(ac.getGitHubJobs(answerOne, answerTwo, answerThree, answerFour, answerFive, answerSix));
+		matches.addAll(ac.getAuthenticJobs(answerOne, answerTwo, answerThree, answerFour, answerFive, answerSix, privatekey));
+		matches.addAll(ac.getUsaJobs(answerOne, answerTwo, answerThree, answerFour, answerFive, answerSix, jobKey));
 
 //		System.out.println("size: " + matches.size());
 
@@ -76,12 +79,16 @@ public class JobsController {
 		String answerOne = quiz.getAnswer1();
 		String answerTwo = quiz.getAnswer2();
 		String answerThree = quiz.getAnswer3();
+		String answerFour = quiz.getAnswer4();
+		String answerFive = quiz.getAnswer5();
+		String answerSix = quiz.getAnswer6();
+		
 		
 		ApiCall ac = new ApiCall();
 		ArrayList<Job> matches = new ArrayList<Job>();
-		matches.addAll(ac.getGitHubJobs(answerOne, answerTwo, answerThree));
-		matches.addAll(ac.getAuthenticJobs(answerOne, answerTwo, answerThree, privatekey));
-		matches.addAll(ac.getUsaJobs(answerOne, answerTwo, answerThree, jobKey));
+		matches.addAll(ac.getGitHubJobs(answerOne, answerTwo, answerThree, answerFour, answerFive, answerSix));
+		matches.addAll(ac.getAuthenticJobs(answerOne, answerTwo, answerThree, answerFour, answerFive, answerSix, privatekey));
+		matches.addAll(ac.getUsaJobs(answerOne, answerTwo, answerThree, answerFour, answerFive, answerSix, jobKey));
 
 		
 		FavJobs fav = new FavJobs();
