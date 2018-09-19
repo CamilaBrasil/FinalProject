@@ -18,7 +18,8 @@ public class Listing {
 	private int pages;
 	private String last_update;
 	private ArrayList<JobReturn> job;
-
+	private String apply_url;
+	
 	public Listing() {
 
 	}
@@ -103,11 +104,21 @@ public class Listing {
 		this.job = job;
 	}
 
+	public String getApply_url() {
+		return apply_url;
+	}
+
+	public void setApply_url(String apply_url) {
+		this.apply_url = apply_url;
+	}
+
 	@Override
 	public String toString() {
 		return "Listing [id=" + id + ", title=" + title + ", description=" + description + ", perks=" + perks
 				+ ", total=" + total + ", perpage=" + perpage + ", page=" + page + ", pages=" + pages + ", last_update="
-				+ last_update + ", job=" + job + "]";
+				+ last_update + ", job=" + job + ", apply_url=" + apply_url + "]";
 	}
+
+	
 
 }
