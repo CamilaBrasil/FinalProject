@@ -10,10 +10,13 @@
 <script
 	src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link rel="icon" 
+      type="image/png" 
+      href="/images/favicon.png">
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-		<a class="navbar-brand" href="/index">Home</a>
+		<a class="navbar-brand" href="/"><img alt="tintech" src="/images/IMG_1877.png" height="50" width="150"></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarColor01" aria-controls="navbarColor01"
 			aria-expanded="false" aria-label="Toggle navigation">
