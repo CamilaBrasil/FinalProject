@@ -59,9 +59,6 @@ public class JobsController {
 		
 		ArrayList<Job> matches = new ArrayList<Job>();
 		Quiz quiz = qr.findByUserId(u1.getUser_id());
-		System.out.println(quiz.getAnswer1());
-		System.out.println(quiz.getAnswer2());
-		System.out.println(quiz.getAnswer3());
 
 		String answerOne = quiz.getAnswer1();
 		String answerTwo = quiz.getAnswer2();
@@ -73,7 +70,7 @@ public class JobsController {
 		matches.addAll(ac.getAuthenticJobs(answerOne, answerTwo, answerThree, privatekey));
 		matches.addAll(ac.getUsaJobs(answerOne, answerTwo, answerThree, jobKey));
 
-		System.out.println("size: " + matches.size());
+//		System.out.println("size: " + matches.size());
 
 		return new ModelAndView("job_results", "jobs", matches);
 	}
@@ -85,7 +82,6 @@ public class JobsController {
 		User user = (User) session.getAttribute("user");
 		
 		FavJobs fav = new FavJobs(user.getUser_id(), job.getJobTitle(), job.getKeywords(), job.getJobURL(), job.getDesc(), job.getLocation());
-		System.out.println("FavJob: " + fav.toString());
 		jr.save(fav);
 
 		return new ModelAndView("home");
