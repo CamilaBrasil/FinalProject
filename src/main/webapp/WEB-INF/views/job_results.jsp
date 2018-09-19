@@ -8,6 +8,9 @@
 <title>Showing the jobs searched</title>
 <link href="https://bootswatch.com/4/united/bootstrap.min.css"
 	rel="stylesheet" id="bootstrap-css">
+	<link rel="icon" 
+      type="image/png" 
+      href="/images/favicon.png">
 </head>
 <body>
 
@@ -20,7 +23,7 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarColor01">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item"><a class="nav-link" href="/home">Home</a>
+				<li class="nav-item"><a class="nav-link" href="/home"><img alt="tintech" src="/images/IMG_1877.png" height="50" width="150"></a>
 				</li>
 				<li class="nav-item"><a class="nav-link" href="/findJobs">Find
 						Jobs</a></li>
@@ -42,7 +45,7 @@
 				<tr>
 					<th scope="col">Match %</th>
 					<th scope="col">Title</th>
-					<th scope="col"></th>
+					<th scope="col">Apply</th>
 					<th scope="col">Save</th>
 				</tr>
 			</thead>
@@ -52,7 +55,6 @@
 					<tr class="table-primary">
 						<td>${j.keywords}</td>
 						<td>${j.jobTitle}</td>
-						<td>button</td>
 						<td><a href="${j.joburl}" target="_blank">Application</a></td>
 						<td><a href="/savejob/${count.index}"><button
 									class="btn btn-light btn-sm">Save</button></a></td>
