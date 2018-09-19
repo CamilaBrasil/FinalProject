@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.project.Project.dao.QuizRepo;
 import com.project.Project.dao.UserRepo;
@@ -134,12 +135,16 @@ public class UserController {
 	public ModelAndView contact() {
 		return new ModelAndView("contact");
 	}
-
-	@RequestMapping("/favorites")
-	public ModelAndView favJobs(User user) {
-
-		Optional<User> u1 = ur.findById(user.getUser_id());
-		return new ModelAndView("fav_jobs", "jobs", u1.get().getFavJobs());
+	
+	@RequestMapping("/logout")
+	public ModelAndView logout(HttpSession session, RedirectAttributes redir) {
+		// invalidate clears the current user session and starts a new one.
+		session.invalidate();
+		
+		// A flash message will only show on the very next page. Then it will go away.
+		// It is useful with redirects since you can't add attributes to the mav.
+		redir.addFlashAttribute("message", "Logged out.");
+		return new ModelAndView("redirect:/");
 	}
 
 }

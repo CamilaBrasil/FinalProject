@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Showing the jobs searched</title>
 <link href="https://bootswatch.com/4/united/bootstrap.min.css"
 	rel="stylesheet" id="bootstrap-css">
 </head>
@@ -59,12 +59,12 @@
 						class="btn btn-light btn-sm">Save</button></a>
 					</td>
 				</tr>
-				<tr class="table-info">
+			<!-- 	<tr class="table-info">
 					<th scope="row">Info</th>
 					<td></td>
 					<td></td>
 					<td></td>
-				</tr>
+				</tr>  -->
 			</c:forEach>
 
 		</table>
