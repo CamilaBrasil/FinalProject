@@ -38,37 +38,13 @@
 	<div class="jumbotron">
 		<h1 class="display-3">Hello ${user.firstname} ${user.lastname}!</h1>
 		<br>
-		<br><h1>Welcome to TinTech!</h1><br>
+		
 
-		<p class="lead">Did you know that your favorite pizza topping
-			can help determine what your next job will be? Job searching in the
-			21st century can be stressful and time consuming. In many ways,
-			looking for a job can be a job itself. One of the main hitches in the
-			modern job search process is online job search engines that ask you a
-			million questions and still give you a list of jobs that have no
-			relevance to the kind of job you'Äôre looking for or who you are as a
-			candidate. TinTech is a web app that gives tech job seekers a quick,
-			fun way of finding jobs that are relevant to them. The name "ÄúTinTech"
-			is a play on the dating app "Tinder"Äù because TinTech uses a similar
-			strategy to dating apps that match people with potential mates based
-			on their answers to personality-based questions. A user registers on
-			TinTech and selects their top three technical skills, they then take
-			a short, multiple choice, BuzzFeed-esque, personality quiz which has
-			a soft skill keyword attached to each answer. Using an algorithm that
-			matches those keywords to job descriptions from the Authentic Jobs,
-			USAJobs, and GitHub Jobs APIs, TinTech then displays a list of
-			matching jobs and a percentage showing the relevance of each job
-			based on how many times the given keywords appear in the job
-			description. The user can then click a link which will take them to
-			the job application and save jobs so they can come back to them
-			later. TinTech helps tech job seekers save time on the job search by
-			matching them with jobs based on both hard and soft skills. Tell us
-			your favorite pizza topping, find your dream tech job, and work your
-			best life!</p>
+		<img alt="tintech" src="/images/IMG_1877.png" height="300" width="700">	
+		
 		<hr class="my-4">
 		
-			
-		</p>
+		
 	</div>
 </body>
 </html>
