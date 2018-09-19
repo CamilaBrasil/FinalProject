@@ -108,12 +108,16 @@ public class UserController {
 	}
 
 	@PostMapping("/submitquiz")
-	public ModelAndView submitquiz(@RequestParam("quest1") String quest1, @RequestParam("quest2") String quest2, @RequestParam("quest3") String quest3, HttpSession session) {
+	public ModelAndView submitquiz(@RequestParam("quest1") String quest1, @RequestParam("quest2") String quest2, @RequestParam("quest3") String quest3, @RequestParam("quest4") String quest4, 
+			@RequestParam("quest5") String quest5, @RequestParam("quest6") String quest6, HttpSession session) {
 		User user = (User) session.getAttribute("user");
 		Quiz quiz = new Quiz();
 		quiz.setAnswer1(quest1);
 		quiz.setAnswer2(quest2);
 		quiz.setAnswer3(quest3);
+		quiz.setAnswer4(quest4);
+		quiz.setAnswer4(quest5);
+		quiz.setAnswer4(quest6);
 		quiz.setUserId(user.getUser_id());
 //		quiz.setSkills(varSkills);
 //		quiz.setUser_id(user_id);
