@@ -59,12 +59,12 @@
 						class="btn btn-light btn-sm">Save</button></a>
 					</td>
 				</tr>
-				<tr class="table-info">
+			<!-- 	<tr class="table-info">
 					<th scope="row">Info</th>
 					<td></td>
 					<td></td>
 					<td></td>
-				</tr>
+				</tr>  -->
 			</c:forEach>
 
 		</table>

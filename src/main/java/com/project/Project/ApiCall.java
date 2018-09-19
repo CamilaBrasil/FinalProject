@@ -26,7 +26,7 @@ public class ApiCall {
 		ArrayList<Job> matches = new ArrayList<Job>();
 
 		RestTemplate restTemplate = new RestTemplate();
-		System.out.println(keywords);
+//		System.out.println(keywords);
 
 		for (int i = 0; i < keywords.size(); i++) {
 
@@ -37,7 +37,9 @@ public class ApiCall {
 			for (int j = 0; j < gitList.length; j++) {
 
 				String desc = gitList[j].getDescription();
+//				(String jobTitle, String desc, String company, String location, String jobURL
 				Job job = new Job(gitList[j].getTitle(), desc);
+				job.setLocation(gitList[j].getLocation());
 				job.setKeywords(Algorithm.getResult(desc, answerOne, answerTwo, answerThree));
 				matches.add(job);
 //				System.out.println("result: " + job.getKeywords());
@@ -73,8 +75,10 @@ public class ApiCall {
 			for (int j = 0; j < list.size(); j++) {
 
 				String desc = list.get(j).getDescription();
+//				(String jobTitle, String desc, String company, String location, String jobURL
 				Job job = new Job(list.get(j).getTitle(), desc);
 				job.setKeywords(Algorithm.getResult(desc, answerOne, answerTwo, answerThree));
+			
 				System.out.println(job.getJobTitle());
 				matches.add(job);
 //				System.out.println("result: " + job.getKeywords());
@@ -120,6 +124,8 @@ public class ApiCall {
 
 			String desc = jobs.get(j).getMatch().getSum();
 			Job job = new Job(jobs.get(j).getMatch().getPositionTitle(), desc);
+			job.setLocation(jobs.get(j).getMatch().getLoc().toString());
+			job.setJobURL(jobs.get(j).getMatch().getPositionUri());
 			job.setKeywords(Algorithm.getResult(desc, answerOne, answerTwo, answerThree));
 			matches.add(job);
 //			System.out.println("result: " + job.getKeywords());
