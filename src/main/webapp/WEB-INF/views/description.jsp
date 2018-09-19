@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +9,7 @@
 	rel="stylesheet" id="bootstrap-css">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 		<a class="navbar-brand" href="/index"></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarColor01" aria-controls="navbarColor01"
@@ -20,18 +20,17 @@
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item"><a class="nav-link" href="/home">Home</a>
 				</li>
-				<li class="nav-item"><a class="nav-link"
-					href="/findJobs">Find Jobs</a></li>
-				<li class="nav-item"><a class="nav-link" href="/favorites">Saved Jobs</a>
-				</li>
-			
-				<li class="nav-item"><a class="nav-link" href="/logout">Log Out</a></li>
+				<li class="nav-item"><a class="nav-link" href="/findJobs">Find
+						Jobs</a></li>
+				<li class="nav-item"><a class="nav-link" href="/favorites">Saved
+						Jobs</a></li>
+
+				<li class="nav-item"><a class="nav-link" href="/logout">Log
+						Out</a></li>
 			</ul>
 		</div>
 	</nav>
-	
-	${jobs.desc}
-
+	<div style="padding: 5%">${desc}</div>
 
 
 

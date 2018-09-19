@@ -115,5 +115,9 @@ public class JobsController {
 		return new ModelAndView("fav_jobs", "jobs", jr.findByUserid(user.getUser_id()));
 	}
 
-
+	@RequestMapping("/description/{desc}")
+	public ModelAndView openDesc (@PathVariable("desc") String desc) {
+		return new ModelAndView ("description", "desc", desc);
+	}
+	
 }

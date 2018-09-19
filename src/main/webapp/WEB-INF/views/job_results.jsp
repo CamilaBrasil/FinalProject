@@ -55,6 +55,8 @@
 					<tr class="table-primary">
 						<td>${j.keywords}</td>
 						<td>${j.jobTitle}</td>
+					<!-- 	<td><a href="/description/${j.desc}" target="_blank"><button
+									class="btn btn-light btn-sm">Description</button></a></td>  -->
 						<td><a href="${j.joburl}" target="_blank">Application</a></td>
 						<td><a href="/savejob/${count.index}"><button
 									class="btn btn-light btn-sm">Save</button></a></td>
