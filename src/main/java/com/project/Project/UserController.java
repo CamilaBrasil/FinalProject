@@ -135,13 +135,6 @@ public class UserController {
 	public ModelAndView contact() {
 		return new ModelAndView("contact");
 	}
-
-	@RequestMapping("/favorites")
-	public ModelAndView favJobs(User user) {
-
-		Optional<User> u1 = ur.findById(user.getUser_id());
-		return new ModelAndView("fav_jobs", "jobs", u1.get().getFavJobs());
-	}
 	
 	@RequestMapping("/logout")
 	public ModelAndView logout(HttpSession session, RedirectAttributes redir) {
