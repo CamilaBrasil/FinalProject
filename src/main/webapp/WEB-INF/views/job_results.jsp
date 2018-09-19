@@ -32,8 +32,8 @@
 		</div>
 	</nav>
 
-	<p>Welcome, ${firstname}</p>
-
+	<p>Welcome, ${user.firstname}</p>
+	Here are your job matches!
 	<div style="padding: 5%">
 
 
