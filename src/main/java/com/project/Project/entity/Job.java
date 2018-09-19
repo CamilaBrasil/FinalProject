@@ -26,6 +26,11 @@ public class Job {
 		this.jobTitle = jobTitle;
 		this.desc = desc;
 	}
+	
+	public Job(String jobTitle) {
+		super();
+		this.jobTitle = jobTitle;
+	}
 
 	public String getJobTitle() {
 		return jobTitle;

@@ -1,7 +1,6 @@
 package com.project.Project;
 
 import java.util.ArrayList;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -11,9 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.project.Project.dao.JobsRepo;
 import com.project.Project.dao.QuizRepo;
 import com.project.Project.dao.UserRepo;
+import com.project.Project.entity.FavJobs;
 import com.project.Project.entity.Job;
-import com.project.Project.entity.Quiz;
-import com.project.Project.entity.User;
 
 @Controller
 public class TestingController {
@@ -123,6 +121,16 @@ public class TestingController {
 		System.out.println(ur.findById(33));
 		System.out.println(qr.findByUserId(33));
 		
+		
+	}
+	
+	@RequestMapping("/testSave")
+	public void testSaveFav() {
+		
+		FavJobs job = new FavJobs();
+		job.setJobTitle("Test");
+		job.setUser_id(38);
+		jr.save(job);
 		
 	}
 }

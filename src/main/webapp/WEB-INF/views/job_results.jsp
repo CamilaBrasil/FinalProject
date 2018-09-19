@@ -48,14 +48,14 @@
 					<th scope="col">Save</th>
 				</tr>
 			</thead>
-			<c:forEach var="j" items="${jobs}">
+			<c:forEach var="j" items="${jobs}" varStatus="count">
 				<tr class="table-primary">
 					<td>${j.keywords}</td>
 					<td>${j.jobTitle}</td>
 					<td>location</td>
 					<td>button</td>
 					<td>url</td>
-					<td><a href="/savejob"><button
+					<td><a href="/savejob/${count.index}"><button
 						class="btn btn-light btn-sm">Save</button></a>
 					</td>
 				</tr>
