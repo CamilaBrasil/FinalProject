@@ -43,10 +43,10 @@
 			looking for a job can be a job itself. One of the main hitches in the
 			modern job search process is online job search engines that ask you a
 			million questions and still give you a list of jobs that have no
-			relevance to the kind of job youâ€™re looking for or who you are as a
+			relevance to the kind of job you'€™re looking for or who you are as a
 			candidate. TinTech is a web app that gives tech job seekers a quick,
-			fun way of finding jobs that are relevant to them. The name â€œTinTechâ€
-			is a play on the dating app â€œTinderâ€ because TinTech uses a similar
+			fun way of finding jobs that are relevant to them. The name "€œTinTech"
+			is a play on the dating app "Tinder"€ because TinTech uses a similar
 			strategy to dating apps that match people with potential mates based
 			on their answers to personality-based questions. A user registers on
 			TinTech and selects their top three technical skills, they then take
