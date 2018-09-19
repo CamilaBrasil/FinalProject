@@ -45,7 +45,7 @@
 			</thead>
 			<c:forEach var="j" items="${jobs}">
 				<tr class="table-primary">
-					<td>${j.joburl}</td>
+					<td><a href="${j.joburl}" target="_blank">Application</a></td>
 					<td><a href="/deletejob"><button
 						class="btn btn-light btn-sm">Delete</button></a>
 					</td>

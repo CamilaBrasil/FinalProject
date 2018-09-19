@@ -41,7 +41,7 @@ public class ApiCall {
 				Job job = new Job(gitList[j].getTitle(), desc);
 				job.setLocation(gitList[j].getLocation());
 				job.setKeywords(Algorithm.getResult(desc, answerOne, answerTwo, answerThree));
-				job.setJobURL(gitList[j].getHow_to_apply());
+				job.setJoburl(gitList[j].getHow_to_apply());
 				matches.add(job);
 //				System.out.println("result: " + job.getKeywords());
 
@@ -71,7 +71,7 @@ public class ApiCall {
 				String desc = list.get(j).getDescription();
 //				(String jobTitle, String desc, String company, String location, String jobURL
 				Job job = new Job(list.get(j).getTitle(), desc);
-				job.setJobURL(list.get(j).getApply_url());
+				job.setJoburl(list.get(j).getApply_url());
 //				System.out.println(job.getJobURL());
 				job.setKeywords(Algorithm.getResult(desc, answerOne, answerTwo, answerThree));
 
@@ -115,7 +115,7 @@ public class ApiCall {
 			String desc = jobs.get(j).getMatch().getSum();
 			Job job = new Job(jobs.get(j).getMatch().getPositionTitle(), desc);
 			job.setLocation(jobs.get(j).getMatch().getLoc().toString());
-			job.setJobURL(jobs.get(j).getMatch().getPositionUri());
+			job.setJoburl(jobs.get(j).getMatch().getPositionUri());
 			job.setKeywords(Algorithm.getResult(desc, answerOne, answerTwo, answerThree));
 			matches.add(job);
 //			System.out.println("result: " + job.getKeywords());

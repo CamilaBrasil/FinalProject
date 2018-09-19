@@ -65,16 +65,11 @@ public class JobsController {
 	}
 
 
-	@RequestMapping("/savejob/{jobURL}") 
-	public ModelAndView saveJob(@PathVariable("jobURL") String jobURL, HttpSession session) {
-		System.out.println("After Path Variable: " + jobURL);
+	@RequestMapping("/savejob/{index}") 
+	public ModelAndView saveJob(@PathVariable("index") int index, HttpSession session) {
+//		System.out.println("After Path Variable: " + u1.getUser_id());
 		
 		User u1 = (User) session.getAttribute("user");
-		
-		FavJobs fav = new FavJobs();
-		fav.setUserid(u1.getUser_id());
-		fav.setJoburl(jobURL);
-		jr.save(fav);
 		
 		Quiz quiz = qr.findByUserId(u1.getUser_id());
 
@@ -88,6 +83,17 @@ public class JobsController {
 		matches.addAll(ac.getAuthenticJobs(answerOne, answerTwo, answerThree, privatekey));
 		matches.addAll(ac.getUsaJobs(answerOne, answerTwo, answerThree, jobKey));
 
+		
+		FavJobs fav = new FavJobs();
+		fav.setUserid(u1.getUser_id());
+		System.out.println(u1.getUser_id());
+		fav.setJoburl(matches.get(index).getJoburl());
+		System.out.println(fav.getJoburl());
+		jr.save(fav);
+		
+
+		
+	
 		return new ModelAndView("job_results", "jobs", matches);
 	}
 	

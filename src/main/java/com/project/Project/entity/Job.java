@@ -12,13 +12,13 @@ public class Job {
 		
 	}
 
-	public Job(String jobTitle, String desc, String company, String location, String jobURL) {
+	public Job(String jobTitle, String desc, String company, String location, String joburl) {
 		super();
 		this.jobTitle = jobTitle;
 		this.desc = desc;
 		this.company = company;
 		this.location = location;
-		this.joburl = jobURL;
+		this.joburl = joburl;
 	}
 
 	public Job(String jobTitle, String desc) {
@@ -65,12 +65,12 @@ public class Job {
 		this.location = location;
 	}
 
-	public String getJobURL() {
+	public String getJoburl() {
 		return joburl;
 	}
 
-	public void setJobURL(String jobURL) {
-		this.joburl = jobURL;
+	public void setJoburl(String joburl) {
+		this.joburl = joburl;
 	}
 	
 		public String getKeywords() {

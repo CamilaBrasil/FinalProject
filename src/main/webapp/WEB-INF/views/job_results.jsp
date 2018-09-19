@@ -42,8 +42,6 @@
 				<tr>
 					<th scope="col">Match %</th>
 					<th scope="col">Title</th>
-					<th scope="col">Location</th>
-					<th scope="col">Description</th>
 					<th scope="col"></th>
 					<th scope="col">Save</th>
 				</tr>
@@ -54,10 +52,9 @@
 					<tr class="table-primary">
 						<td>${j.keywords}</td>
 						<td>${j.jobTitle}</td>
-						<td>location</td>
 						<td>button</td>
-						<td><a href="${j.joburl }" target="_blank">Application</a></td>
-						<td><a href="/savejob/${j.joburl }"><button
+						<td><a href="${j.joburl}" target="_blank">Application</a></td>
+						<td><a href="/savejob/${count.index}"><button
 									class="btn btn-light btn-sm">Save</button></a></td>
 					</tr>
 				</c:forEach>
