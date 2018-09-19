@@ -8,6 +8,9 @@
 <link href="https://bootswatch.com/4/united/bootstrap.min.css"
 	rel="stylesheet" id="bootstrap-css">
 <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
+<link rel="icon" 
+      type="image/png" 
+      href="/images/favicon.png">
 </head>
 <body>
 
@@ -21,7 +24,7 @@
 
 		<div class="collapse navbar-collapse" id="navbarColor01">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item"><a class="nav-link" href="/">Home</a>
+				<li class="nav-item"><a class="nav-link" href="/"><img alt="tintech" src="/images/IMG_1877.png" height="50" width="150"></a>
 				</li>
 				<li class="nav-item"><a class="nav-link" href="register">Register</a>
 				</li>
