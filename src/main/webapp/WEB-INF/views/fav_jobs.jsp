@@ -40,21 +40,12 @@
 		<table class="table table-hover">
 			<thead>
 				<tr>
-					<th scope="col">Match %</th>
-					<th scope="col">Title</th>
-					<th scope="col">Location</th>
-					<th scope="col">Description</th>
 					<th scope="col">Job application</th>
-					<th scope="col">Save</th>
 				</tr>
 			</thead>
 			<c:forEach var="j" items="${jobs}">
 				<tr class="table-primary">
-					<td>${j.keywords}</td>
-					<td>${j.jobTitle}</td>
-					<td>location</td>
-					<td>button</td>
-					<td>url</td>
+					<td>${j.joburl}</td>
 					<td><a href="/deletejob"><button
 						class="btn btn-light btn-sm">Delete</button></a>
 					</td>

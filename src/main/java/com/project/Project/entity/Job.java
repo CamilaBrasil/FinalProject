@@ -5,7 +5,7 @@ public class Job {
 	private String desc;
 	private String company;
 	private String location;
-	private String jobURL;
+	private String joburl;
 	private String keywords;
 	
 	public Job() {
@@ -18,7 +18,7 @@ public class Job {
 		this.desc = desc;
 		this.company = company;
 		this.location = location;
-		this.jobURL = jobURL;
+		this.joburl = jobURL;
 	}
 
 	public Job(String jobTitle, String desc) {
@@ -66,11 +66,11 @@ public class Job {
 	}
 
 	public String getJobURL() {
-		return jobURL;
+		return joburl;
 	}
 
 	public void setJobURL(String jobURL) {
-		this.jobURL = jobURL;
+		this.joburl = jobURL;
 	}
 	
 		public String getKeywords() {
@@ -84,7 +84,7 @@ public class Job {
 	@Override
 	public String toString() {
 		return "Job [jobTitle=" + jobTitle + ", desc=" + desc + ", company=" + company + ", location=" + location
-				+ ", jobURL=" + jobURL + "]";
+				+ ", joburl=" + joburl + "]";
 	}
 	
 	

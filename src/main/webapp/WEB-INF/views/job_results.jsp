@@ -56,8 +56,8 @@
 						<td>${j.jobTitle}</td>
 						<td>location</td>
 						<td>button</td>
-						<td><a href="${j.jobURL }" target="_blank">Application</a></td>
-						<td><a href="/savejob/${j.jobURL }"><button
+						<td><a href="${j.joburl }" target="_blank">Application</a></td>
+						<td><a href="/savejob/${j.joburl }"><button
 									class="btn btn-light btn-sm">Save</button></a></td>
 					</tr>
 				</c:forEach>

@@ -128,7 +128,7 @@ public class TestingController {
 	public void testSaveFav() {
 		
 		FavJobs job = new FavJobs();
-		job.setUser_id(38);
+		job.setUserid(38);
 		jr.save(job);
 		
 	}

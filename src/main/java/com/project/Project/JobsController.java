@@ -1,7 +1,6 @@
 package com.project.Project;
 
 import java.util.ArrayList;
-import java.util.Optional;
 
 import javax.servlet.http.HttpSession;
 
@@ -10,7 +9,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -74,7 +72,7 @@ public class JobsController {
 		User u1 = (User) session.getAttribute("user");
 		
 		FavJobs fav = new FavJobs();
-		fav.setUser_id(u1.getUser_id());
+		fav.setUserid(u1.getUser_id());
 		fav.setJoburl(jobURL);
 		jr.save(fav);
 		
@@ -97,12 +95,11 @@ public class JobsController {
 	public ModelAndView favorites(HttpSession session) {
 		
 		User user = (User) session.getAttribute("user");
-		System.out.println(user.getFirstname());
 		
-		Optional<FavJobs> saved = jr.findById(user.getUser_id());
+//		System.out.println(user.getFirstname());
 //		System.out.println(saved.get().getJobTitle());
 		
-		return new ModelAndView("fav_jobs", "jobs", saved);
+		return new ModelAndView("fav_jobs", "jobs", jr.findByUserid(user.getUser_id()));
 	}
 
 

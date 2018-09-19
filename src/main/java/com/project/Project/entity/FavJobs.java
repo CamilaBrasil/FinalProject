@@ -14,7 +14,8 @@ public class FavJobs {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer favid;
 	private String joburl;
-	private Integer user_id;
+	@Column(name="user_id")
+	private Integer userid;
 
 	public FavJobs() {
 	
@@ -36,19 +37,31 @@ public class FavJobs {
 		this.joburl = joburl;
 	}
 
-	public Integer getUser_id() {
-		return user_id;
+	
+
+	/**
+	 * @return the userid
+	 */
+	public Integer getUserid() {
+		return userid;
 	}
 
-	public void setUser_id(Integer user_id) {
-		this.user_id = user_id;
+	/**
+	 * @param userid the userid to set
+	 */
+	public void setUserid(Integer userid) {
+		this.userid = userid;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
-		return "FavJobs [favid=" + favid + "," + "joburl=" + joburl + ", user_id=" + user_id
-				+ "]";
+		return "FavJobs [favid=" + favid + ", joburl=" + joburl + ", userid=" + userid + "]";
 	}
+
+	
 
 	
 

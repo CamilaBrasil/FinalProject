@@ -155,19 +155,19 @@ public class UserController {
 		return new ModelAndView("redirect:/");
 	}
 	
-	@RequestMapping("/testfavjobs")
-	public void readFavJobs() {
-		FavJobs favjobs = new FavJobs();
-		
-		favjobs.setFavid(jr.findById(12).get().getFavid());
-		favjobs.setJoburl(jr.findById(12).get().getJoburl());
-		favjobs.setUser_id(jr.findById(12).get().getUser_id());
-
-		
-		System.out.println(favjobs.getJoburl());
-		System.out.println(favjobs.getFavid());
-		System.out.println(favjobs.getUser_id());
-		
-	}
+//	@RequestMapping("/testfavjobs")
+//	public void readFavJobs() {
+//		FavJobs favjobs = new FavJobs();
+//		
+//		favjobs.setFavid(jr.findById(12).get().getFavid());
+//		favjobs.setJoburl(jr.findById(12).get().getJoburl());
+//		favjobs.setUser_id(jr.findById(12).get().getUser_id());
+//
+//		
+//		System.out.println(favjobs.getJoburl());
+//		System.out.println(favjobs.getFavid());
+//		System.out.println(favjobs.getUser_id());
+//		
+//	}
 
 }
