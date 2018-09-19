@@ -32,32 +32,56 @@
 	<div style="padding: 5%">
 		<h2>Welcome, ${user.firstname }! Quiz time!!</h2>
 		</div>
-		
-		<div style="padding: 5% " >
-				<h4>Select 3 Technical Skills</h4>
-				<br><select>				
-  					<option value="java">Java</option>
- 				    <option value="Python">html</option>
-                    <option value="c#">C#</option>
-               </select><br>
-               
-               
-                	<br><select>				
-  					<option value="css">CSS</option>
- 				    <option value="javascript">JavaScript</option>
-                    <option value="jquery">JQuery</option>
-               </select><br>
-				
-               	<br><select>				
-  					<option value="Spring">Spring</option>
- 				    <option value="Angular">Angular</option>
-                    <option value="sql">SQL</option>
-               </select><br>
-				</div>
 
 
 	<div style="padding: 5%">
 		<form class="form-horizontal" action="/submitquiz" method="POST">
+		
+		<div style="padding: 5% " >
+				<h4>Select 3 Technical Skills</h4>
+				<br><select name="quest4">				
+  					<option value="java" id=quest4>Java</option>
+ 				    <option value="python" id=quest4>Python</option>
+ 				    <option value="html" id=quest4>HTML</option>
+                    <option value="c#" id=quest4>C#</option>
+                    <option value="css" id=quest4>CSS</option>
+ 				    <option value="javascript" id=quest4>JavaScript</option>
+                    <option value="jquery" id=quest4>JQuery</option>
+                    <option value="Spring" id=quest4>Spring</option>
+ 				    <option value="angular" id=quest4>Angular</option>
+                    <option value="sql" id=quest4>SQL</option>
+               </select><br>
+               
+               
+                	<br><select name="quest5">				
+  					<option value="java" id=quest5>Java</option>
+ 				    <option value="python" id=quest5>Python</option>
+ 				    <option value="html" id=quest5>HTML</option>
+                    <option value="c#" id=quest5>C#</option>
+                    <option value="css" id=quest5>CSS</option>
+ 				    <option value="javascript" id=quest5>JavaScript</option>
+                    <option value="jquery" id=quest5>JQuery</option>
+                    <option value="spring" id=quest5>Spring</option>
+ 				    <option value="angular" id=quest5>Angular</option>
+                    <option value="sql" id=quest5>SQL</option>
+               </select><br>
+				
+               	<br><select name="quest6">				
+  					<option value="java" id=quest6>Java</option>
+ 				    <option value="python" id=quest6>Python</option>
+ 				    <option value="html" id=quest6>HTML</option>
+                    <option value="c#" id=quest6>C#</option>
+                    <option value="css" id=quest6>CSS</option>
+ 				    <option value="javascript" id=quest6>JavaScript</option>
+                    <option value="jquery" id=quest6>JQuery</option>
+                    <option value="spring" id=quest6>Spring</option>
+ 				    <option value="angular" id=quest6>Angular</option>
+                    <option value="sql" id=quest6>SQL</option>
+               </select><br>
+				</div>
+		
+		
+		
 			<legend>Favorite Disney Character</legend>
 			<img src="/images/JackSkellington.jpg" alt="Jack Skellington"
 				height="150" width="150">

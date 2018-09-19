@@ -116,8 +116,8 @@ public class UserController {
 		quiz.setAnswer2(quest2);
 		quiz.setAnswer3(quest3);
 		quiz.setAnswer4(quest4);
-		quiz.setAnswer4(quest5);
-		quiz.setAnswer4(quest6);
+		quiz.setAnswer5(quest5);
+		quiz.setAnswer6(quest6);
 		quiz.setUserId(user.getUser_id());
 //		quiz.setSkills(varSkills);
 //		quiz.setUser_id(user_id);
