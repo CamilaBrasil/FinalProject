@@ -86,7 +86,7 @@ public class TestingController {
 	@RequestMapping("/testAuthentic")
 	public void testAuthentic() {
 		ApiCall ac = new ApiCall();
-		ArrayList<Job> jobList = ac.getAuthenticJobs("leader", "resolution", "energetic", privatekey);
+		ArrayList<Job> jobList = ac.getAuthenticJobs("leader", "resolution", "energetic", "java", "SQL", "Spring", privatekey);
 
 		for (int i = 0; i < jobList.size(); i++) {
 			System.out.println(jobList.get(i).getJobTitle());
@@ -96,7 +96,7 @@ public class TestingController {
 	@RequestMapping("/testGitHub")
 	public void testGitHub() {
 		ApiCall ac = new ApiCall();
-		ArrayList<Job> jobList = ac.getGitHubJobs("leader", "resolution", "energetic");
+		ArrayList<Job> jobList = ac.getGitHubJobs("leader", "resolution", "energetic", "java", "SQL", "Spring");
 
 		for (int i = 0; i < jobList.size(); i++) {
 			System.out.println(jobList.get(i).getJobTitle());
@@ -108,7 +108,7 @@ public class TestingController {
 		ApiCall ac = new ApiCall();
 //		ArrayList<Job> jobList = ac.getUsaJobs("leader", "resolution", "energetic", jobKey);
 		
-		ac.getUsaJobs("leader", "resolution", "energetic", jobKey);
+		ac.getUsaJobs("leader", "resolution", "energetic", "java", "SQL", "Spring", jobKey);
 
 //		for (int i = 0; i < jobList.size(); i++) {
 //			System.out.println(jobList.get(i).getJobTitle());

@@ -49,7 +49,7 @@
 			</thead>
 			<c:forEach var="j" items="${jobs}">
 				<tr class="table-primary">
-					<td><a href="${j.joburl}" target="_blank">Application</a></td>
+					<td><a href="${j.joburl}" target="_blank">${j.joburl}</a></td>
 				</tr>
 			<!-- 	<tr class="table-info">
 					<th scope="row">Info</th>
