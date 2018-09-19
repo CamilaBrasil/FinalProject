@@ -79,7 +79,7 @@ public class ApiCall {
 //				System.out.println(job.getJobURL());
 				job.setKeywords(Algorithm.getResult(desc, answerOne, answerTwo, answerThree));
 
-				System.out.println(job.getJobTitle());
+//				System.out.println(job.getJobTitle());
 				matches.add(job);
 //				System.out.println("result: " + job.getKeywords());
 
@@ -120,7 +120,7 @@ public class ApiCall {
 
 			ArrayList<StringResultItems> jobs = response.getBody().getSr().getItems();
 
-			System.out.println(response.getBody().getSr().getItems().get(0).getMatch().getPositionTitle());
+//			System.out.println(response.getBody().getSr().getItems().get(0).getMatch().getPositionTitle());
 
 			for (int j = 0; j < jobs.size(); j++) {
 
