@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.project.Project.dao.JobsRepo;
 import com.project.Project.dao.QuizRepo;
 import com.project.Project.dao.UserRepo;
+import com.project.Project.entity.FavJobs;
 import com.project.Project.entity.Quiz;
 import com.project.Project.entity.User;
 
@@ -26,6 +28,8 @@ public class UserController {
 	UserRepo ur;
 	@Autowired
 	QuizRepo qr;
+	@Autowired
+	JobsRepo jr;
 
 	// Home before user is register/login
 	@RequestMapping("/")
@@ -149,6 +153,21 @@ public class UserController {
 		// It is useful with redirects since you can't add attributes to the mav.
 		redir.addFlashAttribute("message", "Logged out.");
 		return new ModelAndView("redirect:/");
+	}
+	
+	@RequestMapping("/testfavjobs")
+	public void readFavJobs() {
+		FavJobs favjobs = new FavJobs();
+		
+		favjobs.setFavid(jr.findById(12).get().getFavid());
+		favjobs.setJoburl(jr.findById(12).get().getJoburl());
+		favjobs.setUser_id(jr.findById(12).get().getUser_id());
+
+		
+		System.out.println(favjobs.getJoburl());
+		System.out.println(favjobs.getFavid());
+		System.out.println(favjobs.getUser_id());
+		
 	}
 
 }

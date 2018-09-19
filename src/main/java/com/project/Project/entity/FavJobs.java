@@ -13,40 +13,11 @@ public class FavJobs {
 	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer favid;
-	
-	@Column(name="jobtitle")
-	private String jobTitle;
-	private String keywords;
 	private String joburl;
-	private String description;
-	private String location;
 	private Integer user_id;
 
 	public FavJobs() {
 	
-	}
-	
-	public FavJobs(String jobTitle, Integer user_id) {
-		this.jobTitle = jobTitle;
-		this.user_id = user_id;
-	}
-	
-	public FavJobs(Integer user_id, String jobTitle, String keyword, String joburl, String description, String location) {
-		this.jobTitle = jobTitle;
-		this.keywords = keyword;
-		this.joburl = joburl;
-		this.description = description;
-		this.location = location;
-		this.user_id = user_id;
-	}
-
-
-	public FavJobs(String jobTitle, String keyword, String joburl, String description, String location) {
-		this.jobTitle = jobTitle;
-		this.keywords = keyword;
-		this.joburl = joburl;
-		this.description = description;
-		this.location = location;
 	}
 
 	public Integer getFavid() {
@@ -56,23 +27,7 @@ public class FavJobs {
 	public void setFavid(Integer favid) {
 		this.favid = favid;
 	}
-
-	public String getJobTitle() {
-		return jobTitle;
-	}
-
-	public void setJobTitle(String jobTitle) {
-		this.jobTitle = jobTitle;
-	}
-
-	public String getKeywords() {
-		return keywords;
-	}
-
-	public void setKeywords(String keywords) {
-		this.keywords = keywords;
-	}
-
+	
 	public String getJoburl() {
 		return joburl;
 	}
@@ -81,50 +36,20 @@ public class FavJobs {
 		this.joburl = joburl;
 	}
 
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public String getLocation() {
-		return location;
-	}
-
-	public void setLocation(String location) {
-		this.location = location;
-	}
-	
-	
-
-
-	/**
-	 * @return the user_id
-	 */
 	public Integer getUser_id() {
 		return user_id;
 	}
 
-	/**
-	 * @param user_id the user_id to set
-	 */
 	public void setUser_id(Integer user_id) {
 		this.user_id = user_id;
 	}
 
 	@Override
 	public String toString() {
-		return "FavJobs [favid=" + favid + ", jobTitle=" + jobTitle + ", keywords=" + keywords + ", joburl=" + joburl
-				+ ", description=" + description + ", location=" + location;
+		return "FavJobs [favid=" + favid + "," + "joburl=" + joburl + ", user_id=" + user_id
+				+ "]";
 	}
-	
-	
-	
-	
-	
-	
+
 	
 
 }
