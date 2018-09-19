@@ -67,8 +67,8 @@ public class JobsController {
 	}
 
 
-	@RequestMapping("/savejob") 
-	public ModelAndView saveJob(@RequestParam("jobURL") String jobURL, HttpSession session) {
+	@RequestMapping("/savejob/{jobURL}") 
+	public ModelAndView saveJob(@PathVariable("jobURL") String jobURL, HttpSession session) {
 		System.out.println("After Path Variable: " + jobURL);
 		
 		User u1 = (User) session.getAttribute("user");

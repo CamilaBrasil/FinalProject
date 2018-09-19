@@ -44,7 +44,7 @@
 					<th scope="col">Title</th>
 					<th scope="col">Location</th>
 					<th scope="col">Description</th>
-					<th scope="col">Job application</th>
+					<th scope="col"></th>
 					<th scope="col">Save</th>
 				</tr>
 			</thead>
@@ -56,7 +56,7 @@
 						<td>${j.jobTitle}</td>
 						<td>location</td>
 						<td>button</td>
-						<td>${j.jobURL }</td>
+						<td><a href="${j.jobURL }" target="_blank">Application</a></td>
 						<td><a href="/savejob/${j.jobURL }"><button
 									class="btn btn-light btn-sm">Save</button></a></td>
 					</tr>
