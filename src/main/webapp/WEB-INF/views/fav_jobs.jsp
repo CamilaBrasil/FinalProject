@@ -55,8 +55,8 @@
 					<td>location</td>
 					<td>button</td>
 					<td>url</td>
-					<td><a href="/savejob/${l.jobTitle}/${user.user_id}"><button
-						class="btn btn-light btn-sm">Save</button></a>
+					<td><a href="/deletejob"><button
+						class="btn btn-light btn-sm">Delete</button></a>
 					</td>
 				</tr>
 			<!-- 	<tr class="table-info">
