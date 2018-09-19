@@ -48,33 +48,19 @@
 					<th scope="col">Save</th>
 				</tr>
 			</thead>
-			<c:forEach var="j" items="${jobs}" varStatus="count">
-				<tr class="table-primary">
-					<td>${j.keywords}</td>
-					<td>${j.jobTitle}</td>
-					<td>location</td>
-					<td>button</td>
-					<td>url</td>
-					<td><a href="/savejob/${count.index}"><button
-						class="btn btn-light btn-sm">Save</button></a>
-					</td>
-				</tr>
-			<!-- 	<tr class="table-info">
-					<th scope="row">Info</th>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>  -->
-			</c:forEach>
-
-		</table>
-
-		<table class="table table-hover">
 			<tbody>
+				<c:forEach var="j" items="${jobs}" varStatus="count">
 
-
-				<p></p>
-				<br>
+					<tr class="table-primary">
+						<td>${j.keywords}</td>
+						<td>${j.jobTitle}</td>
+						<td>location</td>
+						<td>button</td>
+						<td>${j.jobURL }</td>
+						<td><a href="/savejob/${j.jobURL }"><button
+									class="btn btn-light btn-sm">Save</button></a></td>
+					</tr>
+				</c:forEach>
 		</table>
 	</div>
 </body>

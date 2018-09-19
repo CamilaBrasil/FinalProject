@@ -41,15 +41,9 @@ public class ApiCall {
 				Job job = new Job(gitList[j].getTitle(), desc);
 				job.setLocation(gitList[j].getLocation());
 				job.setKeywords(Algorithm.getResult(desc, answerOne, answerTwo, answerThree));
+				job.setJobURL(gitList[j].getHow_to_apply());
 				matches.add(job);
 //				System.out.println("result: " + job.getKeywords());
-
-				// Checking if the same job already exist in the array
-//				for (int k = 0; k < matches.size(); k++) {
-//					if (!matches.get(k).getDesc().equals(desc)) {
-//						matches.add(job);
-//					}
-//				}
 
 			}
 		}
@@ -77,18 +71,14 @@ public class ApiCall {
 				String desc = list.get(j).getDescription();
 //				(String jobTitle, String desc, String company, String location, String jobURL
 				Job job = new Job(list.get(j).getTitle(), desc);
+				job.setJobURL(list.get(j).getApply_url());
+//				System.out.println(job.getJobURL());
 				job.setKeywords(Algorithm.getResult(desc, answerOne, answerTwo, answerThree));
-			
+
 				System.out.println(job.getJobTitle());
 				matches.add(job);
 //				System.out.println("result: " + job.getKeywords());
-				
-				// Checking if the same job already exist in the array
-//				for (int k = 0; k < matches.size(); k++) {
-//					if (!matches.get(k).getDesc().equals(desc)) {
-//						matches.add(job);
-//					}
-//				}
+
 			}
 		}
 		return matches;
@@ -117,7 +107,7 @@ public class ApiCall {
 				UsaJobsJson.class);
 
 		ArrayList<StringResultItems> jobs = response.getBody().getSr().getItems();
-		
+
 		System.out.println(response.getBody().getSr().getItems().get(0).getMatch().getPositionTitle());
 
 		for (int j = 0; j < jobs.size(); j++) {
@@ -130,12 +120,6 @@ public class ApiCall {
 			matches.add(job);
 //			System.out.println("result: " + job.getKeywords());
 
-			// Checking if the same job already exist in the array
-//			for (int k = 0; k < matches.size(); k++) {
-//				if (!matches.get(k).getDesc().equals(desc)) {
-//					matches.add(job);
-//				}
-//			}
 		}
 		return matches;
 

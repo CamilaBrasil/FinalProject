@@ -48,49 +48,49 @@ public class JobsController {
 		User u1 = (User) session.getAttribute("user");
 		
 		
-		Quiz quiz = qr.findByUserId(38);
+		Quiz quiz = qr.findByUserId(u1.getUser_id());
 
 		String answerOne = quiz.getAnswer1();
 		String answerTwo = quiz.getAnswer2();
 		String answerThree = quiz.getAnswer3();
 		
 		ApiCall ac = new ApiCall();
-		ArrayList<Job> matches = testList(answerOne, answerTwo, answerThree, ac, privatekey, jobKey);
+//		ArrayList<Job> matches = testList(answerOne, answerTwo, answerThree, ac, privatekey, jobKey);
+		ArrayList<Job> matches = new ArrayList<Job>();
+		matches.addAll(ac.getGitHubJobs(answerOne, answerTwo, answerThree));
+		matches.addAll(ac.getAuthenticJobs(answerOne, answerTwo, answerThree, privatekey));
+		matches.addAll(ac.getUsaJobs(answerOne, answerTwo, answerThree, jobKey));
 
 //		System.out.println("size: " + matches.size());
 
 		return new ModelAndView("job_results", "jobs", matches);
 	}
 
-	private ArrayList<Job> testList(String answerOne, String answerTwo, String answerThree, ApiCall ac, String privatekey, String jobKey) {
+
+	@RequestMapping("/savejob") 
+	public ModelAndView saveJob(@RequestParam("jobURL") String jobURL, HttpSession session) {
+		System.out.println("After Path Variable: " + jobURL);
+		
+		User u1 = (User) session.getAttribute("user");
+		
+		FavJobs fav = new FavJobs();
+		fav.setUser_id(u1.getUser_id());
+		fav.setJoburl(jobURL);
+		jr.save(fav);
+		
+		Quiz quiz = qr.findByUserId(u1.getUser_id());
+
+		String answerOne = quiz.getAnswer1();
+		String answerTwo = quiz.getAnswer2();
+		String answerThree = quiz.getAnswer3();
+		
+		ApiCall ac = new ApiCall();
 		ArrayList<Job> matches = new ArrayList<Job>();
 		matches.addAll(ac.getGitHubJobs(answerOne, answerTwo, answerThree));
 		matches.addAll(ac.getAuthenticJobs(answerOne, answerTwo, answerThree, privatekey));
 		matches.addAll(ac.getUsaJobs(answerOne, answerTwo, answerThree, jobKey));
-		return matches;
-	}
 
-// /{keywords}/{desc}
-	@RequestMapping("/savejob/{index}") //,@PathVariable("keywords") String keywords, @PathVariable("desc") String jobDesc,
-	public ModelAndView saveJob(@PathVariable("index") int jobIndex, HttpSession session) {
-//		 @RequestParam("jobs") ArrayList<Job> matches, 
-		System.out.println("After Path Variable: " + jobIndex);
-		
-		User user = (User) session.getAttribute("user");
-		
-//		FavJobs fav = new FavJobs(user.getUser_id(), job.getJobTitle(), job.getKeywords(), job.getJobURL(), job.getDesc(), job.getLocation());
-		
-		FavJobs fav = new FavJobs();
-		fav.setUser_id(user.getUser_id());
-//		fav.setJobTitle(matches.get(jobIndex).getJobTitle());
-//		fav.setKeywords(matches.get(jobIndex).getKeywords());
-//		fav.setDescription(matches.get(jobIndex).getDesc());
-		
-		//fav.setDescription(job.getDesc());
-		
-		jr.save(fav);
-
-		return new ModelAndView("home");
+		return new ModelAndView("job_results", "jobs", matches);
 	}
 	
 	@RequestMapping("/favorites")
@@ -100,7 +100,7 @@ public class JobsController {
 		System.out.println(user.getFirstname());
 		
 		Optional<FavJobs> saved = jr.findById(user.getUser_id());
-		System.out.println(saved.get().getJobTitle());
+//		System.out.println(saved.get().getJobTitle());
 		
 		return new ModelAndView("fav_jobs", "jobs", saved);
 	}
