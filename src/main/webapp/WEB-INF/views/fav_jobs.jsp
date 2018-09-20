@@ -36,10 +36,8 @@
 		</div>
 	</nav>
 
-	<p>Welcome, ${firstname}</p>
-
 	<div style="padding: 5%">
-
+		<h2>${user.firstname}, here are your saved jobs!</h2>
 
 		<table class="table table-hover">
 			<thead>

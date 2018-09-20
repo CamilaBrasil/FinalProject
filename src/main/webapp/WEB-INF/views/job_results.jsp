@@ -35,10 +35,10 @@
 		</div>
 	</nav>
 
-	<p>Welcome, ${user.firstname}</p>
-	Here are your job matches!
-	<div style="padding: 5%">
 
+	<div style="padding: 5%">
+	<h2>Welcome, ${user.firstname}</h2>
+		<h3>Here are your job matches!</h3>
 
 		<table class="table table-hover">
 			<thead>
