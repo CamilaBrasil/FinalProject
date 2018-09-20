@@ -56,13 +56,11 @@ public class JobsController {
 		String answerSix = quiz.getAnswer6();
 		
 		ApiCall ac = new ApiCall();
-//		ArrayList<Job> matches = testList(answerOne, answerTwo, answerThree, ac, privatekey, jobKey);
 		ArrayList<Job> matches = new ArrayList<Job>();
 		matches.addAll(ac.getGitHubJobs(answerOne, answerTwo, answerThree, answerFour, answerFive, answerSix));
 		matches.addAll(ac.getAuthenticJobs(answerOne, answerTwo, answerThree, answerFour, answerFive, answerSix, privatekey));
 		matches.addAll(ac.getUsaJobs(answerOne, answerTwo, answerThree, answerFour, answerFive, answerSix, jobKey));
 
-//		System.out.println("size: " + matches.size());
 
 		return new ModelAndView("job_results", "jobs", matches);
 	}
@@ -70,7 +68,6 @@ public class JobsController {
 
 	@RequestMapping("/savejob/{index}") 
 	public ModelAndView saveJob(@PathVariable("index") int index, HttpSession session) {
-//		System.out.println("After Path Variable: " + u1.getUser_id());
 		
 		User u1 = (User) session.getAttribute("user");
 		
@@ -108,9 +105,6 @@ public class JobsController {
 	public ModelAndView favorites(HttpSession session) {
 		
 		User user = (User) session.getAttribute("user");
-		
-//		System.out.println(user.getFirstname());
-//		System.out.println(saved.get().getJobTitle());
 		
 		return new ModelAndView("fav_jobs", "jobs", jr.findByUserid(user.getUser_id()));
 	}

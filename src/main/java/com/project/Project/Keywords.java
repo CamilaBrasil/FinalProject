@@ -9,7 +9,7 @@ public enum Keywords {
 	ORGANIZED("organized", "detailed", "coordinate", "systematic"),
 	SUPPORTIVE("supportive", "teamwork", "unity", "partnership"),
 	MANAGEMENT("management", "administrate", "execute", "distribute"),
-	RESOLUTION("resolution", "diplomatic", "resolve", "descalate"),
+	RESOLUTION("resolution", "diplomatic", "resolve", "de-escalate"),
 	TROUBLESHOOTING("troubleshooting", "analytical", "critical", "focus"),
 	POLITE("polite", "civil", "cordial", "respectful"), 
 	RESOURCEFUL("resourceful", "complex", "bright", "crafty"),
@@ -18,7 +18,7 @@ public enum Keywords {
 	ADAPTABILITY("adaptability", "flexibility", "versatility", "resilient"),
 	ANALYTICAL("analytical", "logical", "rational", "thorough"),
 	CREATIVITY("creativity", "imagination", "innovation", "experimenting"),
-	ETHICAL("ethical","integrity", "responsability", "dependability"),
+	ETHICAL("ethical","integrity", "responsibility", "dependability"),
 	PROFESSIONAL("professional","empathy", "mentoring", "diplomacy");
 	
 

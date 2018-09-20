@@ -8,9 +8,7 @@
 <title>Showing the jobs saved in the db by the user</title>
 <link href="https://bootswatch.com/4/united/bootstrap.min.css"
 	rel="stylesheet" id="bootstrap-css">
-	<link rel="icon" 
-      type="image/png" 
-      href="/images/favicon.png">
+<link rel="icon" type="image/png" href="/images/favicon.png">
 </head>
 </head>
 <body>
@@ -24,14 +22,16 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarColor01">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item"><a class="nav-link" href="/home"><img alt="tintech" src="/images/IMG_1877.png" height="50" width="150"></a>
+				<li class="nav-item"><a class="nav-link" href="/home"><img
+						alt="tintech" src="/images/IMG_1877.png" height="50" width="150"></a>
 				</li>
 				<li class="nav-item"><a class="nav-link" href="/findJobs">Find
 						Jobs</a></li>
 				<li class="nav-item"><a class="nav-link" href="/favorites">Saved
 						Jobs</a></li>
 
-				<li class="nav-item"><a class="nav-link" href="logout">Log Out</a></li>
+				<li class="nav-item"><a class="nav-link" href="logout">Log
+						Out</a></li>
 			</ul>
 		</div>
 	</nav>
@@ -47,27 +47,15 @@
 					<th scope="col">Job application</th>
 				</tr>
 			</thead>
-			<c:forEach var="j" items="${jobs}">
-				<tr class="table-primary">
-					<td><a href="${j.joburl}" target="_blank">${j.joburl}</a></td>
-				</tr>
-			<!-- 	<tr class="table-info">
-					<th scope="row">Info</th>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>  -->
-			</c:forEach>
-
-		</table>
-
-		<table class="table table-hover">
 			<tbody>
-
-
-				<p></p>
-				<br>
+				<c:forEach var="j" items="${jobs}">
+					<tr class="table-primary">
+						<td><a href="${j.joburl}" target="_blank">${j.joburl}</a></td>
+					</tr>
+				</c:forEach>
+			</tbody>
 		</table>
+
 	</div>
 </body>
 </html>

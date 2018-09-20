@@ -28,7 +28,6 @@ public class ApiCall {
 		ArrayList<Job> matches = new ArrayList<Job>();
 
 		RestTemplate restTemplate = new RestTemplate();
-//		System.out.println(keywords);
 
 		for (int i = 0; i < skills.size(); i++) {
 
@@ -39,13 +38,11 @@ public class ApiCall {
 			for (int j = 0; j < gitList.length; j++) {
 
 				String desc = gitList[j].getDescription();
-//				(String jobTitle, String desc, String company, String location, String jobURL
 				Job job = new Job(gitList[j].getTitle(), desc);
 				job.setLocation(gitList[j].getLocation());
 				job.setKeywords(Algorithm.getResult(desc, answerOne, answerTwo, answerThree));
 				job.setJoburl(gitList[j].getHow_to_apply());
 				matches.add(job);
-//				System.out.println("result: " + job.getKeywords());
 
 			}
 		}
@@ -73,15 +70,11 @@ public class ApiCall {
 			for (int j = 0; j < list.size(); j++) {
 
 				String desc = list.get(j).getDescription();
-//				(String jobTitle, String desc, String company, String location, String jobURL
 				Job job = new Job(list.get(j).getTitle(), desc);
 				job.setJoburl(list.get(j).getApply_url());
-//				System.out.println(job.getJobURL());
 				job.setKeywords(Algorithm.getResult(desc, answerOne, answerTwo, answerThree));
 
-//				System.out.println(job.getJobTitle());
 				matches.add(job);
-//				System.out.println("result: " + job.getKeywords());
 
 			}
 		}
@@ -120,8 +113,6 @@ public class ApiCall {
 
 			ArrayList<StringResultItems> jobs = response.getBody().getSr().getItems();
 
-//			System.out.println(response.getBody().getSr().getItems().get(0).getMatch().getPositionTitle());
-
 			for (int j = 0; j < jobs.size(); j++) {
 
 				String desc = jobs.get(j).getMatch().getSum();
@@ -130,7 +121,6 @@ public class ApiCall {
 				job.setJoburl(jobs.get(j).getMatch().getPositionUri());
 				job.setKeywords(Algorithm.getResult(desc, answerOne, answerTwo, answerThree));
 				matches.add(job);
-//			System.out.println("result: " + job.getKeywords());
 
 			}
 		}

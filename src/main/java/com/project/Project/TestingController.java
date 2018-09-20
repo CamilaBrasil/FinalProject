@@ -69,19 +69,9 @@ public class TestingController {
 		String[] descArray = Algorithm.parseDesc(description);
 		
 		System.out.println(Algorithm.getKeywords(keyOne, keyTwo, keyThree));
-//		System.out.println(descArray.toString());
+		System.out.println(descArray.toString());
 		System.out.println("Relevance: " + Algorithm.getRelevance(descArray, keyOne, keyTwo, keyThree));
 	}
-	
-//	@RequestMapping("/testJob")
-//	public void testJob() {
-//
-//		FavJobs fav = new FavJobs("test", 1);
-//		fav.setJobTitle("test");
-//		fav.setUser_id(1);
-//		System.out.println(fav);
-//		jr.save(fav);
-//	}
 	
 	@RequestMapping("/testAuthentic")
 	public void testAuthentic() {
@@ -106,13 +96,9 @@ public class TestingController {
 	@RequestMapping("/testUSAJobs")
 	public void testUSAJobs() {
 		ApiCall ac = new ApiCall();
-//		ArrayList<Job> jobList = ac.getUsaJobs("leader", "resolution", "energetic", jobKey);
 		
 		ac.getUsaJobs("leader", "resolution", "energetic", "java", "SQL", "Spring", jobKey);
 
-//		for (int i = 0; i < jobList.size(); i++) {
-//			System.out.println(jobList.get(i).getJobTitle());
-//		}
 	}
 
 	@RequestMapping("/testGetQuiz")

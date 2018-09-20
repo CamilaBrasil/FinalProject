@@ -36,7 +36,7 @@
 	</nav>
 
 	<div class="jumbotron">
-		<h1 class="display-3">Hello ${user.firstname} ${user.lastname}!</h1>
+		<h3 class="display-3">Hello ${user.firstname} ${user.lastname}!</h3>
 		<br>
 		
 

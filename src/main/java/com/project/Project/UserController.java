@@ -1,7 +1,5 @@
 package com.project.Project;
 
-import java.util.Optional;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +14,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.project.Project.dao.JobsRepo;
 import com.project.Project.dao.QuizRepo;
 import com.project.Project.dao.UserRepo;
-import com.project.Project.entity.FavJobs;
 import com.project.Project.entity.Quiz;
 import com.project.Project.entity.User;
 
@@ -83,22 +80,14 @@ public class UserController {
 	public ModelAndView submit(User u1, @RequestParam("password") String p1, @RequestParam("password_confirm") String p2, HttpSession session) {
 
 		String email = u1.getEmail();
-		String password = u1.getPassword();
-//		System.out.println("p2" + p2);
-//		System.out.println("");
 		// Validating if the email is already register
 		if (ur.findByEmail(email) != null) {
 			return new ModelAndView("register", "title", "This email is being used, please enter another or log in");
-
-//		} else if (!UserValidation.validatePassword(p2)) {
-//			return new ModelAndView("register", "title",
-//					"The password must contain at least one number, one capital letter, one lower case and be 4 digits long");
 			
 		} else if (!p2.equals(p1)) {
 			return new ModelAndView("register", "title", "The password must match");
 			
 		} else {
-//			System.out.println(u1.getPassword());
 			session.setAttribute("user", u1);
 			ur.save(u1);
 			return new ModelAndView("sillyquestions");
@@ -123,9 +112,6 @@ public class UserController {
 		quiz.setAnswer5(quest5);
 		quiz.setAnswer6(quest6);
 		quiz.setUserId(user.getUser_id());
-//		quiz.setSkills(varSkills);
-//		quiz.setUser_id(user_id);
-//		System.out.println(quiz);
 
 		qr.save(quiz);
 
@@ -155,19 +141,4 @@ public class UserController {
 		return new ModelAndView("redirect:/");
 	}
 	
-//	@RequestMapping("/testfavjobs")
-//	public void readFavJobs() {
-//		FavJobs favjobs = new FavJobs();
-//		
-//		favjobs.setFavid(jr.findById(12).get().getFavid());
-//		favjobs.setJoburl(jr.findById(12).get().getJoburl());
-//		favjobs.setUser_id(jr.findById(12).get().getUser_id());
-//
-//		
-//		System.out.println(favjobs.getJoburl());
-//		System.out.println(favjobs.getFavid());
-//		System.out.println(favjobs.getUser_id());
-//		
-//	}
-
 }
