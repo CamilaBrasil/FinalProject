@@ -31,21 +31,18 @@ public class JobsController {
 	@Autowired
 	JobsRepo jr;
 
-	//Authentic Job
+	// Authentic Job
 	@Value("${privatekey}")
 	private String privatekey;
-	
+
 	@Value("${usajobs.key}")
 	String jobKey;
-	
-	
-	
+
 	@RequestMapping("/findJobs")
 	public ModelAndView matches(HttpSession session) {
 
 		User u1 = (User) session.getAttribute("user");
-		
-		
+
 		Quiz quiz = qr.findByUserId(u1.getUser_id());
 
 		String answerOne = quiz.getAnswer1();
@@ -54,23 +51,22 @@ public class JobsController {
 		String answerFour = quiz.getAnswer5();
 		String answerFive = quiz.getAnswer5();
 		String answerSix = quiz.getAnswer6();
-		
+
 		ApiCall ac = new ApiCall();
 		ArrayList<Job> matches = new ArrayList<Job>();
 		matches.addAll(ac.getGitHubJobs(answerOne, answerTwo, answerThree, answerFour, answerFive, answerSix));
-		matches.addAll(ac.getAuthenticJobs(answerOne, answerTwo, answerThree, answerFour, answerFive, answerSix, privatekey));
+		matches.addAll(
+				ac.getAuthenticJobs(answerOne, answerTwo, answerThree, answerFour, answerFive, answerSix, privatekey));
 		matches.addAll(ac.getUsaJobs(answerOne, answerTwo, answerThree, answerFour, answerFive, answerSix, jobKey));
-
 
 		return new ModelAndView("job_results", "jobs", matches);
 	}
 
+	@RequestMapping("/savejob/{title}")
+	public ModelAndView saveJob(@PathVariable("title") String title, HttpSession session) {
 
-	@RequestMapping("/savejob/{index}") 
-	public ModelAndView saveJob(@PathVariable("index") int index, HttpSession session) {
-		
 		User u1 = (User) session.getAttribute("user");
-		
+
 		Quiz quiz = qr.findByUserId(u1.getUser_id());
 
 		String answerOne = quiz.getAnswer1();
@@ -79,31 +75,31 @@ public class JobsController {
 		String answerFour = quiz.getAnswer4();
 		String answerFive = quiz.getAnswer5();
 		String answerSix = quiz.getAnswer6();
-		
+
 		ApiCall ac = new ApiCall();
 		ArrayList<Job> matches = new ArrayList<Job>();
 		matches.addAll(ac.getGitHubJobs(answerOne, answerTwo, answerThree, answerFour, answerFive, answerSix));
-		matches.addAll(ac.getAuthenticJobs(answerOne, answerTwo, answerThree, answerFour, answerFive, answerSix, privatekey));
+		matches.addAll(
+				ac.getAuthenticJobs(answerOne, answerTwo, answerThree, answerFour, answerFive, answerSix, privatekey));
 		matches.addAll(ac.getUsaJobs(answerOne, answerTwo, answerThree, answerFour, answerFive, answerSix, jobKey));
-		
-		FavJobs fav = new FavJobs();
-		fav.setUserid(u1.getUser_id());
-		
-		System.out.println(u1.getUser_id());
-		
-		fav.setJoburl(matches.get(index).getJoburl());
-		
-		System.out.println(fav.getJoburl());
-		
-		jr.save(fav);	
+
+		for (int i = 0; i < matches.size(); i++) {
+			if (title.equals(matches.get(i).getJobTitle())) {
+				FavJobs fav = new FavJobs();
+				fav.setJoburl(matches.get(i).getJoburl());
+				fav.setUserid(u1.getUser_id());
+				jr.save(fav);
+			}
+		}
+
 		return new ModelAndView("job_results", "jobs", matches);
 	}
-	
+
 	@RequestMapping("/favorites")
 	public ModelAndView favorites(HttpSession session) {
-		
+
 		User user = (User) session.getAttribute("user");
-		
+
 		return new ModelAndView("fav_jobs", "jobs", jr.findByUserid(user.getUser_id()));
 	}
 

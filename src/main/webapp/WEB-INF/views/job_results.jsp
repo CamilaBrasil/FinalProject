@@ -56,7 +56,7 @@
 						<td>${j.keywords}</td>
 						<td>${j.jobTitle}</td>
 						<td><a href="${j.joburl}" target="_blank">Application</a></td>
-						<td><a href="/savejob/${count.index}"><button
+						<td><a href="/savejob/${j.jobTitle}"><button
 									class="btn btn-light btn-sm">Save</button></a></td>
 					</tr>
 				</c:forEach>
