@@ -80,24 +80,22 @@ public class JobsController {
 		String answerFive = quiz.getAnswer5();
 		String answerSix = quiz.getAnswer6();
 		
-		
 		ApiCall ac = new ApiCall();
 		ArrayList<Job> matches = new ArrayList<Job>();
 		matches.addAll(ac.getGitHubJobs(answerOne, answerTwo, answerThree, answerFour, answerFive, answerSix));
 		matches.addAll(ac.getAuthenticJobs(answerOne, answerTwo, answerThree, answerFour, answerFive, answerSix, privatekey));
 		matches.addAll(ac.getUsaJobs(answerOne, answerTwo, answerThree, answerFour, answerFive, answerSix, jobKey));
-
 		
 		FavJobs fav = new FavJobs();
 		fav.setUserid(u1.getUser_id());
+		
 		System.out.println(u1.getUser_id());
+		
 		fav.setJoburl(matches.get(index).getJoburl());
+		
 		System.out.println(fav.getJoburl());
-		jr.save(fav);
 		
-
-		
-	
+		jr.save(fav);	
 		return new ModelAndView("job_results", "jobs", matches);
 	}
 	
@@ -109,9 +107,4 @@ public class JobsController {
 		return new ModelAndView("fav_jobs", "jobs", jr.findByUserid(user.getUser_id()));
 	}
 
-	@RequestMapping("/description/{desc}")
-	public ModelAndView openDesc (@PathVariable("desc") String desc) {
-		return new ModelAndView ("description", "desc", desc);
-	}
-	
 }
