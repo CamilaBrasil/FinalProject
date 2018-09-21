@@ -43,6 +43,7 @@ public class JobsController {
 
 		User u1 = (User) session.getAttribute("user");
 
+		//Set<Quiz> quiz = qr.findAllById(u1.getUser_id());
 		Quiz quiz = qr.findByUserId(u1.getUser_id());
 
 		String answerOne = quiz.getAnswer1();
@@ -89,6 +90,7 @@ public class JobsController {
 				fav.setJoburl(matches.get(i).getJoburl());
 				fav.setUserid(u1.getUser_id());
 				jr.save(fav);
+				break;
 			}
 		}
 
