@@ -46,7 +46,18 @@ public User(Integer user_id, String firstname, String lastname, String email, St
 	this.zipcode = zipcode;
 	this.password = password;
 	this.favJobs = favJobs;
-	//this.skills = skills;
+}
+
+public User(String firstname, String lastname, String email, String zipcode, String password,
+		Set<FavJobs> favJobs, Set<Quiz> skills) {
+	super();
+
+	this.firstname = firstname;
+	this.lastname = lastname;
+	this.email = email;
+	this.zipcode = zipcode;
+	this.password = password;
+	this.favJobs = favJobs;
 }
 
 public Integer getUser_id() {
